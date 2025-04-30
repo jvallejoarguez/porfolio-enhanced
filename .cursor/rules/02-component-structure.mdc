@@ -1,0 +1,29 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Component Structure
+
+Components should be organized in the following structure:
+
+1. Create components in the `src/components` directory
+2. Each component should have its own directory with the component name
+3. Component files should use TypeScript (.tsx extension)
+4. Use Tailwind CSS for styling
+5. Use named exports for components
+
+Example component structure:
+```
+src/components/
+  ├── Hero/
+  │   └── Hero.tsx
+  ├── Navbar/
+  │   └── Navbar.tsx
+  ├── Projects/
+  │   └── Projects.tsx
+  ├── Skills/
+  │   └── Skills.tsx
+  └── Contact/
+      └── Contact.tsx
+```

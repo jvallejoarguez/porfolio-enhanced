@@ -1,0 +1,18 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Project Structure
+
+This is a React TypeScript portfolio website built with Vite and styled with Tailwind CSS.
+
+The main files and directories are:
+
+- [index.html](mdc:index.html): The entry point HTML file
+- [src/main.tsx](mdc:src/main.tsx): The main React entry point
+- [src/App.tsx](mdc:src/App.tsx): The root React component
+- [src/index.css](mdc:src/index.css): Global styles including Tailwind CSS
+- [tailwind.config.js](mdc:tailwind.config.js): Tailwind configuration
+- [tsconfig.json](mdc:tsconfig.json): TypeScript configuration
+- [package.json](mdc:package.json): Project dependencies and scripts

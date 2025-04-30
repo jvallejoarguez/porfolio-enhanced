@@ -1,0 +1,46 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Code Style Guidelines
+
+Follow these guidelines for consistent code style:
+
+1. Use TypeScript for type safety
+2. Use functional components with React hooks
+3. Use arrow functions for component definitions
+4. Use destructuring for props
+5. Use explicit return types for functions
+6. Use Tailwind CSS for styling
+
+Example component:
+```tsx
+import { FC } from 'react';
+
+interface ButtonProps {
+  text: string;
+  onClick: () => void;
+  variant?: 'primary' | 'secondary';
+}
+
+export const Button: FC<ButtonProps> = ({ 
+  text, 
+  onClick, 
+  variant = 'primary' 
+}) => {
+  const baseClasses = 'px-4 py-2 rounded font-medium';
+  const variantClasses = variant === 'primary' 
+    ? 'bg-blue-600 text-white hover:bg-blue-700' 
+    : 'bg-gray-200 text-gray-800 hover:bg-gray-300';
+
+  return (
+    <button 
+      className={`${baseClasses} ${variantClasses}`}
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+};
+```

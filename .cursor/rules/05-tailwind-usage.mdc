@@ -1,0 +1,58 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Tailwind CSS Usage
+
+This project uses Tailwind CSS for styling. Follow these guidelines:
+
+1. Use Tailwind utility classes directly in the JSX markup instead of creating separate CSS files when possible
+2. Use the `@apply` directive in CSS files only when creating reusable component styles
+3. Define custom colors and styles in `tailwind.config.js`
+4. Use the provided color palette and spacing scales whenever possible
+5. For responsive design, use Tailwind's built-in responsive prefixes: `sm:`, `md:`, `lg:`, `xl:`, and `2xl:`
+
+Example of responsive design with Tailwind:
+```tsx
+<div className="flex flex-col md:flex-row gap-4">
+  <div className="w-full md:w-1/2 p-4 bg-gray-100 rounded-lg">
+    {/* Content */}
+  </div>
+  <div className="w-full md:w-1/2 p-4 bg-gray-100 rounded-lg">
+    {/* Content */}
+  </div>
+</div>
+```
+
+Example of extending the theme in `tailwind.config.js`:
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          // ... other shades
+          600: '#0284c7',
+          700: '#0369a1',
+        },
+        secondary: {
+          // ... custom secondary color shades
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+}
+```
+

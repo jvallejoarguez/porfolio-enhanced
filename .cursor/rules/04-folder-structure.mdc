@@ -1,0 +1,30 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Folder Structure
+
+This project follows a well-organized folder structure:
+
+```
+/
+├── public/              # Static assets served as-is
+├── src/                 # Source code
+│   ├── assets/          # Project assets (images, fonts, etc.)
+│   ├── components/      # Reusable UI components
+│   ├── layouts/         # Layout components (Header, Footer, etc.)
+│   ├── pages/           # Page components
+│   ├── hooks/           # Custom React hooks
+│   ├── types/           # TypeScript type definitions
+│   ├── utils/           # Utility functions
+│   ├── App.tsx          # Main App component
+│   ├── main.tsx         # Entry point
+│   └── index.css        # Global styles
+├── .cursor/             # Cursor editor configuration
+├── index.html           # HTML template
+├── package.json         # Project dependencies and scripts
+├── tailwind.config.js   # Tailwind CSS configuration
+├── tsconfig.json        # TypeScript configuration
+└── vite.config.ts       # Vite configuration
+```
