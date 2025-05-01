@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 html {
   scroll-behavior: smooth;
@@ -35,12 +33,13 @@ body {
   transition: background-color 0.5s ease;
 }
 
+/* Fixed @apply directives */
 .section-dark {
-  @apply bg-dark-950;
+  background-color: theme('colors.dark.950');
 }
 
 .section-light {
-  @apply bg-dark-900;
+  background-color: theme('colors.dark.900');
 }
 
 /* Custom gradient text */
@@ -53,44 +52,120 @@ body {
 
 /* Decorative elements */
 .bg-blur-circle {
-  @apply absolute rounded-full filter blur-3xl opacity-10 z-0 transition-all duration-1000;
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur-3xl;
+  opacity: 0.1;
+  z-index: 0;
+  transition: all 1000ms;
 }
 
 /* Common components styling */
 .section-heading {
-  @apply inline-block text-3xl md:text-4xl font-bold text-white mb-4 relative;
+  display: inline-block;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
 
 .section-heading-underline {
-  @apply absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary-500 to-purple-500 rounded-full;
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 0.25rem;
+  background-image: linear-gradient(to right, theme('colors.primary.500'), theme('colors.purple.500'));
+  border-radius: 9999px;
 }
 
 .section-description {
-  @apply text-gray-400 max-w-2xl mx-auto text-lg;
+  color: theme('colors.gray.400');
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .btn-primary {
-  @apply px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg 
-         font-medium transition-all duration-300 shadow-lg shadow-primary-600/20 
-         hover:shadow-xl hover:shadow-primary-600/30 hover:-translate-y-0.5;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: theme('colors.primary.600');
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition-property: all;
+  transition-duration: 300ms;
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: theme('colors.primary.700');
+  box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.3);
+  transform: translateY(-0.125rem);
 }
 
 .btn-outline {
-  @apply px-6 py-3 bg-transparent hover:bg-dark-800 text-primary-400 
-         border border-primary-600 rounded-lg font-medium transition-all duration-300
-         hover:border-primary-500 hover:shadow-lg hover:shadow-primary-500/10 hover:-translate-y-0.5;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: transparent;
+  color: theme('colors.primary.400');
+  border: 1px solid theme('colors.primary.600');
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition-property: all;
+  transition-duration: 300ms;
+}
+
+.btn-outline:hover {
+  background-color: theme('colors.dark.800');
+  border-color: theme('colors.primary.500');
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1);
+  transform: translateY(-0.125rem);
 }
 
 .card {
-  @apply bg-dark-900/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl 
-         transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/10 
-         hover:-translate-y-1 border border-gray-800/50 hover:border-gray-700/50;
+  background-color: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur-sm;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transition-property: all;
+  transition-duration: 500ms;
+  border: 1px solid rgba(31, 41, 55, 0.5);
+}
+
+.card:hover {
+  box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.1);
+  transform: translateY(-0.25rem);
+  border-color: rgba(55, 65, 81, 0.5);
 }
 
 /* Link styling */
 a {
-  @apply font-medium text-primary-400 hover:text-primary-300 transition-colors duration-300;
+  font-weight: 500;
+  color: theme('colors.primary.400');
   text-decoration: inherit;
+  transition-property: color;
+  transition-duration: 300ms;
+}
+
+a:hover {
+  color: theme('colors.primary.300');
 }
 
 h1 {
@@ -120,8 +195,23 @@ button:focus-visible {
 
 /* Tag styling */
 .tag {
-  @apply text-xs px-3 py-1 rounded-full bg-primary-900/30 text-primary-300 border border-primary-800/50
-         transition-all duration-300 hover:bg-primary-900/40 hover:border-primary-700/50;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 9999px;
+  background-color: rgba(49, 46, 129, 0.3);
+  color: theme('colors.primary.300');
+  border: 1px solid rgba(55, 48, 163, 0.5);
+  transition-property: all;
+  transition-duration: 300ms;
+}
+
+.tag:hover {
+  background-color: rgba(49, 46, 129, 0.4);
+  border-color: rgba(79, 70, 229, 0.5);
 }
 
 /* Section transitions and animations */
