@@ -27,7 +27,7 @@ const Contact: FC = () => {
           <div className="card p-10 bg-dark-900/70 backdrop-blur-md shadow-2xl hover:shadow-primary-500/10 transition-all duration-500">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <a 
-                href="mailto:your.email@example.com" 
+                href="mailto:jvallejoarguez@gmail.com" 
                 className="bg-dark-800/80 rounded-xl p-8 border border-gray-800/50 flex flex-col items-center group hover:border-primary-500/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary-500/5"
               >
                 <div className="w-16 h-16 rounded-full bg-primary-600/20 flex items-center justify-center mb-5 group-hover:bg-primary-600/30 transition-colors duration-300 relative">
