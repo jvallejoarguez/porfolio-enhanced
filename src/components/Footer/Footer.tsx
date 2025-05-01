@@ -4,43 +4,53 @@ const Footer: FC = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-dark-950 text-gray-400 py-12 px-6 md:px-12 w-full relative">
-      <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-primary-500/20 to-transparent"></div>
+    <footer className="bg-dark-950 text-gray-400 pt-20 pb-12 px-6 md:px-12 w-full relative">
+      <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-primary-500/30 to-transparent"></div>
       
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
+      {/* Background decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-30">
+        <div className="bg-blur-circle w-64 h-64 -top-20 -right-20 bg-primary-600/10"></div>
+        <div className="bg-blur-circle w-64 h-64 -bottom-20 -left-20 bg-purple-600/10"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
           <div className="md:col-span-5">
             <div className="mb-6">
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold gradient-text">
                 JVallejo
               </span>
             </div>
-            <p className="text-gray-400 mb-6 max-w-md">
+            <p className="text-gray-400 mb-6 max-w-md text-base leading-relaxed">
               Building digital experiences with clean, efficient, and user-focused designs. 
               Always exploring new technologies to create impactful solutions.
             </p>
           </div>
           
           <div className="md:col-span-3 md:ml-auto">
-            <h3 className="text-white font-medium mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-white font-semibold mb-6 text-lg">Quick Links</h3>
+            <ul className="space-y-3">
               <li>
-                <a href="#projects" className="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                <a href="#projects" className="hover:text-primary-300 group inline-flex items-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   Projects
                 </a>
               </li>
               <li>
-                <a href="#experience" className="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                <a href="#experience" className="hover:text-primary-300 group inline-flex items-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   Experience
                 </a>
               </li>
               <li>
-                <a href="#technologies" className="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                <a href="#technologies" className="hover:text-primary-300 group inline-flex items-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   Technologies
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-400 hover:text-primary-400 transition-colors duration-300">
+                <a href="#contact" className="hover:text-primary-300 group inline-flex items-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   Contact
                 </a>
               </li>
@@ -48,11 +58,11 @@ const Footer: FC = () => {
           </div>
           
           <div className="md:col-span-4">
-            <h3 className="text-white font-medium mb-4">Connect</h3>
+            <h3 className="text-white font-semibold mb-6 text-lg">Connect</h3>
             <div className="flex space-x-4">
               <a 
                 href="mailto:your.email@example.com" 
-                className="w-10 h-10 rounded-full bg-dark-800 hover:bg-primary-600/20 flex items-center justify-center transition-colors duration-300"
+                className="w-12 h-12 rounded-full bg-dark-800/80 hover:bg-primary-600/30 flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10 border border-gray-800 hover:border-primary-500/20"
                 aria-label="Email"
               >
                 <svg className="w-5 h-5 text-gray-400 hover:text-primary-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +75,7 @@ const Footer: FC = () => {
                 href="https://github.com/jvallejoarguez" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-dark-800 hover:bg-primary-600/20 flex items-center justify-center transition-colors duration-300"
+                className="w-12 h-12 rounded-full bg-dark-800/80 hover:bg-primary-600/30 flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10 border border-gray-800 hover:border-primary-500/20"
                 aria-label="GitHub"
               >
                 <svg className="w-5 h-5 text-gray-400 hover:text-primary-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -77,7 +87,7 @@ const Footer: FC = () => {
                 href="https://linkedin.com/in/javier-vallejo-arguez" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-dark-800 hover:bg-primary-600/20 flex items-center justify-center transition-colors duration-300"
+                className="w-12 h-12 rounded-full bg-dark-800/80 hover:bg-primary-600/30 flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10 border border-gray-800 hover:border-primary-500/20"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5 text-gray-400 hover:text-primary-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -88,12 +98,12 @@ const Footer: FC = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center">
+        <div className="border-t border-gray-800/50 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <div>
             <span className="text-primary-400 font-medium">Javier Vallejo</span> © {currentYear} All Rights Reserved
           </div>
-          <div className="mt-4 sm:mt-0">
-            <span>Built with React, TypeScript, and Tailwind CSS</span>
+          <div className="mt-4 sm:mt-0 text-sm opacity-75">
+            Built with React, TypeScript, and Tailwind CSS
           </div>
         </div>
       </div>

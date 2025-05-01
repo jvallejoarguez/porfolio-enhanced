@@ -77,60 +77,74 @@ const Experience: FC = () => {
     <section className="py-24 px-6 md:px-12 w-full relative">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="absolute left-0 top-24 w-72 h-72 bg-primary-600/5 rounded-full filter blur-3xl"></div>
-        <div className="absolute right-0 bottom-24 w-72 h-72 bg-purple-600/5 rounded-full filter blur-3xl"></div>
+        <div className="bg-blur-circle left-0 top-24 w-96 h-96 bg-primary-600/15"></div>
+        <div className="bg-blur-circle right-0 bottom-24 w-96 h-96 bg-purple-600/15"></div>
       </div>
       
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="inline-block text-3xl md:text-4xl font-bold text-white mb-4 relative">
-            <span className="relative z-10">Work Experience</span>
-            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary-500 to-purple-500 rounded-full"></span>
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            My professional journey and the companies I've had the privilege to work with
-          </p>
+          <div className="flex flex-col items-center">
+            <span className="text-xs font-semibold tracking-widest text-primary-400 uppercase mb-2">Career</span>
+            <h2 className="section-heading">
+              <span className="relative z-10">Work Experience</span>
+              <span className="section-heading-underline"></span>
+            </h2>
+            <p className="section-description">
+              My professional journey and the companies I've had the privilege to work with
+            </p>
+          </div>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Desktop timeline navigation */}
-          <div className="hidden lg:flex lg:col-span-3 flex-col border-l-2 border-gray-800 pl-6 space-y-12 relative">
-            {jobData.map((job) => (
-              <button
-                key={job.id}
-                className={`flex flex-col items-start text-left transition-all duration-300 relative ${
-                  activeJob === job.id 
-                    ? 'text-primary-400' 
-                    : 'text-gray-400 hover:text-gray-200'
-                }`}
-                onClick={() => setActiveJob(job.id)}
-              >
-                {/* Timeline dot */}
-                <span 
-                  className={`absolute -left-[29px] w-4 h-4 rounded-full transition-all duration-300 ${
-                    activeJob === job.id 
-                      ? 'bg-primary-500 ring-4 ring-primary-500/20' 
-                      : 'bg-gray-700'
-                  }`}
-                ></span>
-                
-                <span className="text-sm font-medium mb-1">{job.period}</span>
-                <span className="font-bold text-lg">{job.position}</span>
-                <span className={activeJob === job.id ? 'text-gray-300' : 'text-gray-500'}>
-                  {job.company}
-                </span>
-              </button>
-            ))}
+          <div className="hidden lg:block lg:col-span-4 relative">
+            <div className="sticky top-20">
+              <div className="border-l-2 border-gray-800 pl-8 space-y-12 relative">
+                {jobData.map((job) => (
+                  <button
+                    key={job.id}
+                    className={`flex flex-col items-start text-left transition-all duration-300 relative ${
+                      activeJob === job.id 
+                        ? 'text-primary-400' 
+                        : 'text-gray-400 hover:text-gray-200'
+                    }`}
+                    onClick={() => setActiveJob(job.id)}
+                  >
+                    {/* Timeline dot */}
+                    <span 
+                      className={`absolute -left-[33px] w-6 h-6 rounded-full transition-all duration-300 ${
+                        activeJob === job.id 
+                          ? 'bg-primary-500 ring-4 ring-primary-500/30' 
+                          : 'bg-gray-700 ring-2 ring-gray-700/20'
+                      }`}
+                    ></span>
+                    
+                    <span className={`text-sm font-medium mb-1 ${activeJob === job.id ? 'text-primary-300' : 'text-gray-500'}`}>
+                      {job.period}
+                    </span>
+                    <span className="font-bold text-xl mb-1">{job.position}</span>
+                    <span className={activeJob === job.id ? 'text-gray-300' : 'text-gray-500'}>
+                      {job.company}
+                    </span>
+
+                    {/* Active indicator line */}
+                    {activeJob === job.id && (
+                      <span className="absolute -left-[2px] h-full w-0.5 bg-primary-500 rounded-full"></span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
           
           {/* Mobile timeline selector */}
-          <div className="lg:hidden mb-8 flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
+          <div className="lg:hidden mb-8 flex overflow-x-auto gap-4 pb-4 scrollbar-hide">
             {jobData.map((job) => (
               <button
                 key={job.id}
-                className={`flex-shrink-0 px-4 py-2 rounded-lg transition-all duration-300 ${
+                className={`flex-shrink-0 px-6 py-3 rounded-lg transition-all duration-300 ${
                   activeJob === job.id 
-                    ? 'bg-primary-600/20 text-primary-400 border border-primary-500/30' 
+                    ? 'bg-primary-600/20 text-primary-400 border border-primary-500/30 shadow-lg shadow-primary-500/5' 
                     : 'bg-dark-800 text-gray-400 hover:text-gray-200 border border-gray-800'
                 }`}
                 onClick={() => setActiveJob(job.id)}
@@ -141,45 +155,47 @@ const Experience: FC = () => {
           </div>
           
           {/* Job details */}
-          <div className="lg:col-span-9">
-            {jobData.map((job) => (
-              <div 
-                key={job.id} 
-                className={`transition-all duration-500 ${
-                  activeJob === job.id 
-                    ? 'opacity-100 transform translate-y-0' 
-                    : 'opacity-0 absolute -z-10 transform translate-y-8'
-                }`}
-              >
-                <div className="bg-dark-900/50 backdrop-blur-sm rounded-xl p-8 shadow-xl border border-gray-800/50">
-                  <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6">
-                    {job.logo && (
-                      <div className="w-32 h-20 rounded-xl overflow-hidden bg-white flex items-center justify-center p-2 border border-gray-800">
-                        <img src={job.logo} alt={job.company} className="w-full h-full object-contain" />
-                      </div>
-                    )}
-                    
-                    <div>
-                      <h3 className="text-2xl font-bold text-white mb-1">{job.position}</h3>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                        <span className="text-primary-400 font-medium">{job.company}</span>
-                        <span className="hidden sm:block text-gray-500">•</span>
-                        <span className="text-gray-400">{job.period}</span>
+          <div className="lg:col-span-8">
+            <div className="space-y-10">
+              {jobData.map((job) => (
+                <div 
+                  key={job.id} 
+                  className={`transition-all duration-500 ${
+                    activeJob === job.id 
+                      ? 'opacity-100 transform translate-y-0' 
+                      : 'opacity-0 absolute -z-10 transform translate-y-8'
+                  }`}
+                >
+                  <div className="card p-8 bg-dark-900/70 backdrop-blur-md shadow-2xl hover:shadow-primary-500/5 transition-all duration-300">
+                    <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 border-b border-gray-800/30 pb-6">
+                      {job.logo && (
+                        <div className="w-36 h-24 rounded-xl overflow-hidden bg-white flex items-center justify-center p-3 border border-gray-800 shadow-md">
+                          <img src={job.logo} alt={job.company} className="w-full h-full object-contain" />
+                        </div>
+                      )}
+                      
+                      <div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 gradient-text inline-block">{job.position}</h3>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                          <span className="text-primary-400 font-semibold">{job.company}</span>
+                          <span className="hidden sm:block text-gray-500">•</span>
+                          <span className="text-gray-400">{job.period}</span>
+                        </div>
                       </div>
                     </div>
+                    
+                    <ul className="space-y-4 text-gray-300">
+                      {job.description.map((item, index) => (
+                        <li key={index} className="flex items-start group">
+                          <span className="text-primary-400 mr-3 mt-1 transform transition-transform duration-300 group-hover:translate-x-1">▹</span>
+                          <span className="transition-colors duration-300 group-hover:text-white">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  
-                  <ul className="space-y-3 text-gray-300">
-                    {job.description.map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-primary-400 mr-3 mt-1">▹</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

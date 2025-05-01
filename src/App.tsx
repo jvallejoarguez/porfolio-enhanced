@@ -13,10 +13,10 @@ function App() {
       <div className="pt-16"> {/* Add padding top to account for fixed navbar */}
         <Header />
         <main>
-          <div id="projects" className="section-medium"><Projects /></div>
-          <div id="experience" className="section-dark"><Experience /></div>
-          <div id="technologies" className="section-medium"><Technologies /></div>
-          <div id="contact" className="section-dark"><Contact /></div>
+          <div id="projects" className="section section-light"><Projects /></div>
+          <div id="experience" className="section section-dark"><Experience /></div>
+          <div id="technologies" className="section section-light"><Technologies /></div>
+          <div id="contact" className="section section-dark"><Contact /></div>
         </main>
         <Footer />
       </div>
