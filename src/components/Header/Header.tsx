@@ -45,8 +45,8 @@ const Header: FC = () => {
           
           <div className="md:w-2/5 flex justify-center items-center animate-float">
             <div className="w-48 h-48 md:w-72 md:h-72 rounded-full bg-gradient-to-br from-primary-600 to-purple-600 flex items-center justify-center p-1">
-              <div className="bg-dark-950 rounded-full w-full h-full flex items-center justify-center">
-                <span className="text-5xl md:text-7xl font-bold gradient-text">JV</span>
+              <div className="bg-dark-950 rounded-full w-full h-full flex items-center justify-center overflow-hidden">
+                <img src="public\img\pfp.jpg" alt="Javier Vallejo" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
