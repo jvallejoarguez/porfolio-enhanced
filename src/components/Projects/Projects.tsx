@@ -15,10 +15,18 @@ const projectData: Project[] = [
     id: 1,
     title: "LineUp - Task Management and Productivity App",
     description: "LineUp is a modern, feature-rich task management and productivity application designed to help users organize their workflows, manage tasks, and boost productivity with focused work sessions.",
-    technologies: ["React.js", "Node.js", "Supabase", "JavaScript"],
+    technologies: ["React.js", "TypeScript", "Node.js", "Supabase", "JavaScript", "Vercel", "Tailwind CSS", "TypeScript"],
     imageUrl: "/lineup.png",
     liveUrl: "https://www.lineupai.app/",
     githubUrl: "https://github.com/jvallejoarguez/lineup-code"
+  },
+  {
+    id: 2,
+    title: "WARERA AUTOMATOR - Business Automation Platform",
+    description: "WARERA AUTOMATOR is a sophisticated business automation platform that provides 24/7 company management automation. Features include automated production cycles, worker management, and server-side automation to eliminate tedious manual tasks.",
+    technologies: ["Next.js", "TypeScript", "Python", "FastAPI", "PostgreSQL", "Railway", "Vercel", "Supabase", "Tailwind CSS"],
+    imageUrl: "/img/warera_automator.png",
+    liveUrl: "https://warera-automator.vercel.app/"
   }
 ];
 
@@ -116,7 +124,7 @@ const Projects: FC = () => {
                       rel="noopener noreferrer" 
                       className="inline-flex items-center transition-colors duration-300 font-medium"
                     >
-                      <span>Visit LineUp AI</span>
+                      <span>Visit Website</span>
                       <svg className="w-4 h-4 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                       </svg>
