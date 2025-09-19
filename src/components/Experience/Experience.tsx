@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface Job {
   id: number;
@@ -72,28 +73,56 @@ const jobData: Job[] = [
 
 const Experience: FC = () => {
   const [activeJob, setActiveJob] = useState<number>(1);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
   
   return (
     <section className="py-24 px-6 md:px-12 w-full relative">
-      {/* Background decoration */}
+      {/* Minimal background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="bg-blur-circle left-0 top-24 w-96 h-96 bg-primary-600/15"></div>
-        <div className="bg-blur-circle right-0 bottom-24 w-96 h-96 bg-purple-600/15"></div>
+        <div className="bg-blur-circle left-0 top-24 w-80 h-80 bg-primary-600/8"></div>
+        <div className="bg-blur-circle right-0 bottom-24 w-80 h-80 bg-primary-600/6"></div>
       </div>
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <div className="flex flex-col items-center">
             <span className="text-xs font-semibold tracking-widest text-primary-400 uppercase mb-2">Career</span>
             <h2 className="section-heading">
-              <span className="relative z-10">Work Experience</span>
+              <span className="relative z-10 liquid-crystal-text-flow">Work Experience</span>
               <span className="section-heading-underline"></span>
             </h2>
             <p className="section-description">
               My professional journey and the companies I've had the privilege to work with
             </p>
           </div>
-        </div>
+        </motion.div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Desktop timeline navigation */}
@@ -166,7 +195,7 @@ const Experience: FC = () => {
                       : 'opacity-0 absolute -z-10 transform translate-y-8'
                   }`}
                 >
-                  <div className="card p-8 bg-dark-900/70 backdrop-blur-md shadow-2xl hover:shadow-primary-500/5 transition-all duration-300">
+                  <div className="liquid-glass-card p-8 shadow-2xl hover:shadow-primary-500/5 transition-all duration-300">
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 border-b border-gray-800/30 pb-6">
                       {job.logo && (
                         <div className="w-36 h-24 rounded-xl overflow-hidden bg-white flex items-center justify-center p-3 border border-gray-800 shadow-md">
