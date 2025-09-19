@@ -16,15 +16,14 @@ const LiquidCrystalBackground: FC = () => {
   const [particles, setParticles] = useState<CrystalParticle[]>([]);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  const colors = [
-    'rgba(99, 102, 241, 0.3)',  // indigo
-    'rgba(168, 85, 247, 0.25)', // purple
-    'rgba(236, 72, 153, 0.2)',  // pink
-    'rgba(59, 130, 246, 0.25)', // blue
-    'rgba(139, 92, 246, 0.3)',  // violet
-  ];
-
   useEffect(() => {
+    const colors = [
+      'rgba(99, 102, 241, 0.3)',  // indigo
+      'rgba(168, 85, 247, 0.25)', // purple
+      'rgba(236, 72, 153, 0.2)',  // pink
+      'rgba(59, 130, 246, 0.25)', // blue
+      'rgba(139, 92, 246, 0.3)',  // violet
+    ];
     const createParticles = () => {
       const newParticles: CrystalParticle[] = [];
       for (let i = 0; i < 30; i++) {
@@ -94,7 +93,7 @@ const LiquidCrystalBackground: FC = () => {
       );
     };
 
-    const interval = setInterval(animateParticles, 50);
+    const interval = setInterval(animateParticles, 60);
     return () => clearInterval(interval);
   }, [mousePosition]);
 

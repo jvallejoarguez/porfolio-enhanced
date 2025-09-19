@@ -10,7 +10,6 @@ import Footer from './components/Footer/Footer';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import ThemeProvider from './components/ThemeProvider/ThemeProvider';
 import LiquidCrystalBackground from './components/LiquidCrystalBackground/LiquidCrystalBackground';
-import LiquidCrystalMouseTracker from './components/LiquidCrystalMouseTracker/LiquidCrystalMouseTracker';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

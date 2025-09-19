@@ -1,13 +1,10 @@
 import { FC, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, Monitor } from 'lucide-react';
-import { useTheme } from '../ThemeProvider/ThemeProvider';
+import { Menu, X } from 'lucide-react';
 
 const Navbar: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showThemeMenu, setShowThemeMenu] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,11 +29,6 @@ const Navbar: FC = () => {
     { href: '#technologies', label: 'Technologies' },
   ];
 
-  const themeOptions = [
-    { value: 'light', label: 'Light', icon: Sun },
-    { value: 'dark', label: 'Dark', icon: Moon },
-    { value: 'auto', label: 'Auto', icon: Monitor },
-  ];
 
   return (
     <motion.nav
@@ -77,51 +69,6 @@ const Navbar: FC = () => {
               </motion.a>
             ))}
 
-            {/* Theme Switcher */}
-            <div className="relative">
-              <motion.button
-                onClick={() => setShowThemeMenu(!showThemeMenu)}
-                className="p-2 text-gray-300 hover:text-primary-400 transition-colors duration-300 rounded-lg hover:bg-dark-800/50"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                aria-label="Toggle theme"
-              >
-                {theme === 'light' ? <Sun size={20} /> : 
-                 theme === 'dark' ? <Moon size={20} /> : 
-                 <Monitor size={20} />}
-              </motion.button>
-
-              <AnimatePresence>
-                {showThemeMenu && (
-                  <motion.div
-                    className="absolute right-0 top-12 liquid-crystal rounded-lg border border-gray-700/50 py-2 min-w-[120px]"
-                    initial={{ opacity: 0, scale: 0.9, y: -10 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {themeOptions.map((option) => (
-                      <motion.button
-                        key={option.value}
-                        onClick={() => {
-                          setTheme(option.value as any);
-                          setShowThemeMenu(false);
-                        }}
-                        className={`w-full flex items-center gap-3 px-4 py-2 text-left text-sm transition-colors duration-200 ${
-                          theme === option.value
-                            ? 'text-primary-400 bg-primary-600/10'
-                            : 'text-gray-300 hover:text-white hover:bg-dark-700/50'
-                        }`}
-                        whileHover={{ x: 2 }}
-                      >
-                        <option.icon size={16} />
-                        {option.label}
-                      </motion.button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
             
             <motion.a
               href="#contact"
@@ -137,19 +84,7 @@ const Navbar: FC = () => {
           </div>
           
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center gap-2">
-            {/* Mobile theme switcher */}
-            <motion.button
-              onClick={() => setShowThemeMenu(!showThemeMenu)}
-              className="p-2 text-gray-300 hover:text-primary-400 transition-colors duration-300 rounded-lg"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              {theme === 'light' ? <Sun size={20} /> : 
-               theme === 'dark' ? <Moon size={20} /> : 
-               <Monitor size={20} />}
-            </motion.button>
-
+          <div className="md:hidden">
             <motion.button
               onClick={toggleMenu}
               className="text-gray-300 hover:text-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-50 rounded-md p-1"
@@ -157,29 +92,7 @@ const Navbar: FC = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <AnimatePresence mode="wait">
-                {isMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X size={24} />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu size={24} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
           </div>
         </div>
@@ -189,7 +102,7 @@ const Navbar: FC = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden liquid-crystal border-t border-gray-800/50 shadow-xl"
+            className="md:hidden liquid-glass border-t border-gray-800/50 shadow-xl"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -211,39 +124,6 @@ const Navbar: FC = () => {
                 </motion.a>
               ))}
 
-              {/* Mobile theme options */}
-              <AnimatePresence>
-                {showThemeMenu && (
-                  <motion.div
-                    className="liquid-crystal rounded-lg border border-gray-700/50 p-4"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                  >
-                    <h4 className="text-white font-medium mb-3">Theme</h4>
-                    <div className="space-y-2">
-                      {themeOptions.map((option) => (
-                        <motion.button
-                          key={option.value}
-                          onClick={() => {
-                            setTheme(option.value as any);
-                            setShowThemeMenu(false);
-                          }}
-                          className={`w-full flex items-center gap-3 px-3 py-2 text-left text-sm rounded-lg transition-colors duration-200 ${
-                            theme === option.value
-                              ? 'text-primary-400 bg-primary-600/10'
-                              : 'text-gray-300 hover:text-white hover:bg-dark-700/50'
-                          }`}
-                          whileHover={{ x: 5 }}
-                        >
-                          <option.icon size={16} />
-                          {option.label}
-                        </motion.button>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
               
               <motion.a
                 href="#contact"

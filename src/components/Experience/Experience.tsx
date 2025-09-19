@@ -74,27 +74,6 @@ const jobData: Job[] = [
 const Experience: FC = () => {
   const [activeJob, setActiveJob] = useState<number>(1);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
   
   return (
     <section className="py-24 px-6 md:px-12 w-full relative">

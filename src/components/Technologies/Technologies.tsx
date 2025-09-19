@@ -4,7 +4,7 @@ import {
   SiHtml5, SiCss3, SiJavascript, SiReact, SiTypescript, 
   SiTailwindcss, SiSvelte, SiNodedotjs, SiExpress,
   SiFirebase, SiSupabase, SiCloudflare, SiGit, SiGithub,
-  SiPython, SiFastapi, SiPostgresql, SiMongodb, SiRedis,
+ SiFastapi, SiPostgresql, SiMongodb, SiRedis,
   SiDocker, SiVercel, SiNetlify, SiVite, SiWebpack
 } from 'react-icons/si';
 import { IconType } from 'react-icons';
@@ -79,7 +79,6 @@ const techData: TechCategory[] = [
 
 const Technologies: FC = () => {
   const [selectedTech, setSelectedTech] = useState<TechItem | null>(null);
-  const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -143,8 +142,6 @@ const Technologies: FC = () => {
               key={categoryIndex}
               variants={itemVariants}
               className="liquid-glass-card overflow-hidden"
-              onMouseEnter={() => setHoveredCategory(categoryIndex)}
-              onMouseLeave={() => setHoveredCategory(null)}
             >
               {/* Category Header */}
               <div className={`bg-gradient-to-r ${category.color} p-6 relative overflow-hidden`}>

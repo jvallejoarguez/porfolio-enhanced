@@ -116,17 +116,22 @@ const Header: FC = () => {
             </motion.div>
 
             {/* Stats */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
-              className="grid grid-cols-3 gap-8 max-w-md mx-auto md:mx-0"
+              className="grid grid-cols-2 gap-8 max-w-md mx-auto md:mx-0"
             >
               {stats.map((stat, index) => (
-                <div key={index} className="text-center md:text-left">
+                <motion.div
+                  key={index}
+                  className="text-center md:text-left p-4 liquid-glass rounded-xl"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                >
                   <div className="text-2xl md:text-3xl font-bold text-primary-400 mb-1">
                     {stat.value}
                   </div>
                   <div className="text-sm text-gray-400">{stat.label}</div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
 
@@ -161,11 +166,11 @@ const Header: FC = () => {
             className="md:w-2/5 flex justify-center items-center"
           >
             <motion.div
-              className="relative liquid-crystal-glow liquid-crystal-interactive liquid-crystal-magnetic"
+              className="relative"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
             >
-              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full liquid-crystal-strong flex items-center justify-center p-1 relative z-10 liquid-crystal-pulse liquid-crystal-breathe">
+              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full liquid-glass-strong flex items-center justify-center p-1 relative z-10">
                 <div className="bg-dark-950/30 backdrop-blur-sm rounded-full w-full h-full flex items-center justify-center overflow-hidden border border-white/10">
                   <motion.img
                     src="/img/pfp.jpg"
@@ -177,8 +182,8 @@ const Header: FC = () => {
                 </div>
               </div>
 
-              {/* Enhanced liquid crystal glow effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/20 via-purple-500/15 to-pink-500/20 blur-xl liquid-crystal-shimmer"></div>
+              {/* Enhanced glow effect */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-400/20 via-purple-500/15 to-pink-500/20 blur-xl animate-pulse"></div>
             </motion.div>
           </motion.div>
         </div>
