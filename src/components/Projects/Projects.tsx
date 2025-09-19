@@ -78,14 +78,7 @@ const Projects: FC = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
+    visible: { opacity: 1, y: 0 },
   };
   
   return (
@@ -171,6 +164,7 @@ const Projects: FC = () => {
             initial="hidden"
             animate="visible"
             key={selectedCategory + showFeatured}
+            transition={{ duration: 0.5, ease: "easeOut", staggerChildren: 0.1 }}
           >
             {filteredProjects.map((project) => (
               <motion.div
@@ -329,7 +323,7 @@ const Projects: FC = () => {
             className="inline-flex items-center justify-center gap-3 btn-liquid-secondary text-white font-medium px-8 py-4 group liquid-crystal-glow"
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
           >
             <Github size={20} />
             <span>View More Projects on GitHub</span>

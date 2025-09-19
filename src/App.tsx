@@ -25,15 +25,7 @@ function App() {
 
   const pageVariants = {
     initial: { opacity: 0, y: 20 },
-    animate: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
-        staggerChildren: 0.1
-      }
-    }
+    animate: { opacity: 1, y: 0 }
   };
 
   if (isLoading) {
@@ -99,6 +91,7 @@ function App() {
           variants={pageVariants}
           initial="initial"
           animate="animate"
+          transition={{ duration: 0.8, ease: "easeOut", staggerChildren: 0.1 }}
         >
           {/* Aurora background effect */}
           <div className="fixed inset-0 aurora-bg pointer-events-none" />

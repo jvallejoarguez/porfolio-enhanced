@@ -15,7 +15,7 @@ const Header: FC = () => {
       transition: {
         staggerChildren: 0.15,
         delayChildren: 0.2,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 15,
       },
@@ -29,7 +29,7 @@ const Header: FC = () => {
       y: 0,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 200,
         damping: 25,
         duration: 0.8,
@@ -100,7 +100,7 @@ const Header: FC = () => {
                 className="btn-liquid px-8 py-4 font-semibold text-white shadow-lg text-center"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 1.02, y: -1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               >
                 View My Work
               </motion.a>
@@ -109,7 +109,7 @@ const Header: FC = () => {
                 className="btn-liquid-secondary px-8 py-4 font-semibold text-center"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 1.02, y: -1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               >
                 Contact Me
               </motion.a>
@@ -125,7 +125,7 @@ const Header: FC = () => {
                   key={index}
                   className="text-center md:text-left p-4 liquid-glass rounded-xl"
                   whileHover={{ scale: 1.05, y: -2 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  transition={{ type: "spring" as const, stiffness: 300, damping: 25 }}
                 >
                   <div className="text-2xl md:text-3xl font-bold text-primary-400 mb-1">
                     {stat.value}
@@ -168,7 +168,7 @@ const Header: FC = () => {
             <motion.div
               className="relative"
               whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              transition={{ type: "spring" as const, stiffness: 300, damping: 25 }}
             >
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full liquid-glass-strong flex items-center justify-center p-1 relative z-10">
                 <div className="bg-dark-950/30 backdrop-blur-sm rounded-full w-full h-full flex items-center justify-center overflow-hidden border border-white/10">
@@ -177,7 +177,7 @@ const Header: FC = () => {
                     alt="Javier Vallejo"
                     className="w-full h-full object-cover"
                     whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    transition={{ type: "spring" as const, stiffness: 300, damping: 25 }}
                   />
                 </div>
               </div>

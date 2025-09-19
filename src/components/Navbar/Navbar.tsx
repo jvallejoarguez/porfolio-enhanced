@@ -37,7 +37,7 @@ const Navbar: FC = () => {
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.6, -0.05, 0.01, 0.99] }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="flex justify-between items-center">
@@ -75,7 +75,7 @@ const Navbar: FC = () => {
               className="btn-liquid !py-2.5 !px-6 shadow-lg text-white font-medium"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, type: "spring", stiffness: 300 }}
+              transition={{ delay: 0.6, type: "spring" as const, stiffness: 300 }}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -106,7 +106,7 @@ const Navbar: FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.6, -0.05, 0.01, 0.99] }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <div className="p-6 space-y-6">
               {navItems.map((item, index) => (
@@ -131,7 +131,7 @@ const Navbar: FC = () => {
                 onClick={() => setIsMenuOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, type: "spring", stiffness: 300 }}
+                transition={{ delay: 0.4, type: "spring" as const, stiffness: 300 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

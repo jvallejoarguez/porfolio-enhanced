@@ -92,14 +92,7 @@ const Technologies: FC = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99],
-      },
-    },
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -136,6 +129,7 @@ const Technologies: FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut", staggerChildren: 0.1 }}
         >
           {techData.map((category, categoryIndex) => (
             <motion.div 
