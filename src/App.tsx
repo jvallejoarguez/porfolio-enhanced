@@ -15,163 +15,62 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time for smooth entrance
+    // Reduced loading time for better UX
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1200);
 
     return () => clearTimeout(timer);
   }, []);
 
-  const pageVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 }
-  };
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-dark-950 flex items-center justify-center relative overflow-hidden">
-        <LiquidCrystalBackground />
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 200,
-            damping: 20,
-            duration: 0.8
-          }}
-          className="text-center relative z-10"
-        >
-          <motion.div
-            className="w-20 h-20 mx-auto mb-6 liquid-crystal-strong rounded-full flex items-center justify-center liquid-crystal-float"
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 180, 360]
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-full animate-pulse"></div>
-          </motion.div>
-          <motion.h2
-            className="text-3xl font-bold liquid-crystal-text"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.4,
-              type: "spring",
-              stiffness: 300,
-              damping: 25
-            }}
-          >
-            JVallejo
-          </motion.h2>
-          <motion.p
-            className="text-gray-400 mt-2 text-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            Liquid Crystal Portfolio
-          </motion.p>
-        </motion.div>
-      </div>
-    );
-  }
-
   return (
     <ThemeProvider>
-      <AnimatePresence>
-        <motion.div
-          className="min-h-screen bg-dark-950 flex flex-col relative overflow-x-hidden"
-          variants={pageVariants}
-          initial="initial"
-          animate="animate"
-          transition={{ duration: 0.8, ease: "easeOut", staggerChildren: 0.1 }}
-        >
-          {/* Aurora background effect */}
-          <div className="fixed inset-0 aurora-bg pointer-events-none" />
-          
-          <ScrollProgress />
-          <Navbar />
-          
-          <motion.div className="pt-16">
-            <Header />
-            <main>
-              <motion.div
-                id="projects"
-                className="section section-light relative"
-                initial={{ opacity: 0, y: 50, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 25,
-                  duration: 0.8
-                }}
-                viewport={{ once: true, margin: "-100px" }}
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <motion.div 
+            key="loader"
+            className="fixed inset-0 bg-[#050505] flex items-center justify-center z-[200]"
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <div className="relative flex flex-col items-center">
+              <div className="w-16 h-16 mb-8 relative">
+                <div className="absolute inset-0 rounded-full border-t-2 border-primary-500 animate-spin"></div>
+                <div className="absolute inset-2 rounded-full border-r-2 border-purple-500 animate-spin-slow"></div>
+              </div>
+              <motion.span 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-gray-500 text-sm tracking-[0.3em] uppercase"
               >
-                <Projects />
-              </motion.div>
-
-              <motion.div
-                id="experience"
-                className="section section-dark relative"
-                initial={{ opacity: 0, y: 50, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 25,
-                  duration: 0.8,
-                  delay: 0.1
-                }}
-                viewport={{ once: true, margin: "-100px" }}
-              >
-                <Experience />
-              </motion.div>
-
-              <motion.div
-                id="technologies"
-                className="section section-light relative"
-                initial={{ opacity: 0, y: 50, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 25,
-                  duration: 0.8,
-                  delay: 0.2
-                }}
-                viewport={{ once: true, margin: "-100px" }}
-              >
-                <Technologies />
-              </motion.div>
-
-              <motion.div
-                id="contact"
-                className="section section-dark relative"
-                initial={{ opacity: 0, y: 50, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 25,
-                  duration: 0.8,
-                  delay: 0.3
-                }}
-                viewport={{ once: true, margin: "-100px" }}
-              >
-                <Contact />
-              </motion.div>
+                Initializing
+              </motion.span>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="min-h-screen bg-[#050505] text-white selection:bg-indigo-500/30 selection:text-indigo-200"
+          >
+            <LiquidCrystalBackground />
+            <ScrollProgress />
+            <Navbar />
+            
+            <main className="relative z-10">
+              <Header />
+              <Projects />
+              <Experience />
+              <Technologies />
+              <Contact />
             </main>
+            
             <Footer />
           </motion.div>
-        </motion.div>
+        )}
       </AnimatePresence>
     </ThemeProvider>
   );

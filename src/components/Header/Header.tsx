@@ -1,210 +1,159 @@
 import { FC } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Header: FC = () => {
-  const stats = [
-    { label: "Years Experience", value: "2+" },
-    { label: "Technologies", value: "15+" },
-  ];
-
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 15,
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
       },
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
+      filter: 'blur(0px)',
       transition: {
-        type: "spring" as const,
-        stiffness: 200,
-        damping: 25,
-        duration: 0.8,
+        duration: 1,
+        ease: [0.23, 1, 0.32, 1],
       },
     },
   };
 
   return (
-    <header className="relative bg-dark-950 text-white pt-24 pb-32 px-6 md:px-12 w-full overflow-hidden min-h-screen flex items-center">
-      {/* Minimal background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="bg-blur-circle w-72 h-72 top-20 right-20 bg-primary-600/10"></div>
-        <div className="bg-blur-circle w-72 h-72 bottom-20 left-20 bg-primary-600/8"></div>
+    <header className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-6">
+      {/* Optimized Floating Orbs Background using CSS Animations */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="orb orb-primary w-[500px] h-[500px] top-[-100px] left-[-100px] animate-float" style={{ animationDelay: '0s', willChange: 'transform' }}></div>
+        <div className="orb orb-secondary w-[400px] h-[400px] bottom-[-50px] right-[-100px] animate-float" style={{ animationDelay: '-2s', willChange: 'transform' }}></div>
+        <div className="orb orb-accent w-[300px] h-[300px] top-[40%] left-[60%] animate-float" style={{ animationDelay: '-4s', willChange: 'transform' }}></div>
       </div>
-      
+
       <motion.div 
-        className="max-w-6xl mx-auto relative z-10 w-full"
+        className="max-w-7xl mx-auto w-full relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="flex flex-col md:flex-row items-center md:justify-between gap-12">
-          <div className="md:w-3/5 text-center md:text-left">
-            <motion.div variants={itemVariants} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-medium mb-4">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                Available for work
-              </span>
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
+          
+          {/* Left Content */}
+          <div className="flex-1 text-center lg:text-left">
+            <motion.div variants={itemVariants} className="inline-block mb-4">
+              <div className="px-4 py-2 rounded-full ios-glass bg-white/5 border-white/10 flex items-center gap-2 text-sm font-medium text-primary-300">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                Open to new opportunities
+              </div>
             </motion.div>
 
-            <motion.h2 
-              variants={itemVariants}
-              className="text-primary-400 text-xl md:text-2xl font-medium mb-4"
-            >
-              Hello, I'm
-            </motion.h2>
-            
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl md:text-7xl font-bold mb-6 liquid-crystal-text-flow leading-tight"
-            >
-              Javier Vallejo
+            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
+              <span className="block text-white mb-2">Hello, I'm</span>
+              <span className="liquid-text">Javier Vallejo</span>
             </motion.h1>
-            
-            <motion.div
-              variants={itemVariants}
-              className="mb-8"
-            >
-              <h2 className="text-2xl md:text-4xl font-light text-gray-300 mb-4">
-                Full Stack Developer
-              </h2>
-            </motion.div>
-            
-            <motion.p 
-              variants={itemVariants}
-              className="text-gray-400 text-lg md:text-xl max-w-xl mx-auto md:mx-0 mb-8 leading-relaxed"
-            >
-              I build exceptional digital experiences with modern web technologies,
-              focusing on both performance and beautiful design that creates lasting impact.
+
+            <motion.h2 variants={itemVariants} className="text-2xl md:text-3xl font-light text-gray-300 mb-8">
+              Full Stack Developer
+            </motion.h2>
+
+            <motion.p variants={itemVariants} className="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed">
+              I build high-performance digital products where clean engineering meets thoughtful design.
             </motion.p>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8"
-            >
-              <motion.a
-                href="#projects"
-                className="btn-liquid px-8 py-4 font-semibold text-white shadow-lg text-center"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 1.02, y: -1 }}
-                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
-              >
-                View My Work
-              </motion.a>
-              <motion.a
-                href="#contact"
-                className="btn-liquid-secondary px-8 py-4 font-semibold text-center"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 1.02, y: -1 }}
-                transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
-              >
+            <motion.p variants={itemVariants} className="text-base text-gray-500 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+              My focus is modern front-end architectures, real-time features, and scalable full-stack solutions powered by Svelte, TypeScript, and Node.js.
+            </motion.p>
+
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12">
+              <a href="#projects" className="btn-liquid group">
+                View Work
+                <span className="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
+              </a>
+              <a href="#contact" className="btn-liquid-secondary">
                 Contact Me
-              </motion.a>
+              </a>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-2 gap-8 max-w-md mx-auto md:mx-0"
-            >
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center md:text-left p-4 liquid-glass rounded-xl"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  transition={{ type: "spring" as const, stiffness: 300, damping: 25 }}
-                >
-                  <div className="text-2xl md:text-3xl font-bold text-primary-400 mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
-                </motion.div>
-              ))}
+            {/* Stats / Highlight Line */}
+            <motion.div variants={itemVariants} className="flex flex-col gap-4 justify-center lg:justify-start mb-8">
+              <div className="text-sm text-gray-400 uppercase tracking-wider mb-2">2+ Years in Production</div>
+              <div className="text-lg font-semibold text-white mb-2">Modern Front-End & Full-Stack Developer</div>
+              <div className="flex flex-wrap gap-2 text-sm text-gray-500">
+                <span>Svelte</span>
+                <span>•</span>
+                <span>TypeScript</span>
+                <span>•</span>
+                <span>JavaScript</span>
+                <span>•</span>
+                <span>Node.js</span>
+              </div>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div 
-              variants={itemVariants}
-              className="flex gap-4 justify-center md:justify-start mt-8"
-            >
+            {/* Socials */}
+            <motion.div variants={itemVariants} className="flex gap-6 justify-center lg:justify-start mt-12">
               {[
                 { icon: Github, href: 'https://github.com/jvallejoarguez', label: 'GitHub' },
                 { icon: Linkedin, href: 'https://linkedin.com/in/javier-vallejo-arguez', label: 'LinkedIn' },
                 { icon: Mail, href: 'mailto:jvallejoarguez@gmail.com', label: 'Email' },
               ].map((social) => (
-                <motion.a
+                <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-dark-800/50 border border-gray-700/50 flex items-center justify-center text-gray-400 hover:text-primary-400 hover:border-primary-500/50 transition-all duration-300"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="text-gray-400 hover:text-white transition-colors transform hover:scale-110"
                   aria-label={social.label}
                 >
-                  <social.icon size={20} />
-                </motion.a>
+                  <social.icon size={24} />
+                </a>
               ))}
             </motion.div>
           </div>
-          
+
+          {/* Right Content - Profile Image */}
           <motion.div 
             variants={itemVariants}
-            className="md:w-2/5 flex justify-center items-center"
+            className="relative flex-shrink-0"
           >
-            <motion.div
-              className="relative"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring" as const, stiffness: 300, damping: 25 }}
-            >
-              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full liquid-glass-strong flex items-center justify-center p-1 relative z-10">
-                <div className="bg-dark-950/30 backdrop-blur-sm rounded-full w-full h-full flex items-center justify-center overflow-hidden border border-white/10">
-                  <motion.img
-                    src="/img/pfp.jpg"
-                    alt="Javier Vallejo"
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring" as const, stiffness: 300, damping: 25 }}
+            <div className="relative w-72 h-72 md:w-96 md:h-96 group">
+              {/* Animated Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-purple-600 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700 animate-pulse-glow"></div>
+              
+              {/* Double Glass Container */}
+              <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-b from-white/20 to-transparent">
+                <div className="w-full h-full rounded-full ios-glass-strong p-2 overflow-hidden ring-1 ring-white/10 backdrop-blur-xl">
+                   <img 
+                    src="/img/pfp.jpg" 
+                    alt="Javier Vallejo" 
+                    className="w-full h-full object-cover rounded-full transform transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
               </div>
-
-              {/* Enhanced glow effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-400/20 via-purple-500/15 to-pink-500/20 blur-xl animate-pulse"></div>
-            </motion.div>
+            </div>
           </motion.div>
+
         </div>
 
-        {/* Minimal scroll indicator */}
+        {/* Scroll Indicator */}
         <motion.div 
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-          variants={itemVariants}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-500"
+          animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 2, repeat: Infinity }}
         >
-          <motion.button
-            className="text-gray-400 hover:text-primary-400 transition-colors duration-300"
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            <ChevronDown size={20} />
-          </motion.button>
+          <ChevronDown size={32} />
         </motion.div>
       </motion.div>
     </header>
   );
 };
 
-export default Header; 
+export default Header;
