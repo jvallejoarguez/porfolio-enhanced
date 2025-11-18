@@ -40,7 +40,7 @@ const Navbar: FC = () => {
             className={`
               relative flex items-center justify-between
               ${isScrolled 
-                ? 'bg-black/40 backdrop-blur-xl border border-white/10 rounded-full py-3 px-6 shadow-2xl' 
+                ? 'ios-glass py-3 px-6 shadow-2xl bg-black/20' 
                 : 'bg-transparent py-4 px-4 md:px-0'}
             `}
           >
@@ -80,10 +80,11 @@ const Navbar: FC = () => {
 
             {/* Mobile Menu Toggle */}
             <button 
-              className="md:hidden p-2 text-white bg-white/10 rounded-full backdrop-blur-md"
+              className="md:hidden p-3 text-white bg-white/10 rounded-full backdrop-blur-md active:scale-95 transition-transform"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -99,17 +100,17 @@ const Navbar: FC = () => {
             transition={{ duration: 0.2 }}
             className="fixed top-24 left-4 right-4 z-40 md:hidden"
           >
-            <div className="bg-black/80 backdrop-blur-2xl border border-white/10 rounded-3xl p-4 shadow-2xl">
+            <div className="ios-glass-strong p-4 shadow-2xl border-white/10">
               <div className="flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/10 transition-colors text-gray-200 hover:text-white"
+                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/10 transition-colors text-gray-200 hover:text-white active:bg-white/5"
                   >
-                    <div className="p-2 bg-white/5 rounded-lg">
-                      <link.icon size={20} />
+                    <div className="p-3 bg-white/5 rounded-lg">
+                      <link.icon size={24} />
                     </div>
                     <span className="font-medium text-lg">{link.name}</span>
                   </a>

@@ -59,9 +59,10 @@ const Projects: FC = () => {
   return (
     <section className="section relative w-full py-32" id="projects">
       {/* Background Accents */}
+      {/* Background Accents */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-40 right-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px]"></div>
+        <div className="orb orb-primary w-[600px] h-[600px] top-40 right-0 opacity-20"></div>
+        <div className="orb orb-secondary w-[500px] h-[500px] bottom-0 left-0 opacity-20"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -136,7 +137,7 @@ const Projects: FC = () => {
                     />
                     
                     {/* Floating Actions */}
-                    <div className="absolute bottom-4 right-4 z-20 flex gap-3 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="absolute bottom-4 right-4 z-20 flex gap-3 translate-y-0 opacity-100 lg:translate-y-10 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-300">
                       {project.githubUrl && (
                         <a href={project.githubUrl} target="_blank" rel="noopener" className="p-3 bg-black/50 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-colors">
                           <Github size={20} />

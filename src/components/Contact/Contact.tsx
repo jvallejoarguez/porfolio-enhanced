@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Send, MapPin, Clock, CheckCircle, ArrowRight } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, MapPin, CheckCircle, ArrowRight } from 'lucide-react';
 
 interface FormData {
   name: string;
@@ -27,9 +27,13 @@ const Contact: FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
+    // Simulate submission
     await new Promise(resolve => setTimeout(resolve, 2000));
+    
     setIsSubmitting(false);
     setIsSubmitted(true);
+    
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -37,11 +41,11 @@ const Contact: FC = () => {
   };
 
   return (
-    <section className="section relative py-32" id="contact">
+    <section className="section relative py-16 md:py-32" id="contact">
        {/* Background Orbs */}
        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-pink-600/10 rounded-full blur-[120px]"></div>
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px]"></div>
+        <div className="orb orb-accent w-[600px] h-[600px] bottom-0 left-0 opacity-20"></div>
+        <div className="orb orb-secondary w-[400px] h-[400px] top-1/2 right-0 opacity-20"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -81,7 +85,7 @@ const Contact: FC = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:bg-white/10 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[16px] md:text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:bg-white/10 transition-all"
                     placeholder="John Doe"
                   />
                 </div>
@@ -94,7 +98,7 @@ const Contact: FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:bg-white/10 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[16px] md:text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:bg-white/10 transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -109,7 +113,7 @@ const Contact: FC = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:bg-white/10 transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[16px] md:text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:bg-white/10 transition-all"
                   placeholder="Project Inquiry"
                 />
               </div>
@@ -123,7 +127,7 @@ const Contact: FC = () => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:bg-white/10 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[16px] md:text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:bg-white/10 transition-all resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -174,19 +178,6 @@ const Contact: FC = () => {
                   <div>
                     <div className="text-sm text-gray-400">Location</div>
                     <div className="text-white font-medium">Gibraltar (Remote Worldwide)</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 group">
-                  <div className="p-3 rounded-xl bg-white/5 text-green-400">
-                    <Clock size={24} />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-400">Status</div>
-                    <div className="text-white font-medium flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                      Open to new opportunities
-                    </div>
                   </div>
                 </div>
               </div>

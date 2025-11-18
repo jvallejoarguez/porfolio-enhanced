@@ -67,10 +67,10 @@ const Experience: FC = () => {
   const [activeJobId, setActiveJobId] = useState<number>(1);
 
   return (
-    <section className="section relative py-32" id="experience">
+    <section className="section relative py-16 md:py-32" id="experience">
        {/* Background Blobs */}
        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/2 right-0 w-[800px] h-[800px] bg-primary-600/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2"></div>
+        <div className="orb orb-primary w-[800px] h-[800px] top-1/2 right-0 translate-x-1/2 -translate-y-1/2 opacity-20"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -89,15 +89,15 @@ const Experience: FC = () => {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           {/* Navigation Rail */}
           <div className="lg:w-1/3">
-            <div className="sticky top-32 space-y-4">
+            <div className="sticky top-32 flex overflow-x-auto pb-4 lg:pb-0 lg:flex-col gap-4 lg:gap-0 lg:space-y-4 no-scrollbar snap-x">
               {jobData.map((job) => (
                 <motion.button
                   key={job.id}
                   onClick={() => setActiveJobId(job.id)}
-                  className={`w-full text-left p-6 rounded-2xl transition-all duration-500 group relative overflow-hidden ${
+                  className={`flex-shrink-0 w-[85vw] sm:w-auto lg:w-full text-left p-6 rounded-2xl transition-all duration-500 group relative overflow-hidden snap-center ${
                     activeJobId === job.id 
                       ? 'bg-white/10 shadow-xl ring-1 ring-white/20' 
-                      : 'hover:bg-white/5'
+                      : 'hover:bg-white/5 bg-white/5 lg:bg-transparent'
                   }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

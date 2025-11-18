@@ -71,7 +71,11 @@ const techData: TechCategory[] = [
 
 const Technologies: FC = () => {
   return (
-    <section className="section relative py-32" id="technologies">
+    <section className="section relative py-16 md:py-32" id="technologies">
+      {/* Background Orbs */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="orb orb-primary w-[500px] h-[500px] top-0 left-1/2 -translate-x-1/2 opacity-20"></div>
+      </div>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -100,12 +104,12 @@ const Technologies: FC = () => {
                 <h3 className="text-xl font-bold text-white">{cat.category}</h3>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 {cat.items.map((item) => (
                   <motion.div
                     key={item.name}
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
-                    className="flex flex-col items-center justify-center p-4 rounded-xl bg-white/5 transition-colors group cursor-default"
+                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.08)", boxShadow: "0 0 20px rgba(255,255,255,0.1)" }}
+                    className="flex flex-col items-center justify-center p-4 rounded-xl bg-white/5 transition-all duration-300 group cursor-default border border-transparent hover:border-white/10"
                   >
                     <item.icon className="w-8 h-8 mb-3 text-gray-400 group-hover:text-white transition-colors" style={{ color: item.color }} />
                     <span className="text-sm font-medium text-gray-300 group-hover:text-white text-center">{item.name}</span>

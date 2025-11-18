@@ -31,9 +31,9 @@ const Header: FC = () => {
     <header className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-6">
       {/* Optimized Floating Orbs Background using CSS Animations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="orb orb-primary w-[500px] h-[500px] top-[-100px] left-[-100px] animate-float" style={{ animationDelay: '0s', willChange: 'transform' }}></div>
-        <div className="orb orb-secondary w-[400px] h-[400px] bottom-[-50px] right-[-100px] animate-float" style={{ animationDelay: '-2s', willChange: 'transform' }}></div>
-        <div className="orb orb-accent w-[300px] h-[300px] top-[40%] left-[60%] animate-float" style={{ animationDelay: '-4s', willChange: 'transform' }}></div>
+        <div className="orb orb-primary w-[300px] h-[300px] md:w-[500px] md:h-[500px] top-[-50px] md:top-[-100px] left-[-50px] md:left-[-100px] animate-float" style={{ animationDelay: '0s', willChange: 'transform' }}></div>
+        <div className="orb orb-secondary w-[250px] h-[250px] md:w-[400px] md:h-[400px] bottom-[-25px] md:bottom-[-50px] right-[-50px] md:right-[-100px] animate-float" style={{ animationDelay: '-2s', willChange: 'transform' }}></div>
+        <div className="orb orb-accent w-[200px] h-[200px] md:w-[300px] md:h-[300px] top-[40%] left-[60%] animate-float" style={{ animationDelay: '-4s', willChange: 'transform' }}></div>
       </div>
 
       <motion.div 
@@ -42,21 +42,13 @@ const Header: FC = () => {
         initial="hidden"
         animate="visible"
       >
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
           
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left">
-            <motion.div variants={itemVariants} className="inline-block mb-4">
-              <div className="px-4 py-2 rounded-full ios-glass bg-white/5 border-white/10 flex items-center gap-2 text-sm font-medium text-primary-300">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                Open to new opportunities
-              </div>
-            </motion.div>
 
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
+
+            <motion.h1 variants={itemVariants} className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
               <span className="block text-white mb-2">Hello, I'm</span>
               <span className="liquid-text">Javier Vallejo</span>
             </motion.h1>
@@ -122,9 +114,9 @@ const Header: FC = () => {
           {/* Right Content - Profile Image */}
           <motion.div 
             variants={itemVariants}
-            className="relative flex-shrink-0"
+            className="relative flex-shrink-0 mt-8 lg:mt-0"
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96 group">
+            <div className="relative w-64 h-64 md:w-96 md:h-96 group">
               {/* Animated Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-purple-600 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700 animate-pulse-glow"></div>
               
