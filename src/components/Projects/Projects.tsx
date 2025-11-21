@@ -1,6 +1,6 @@
-import { FC, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Star } from 'lucide-react';
+import { FC, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Github, Star } from "lucide-react";
 
 interface Project {
   id: number;
@@ -18,7 +18,8 @@ const projectData: Project[] = [
   {
     id: 1,
     title: "DB Games Grid 2.0",
-    description: "A high-performance game grid system engineered for DigitalBeat, powering multiple gaming brands. Built with Svelte 5 and designed for fast rendering, smooth interactions, and integration with internal APIs. The architecture is component-driven and optimized for performance, making it easy to extend, maintain, and adapt to different brands and layouts.",
+    description:
+      "A high-performance game grid system engineered for DigitalBeat, powering multiple gaming brands. Built with Svelte 5 and designed for fast rendering, smooth interactions, and integration with internal APIs. The architecture is component-driven and optimized for performance, making it easy to extend, maintain, and adapt to different brands and layouts.",
     technologies: ["Svelte 5", "TypeScript", "Node.js", "Custom APIs"],
     imageUrl: "/digibeat.jpg",
     category: "Frontend / Full Stack",
@@ -27,7 +28,8 @@ const projectData: Project[] = [
   {
     id: 2,
     title: "LineUp",
-    description: "A modern productivity ecosystem combining task organization, focus sessions, and AI-powered assistance. LineUp is designed for speed and clarity: minimal UI, fast interactions, and a workflow that keeps users in a deep-work mindset. Includes task boards, timers, and basic analytics to help users understand and improve their productivity habits.",
+    description:
+      "A modern productivity ecosystem combining task organization, focus sessions, and AI-powered assistance. LineUp is designed for speed and clarity: minimal UI, fast interactions, and a workflow that keeps users in a deep-work mindset. Includes task boards, timers, and basic analytics to help users understand and improve their productivity habits.",
     technologies: ["React", "TypeScript", "Supabase", "Tailwind CSS"],
     imageUrl: "/lineup.png",
     liveUrl: "https://www.lineupai.app/",
@@ -38,7 +40,8 @@ const projectData: Project[] = [
   {
     id: 3,
     title: "Warera Automator",
-    description: "Enterprise-grade business automation platform. Orchestrates 24/7 production cycles, worker management, and server-side operations.",
+    description:
+      "Enterprise-grade business automation platform. Orchestrates 24/7 production cycles, worker management, and server-side operations.",
     technologies: ["Next.js", "Python", "FastAPI", "PostgreSQL"],
     imageUrl: "/img/warera_automator.png",
     liveUrl: "https://warera-automator.vercel.app/",
@@ -51,9 +54,13 @@ const categories = ["All", "Full Stack", "Frontend", "Backend"];
 
 const Projects: FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  
-  const filteredProjects = projectData.filter(project => 
-    selectedCategory === "All" || project.category.includes(selectedCategory) || (selectedCategory === "Frontend" && project.category.includes("Frontend"))
+
+  const filteredProjects = projectData.filter(
+    (project) =>
+      selectedCategory === "All" ||
+      project.category.includes(selectedCategory) ||
+      (selectedCategory === "Frontend" &&
+        project.category.includes("Frontend")),
   );
 
   return (
@@ -66,10 +73,9 @@ const Projects: FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
         {/* Section Header */}
         <div className="text-center mb-20">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -78,8 +84,8 @@ const Projects: FC = () => {
             <Star size={16} className="text-purple-400" />
             <span className="text-sm text-purple-200">Featured Projects</span>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -90,31 +96,33 @@ const Projects: FC = () => {
           </motion.h2>
         </div>
 
-        {/* Filters */}
-        <motion.div 
-          className="flex flex-wrap justify-center gap-3 mb-16"
+        {/* Filters - Horizontally scrollable on small screens */}
+        <motion.div
+          className="mb-16 -mx-6 px-6 sm:mx-0 sm:px-0"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                selectedCategory === cat 
-                  ? 'bg-primary-600 text-white shadow-lg shadow-primary-600/25 scale-105' 
-                  : 'ios-glass text-gray-400 hover:bg-white/10'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          <div className="flex justify-center sm:flex-wrap gap-3 overflow-x-auto pb-3 sm:pb-0 no-scrollbar snap-x snap-mandatory">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`flex-shrink-0 px-5 sm:px-6 py-2.5 sm:py-2 rounded-full text-sm font-medium transition-all duration-300 snap-center ${
+                  selectedCategory === cat
+                    ? "bg-primary-600 text-white shadow-lg shadow-primary-600/25 scale-105"
+                    : "ios-glass text-gray-400 hover:bg-white/10"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <motion.div
@@ -126,37 +134,47 @@ const Projects: FC = () => {
                 transition={{ duration: 0.4 }}
                 className="group perspective-1000"
               >
-                <div className="tilt-card h-full ios-glass-strong p-2 hover:border-primary-500/30 transition-colors duration-500">
-                  {/* Image Container */}
-                  <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-6">
+                <div className="tilt-card h-full ios-glass-strong p-1 md:p-2 hover:border-primary-500/30 transition-colors duration-500">
+                  {/* Image Container with aspect ratio */}
+                  <div className="relative bg-gray-900 rounded-2xl overflow-hidden mb-4 md:mb-6 aspect-video md:aspect-auto md:h-80">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 opacity-60 transition-opacity group-hover:opacity-40"></div>
-                    <img 
-                      src={project.imageUrl} 
+                    <img
+                      src={project.imageUrl}
                       alt={project.title}
                       className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                     />
-                    
-                    {/* Floating Actions */}
-                    <div className="absolute bottom-4 right-4 z-20 flex gap-3 translate-y-0 opacity-100 lg:translate-y-10 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-300">
+
+                    {/* Floating Actions - Always visible on touch devices */}
+                    <div className="absolute bottom-3 md:bottom-4 right-3 md:right-4 z-20 flex gap-2 md:gap-3 translate-y-0 opacity-100 transition-all duration-300">
                       {project.githubUrl && (
-                        <a href={project.githubUrl} target="_blank" rel="noopener" className="p-3 bg-black/50 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-colors">
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener"
+                          className="p-2.5 md:p-3 bg-black/50 backdrop-blur-md rounded-full hover:bg-white hover:text-black transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        >
                           <Github size={20} />
                         </a>
                       )}
                       {project.liveUrl && (
-                        <a href={project.liveUrl} target="_blank" rel="noopener" className="p-3 bg-primary-600 backdrop-blur-md rounded-full hover:bg-primary-500 transition-colors shadow-lg shadow-primary-600/20">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener"
+                          className="p-2.5 md:p-3 bg-primary-600 backdrop-blur-md rounded-full hover:bg-primary-500 transition-colors shadow-lg shadow-primary-600/20 min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        >
                           <ExternalLink size={20} />
                         </a>
                       )}
                     </div>
 
                     {/* Badges */}
-                    <div className="absolute top-4 left-4 z-20 flex gap-2">
-                      <span className="px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs font-medium text-white border border-white/10">
+                    <div className="absolute top-2 md:top-4 left-2 md:left-4 z-20 flex gap-1 md:gap-2 flex-wrap">
+                      <span className="px-2 md:px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs font-medium text-white border border-white/10">
                         {project.category}
                       </span>
                       {project.featured && (
-                        <span className="px-3 py-1 bg-yellow-500/20 backdrop-blur-md rounded-full text-xs font-medium text-yellow-300 border border-yellow-500/20 flex items-center gap-1">
+                        <span className="px-2 md:px-3 py-1 bg-yellow-500/20 backdrop-blur-md rounded-full text-xs font-medium text-yellow-300 border border-yellow-500/20 flex items-center gap-1">
                           <Star size={10} fill="currentColor" /> Featured
                         </span>
                       )}
@@ -164,24 +182,27 @@ const Projects: FC = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="px-4 pb-4">
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">
+                  <div className="px-3 md:px-4 pb-3 md:pb-4">
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 group-hover:text-primary-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-400 mb-6 leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-400 mb-4 md:mb-6 leading-relaxed">
                       {project.description}
                     </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-6">
+
+                    <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                       {project.technologies.map((tech) => (
-                        <span key={tech} className="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300 border border-white/5">
+                        <span
+                          key={tech}
+                          className="text-xs px-2 md:px-3 py-1 rounded-full bg-white/5 text-gray-300 border border-white/5"
+                        >
                           {tech}
                         </span>
                       ))}
                     </div>
 
                     {/* Footer */}
-                    <div className="pt-4 border-t border-white/5 flex items-center justify-between text-sm text-gray-500">
+                    <div className="pt-3 md:pt-4 border-t border-white/5 flex items-center justify-between text-sm text-gray-500">
                       {project.liveUrl ? (
                         <span className="group-hover:translate-x-1 transition-transform duration-300 text-primary-400 font-medium flex items-center gap-1">
                           View Live <ExternalLink size={12} />
@@ -191,7 +212,9 @@ const Projects: FC = () => {
                           View on GitHub <Github size={12} />
                         </span>
                       ) : (
-                        <span className="text-gray-600">Internal / Private</span>
+                        <span className="text-gray-600">
+                          Internal / Private
+                        </span>
                       )}
                     </div>
                   </div>
@@ -203,7 +226,7 @@ const Projects: FC = () => {
 
         {/* View More */}
         <div className="mt-16 text-center">
-          <a 
+          <a
             href="https://github.com/jvallejoarguez"
             target="_blank"
             rel="noopener noreferrer"
@@ -212,7 +235,6 @@ const Projects: FC = () => {
             See all projects on GitHub <Github size={16} />
           </a>
         </div>
-
       </div>
     </section>
   );

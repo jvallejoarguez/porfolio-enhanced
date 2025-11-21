@@ -10,6 +10,7 @@ export default {
         'spin-slow': 'spin 20s linear infinite',
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-glow': 'pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
         'slide-up': 'slideUp 0.6s ease-out',
@@ -29,6 +30,10 @@ export default {
         glow: {
           '0%': { boxShadow: '0 0 5px rgba(99, 102, 241, 0.2)' },
           '100%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.6), 0 0 30px rgba(99, 102, 241, 0.4)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '0.6' },
         },
         slideUp: {
           '0%': { opacity: '0', transform: 'translateY(30px)' },
