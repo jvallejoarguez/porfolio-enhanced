@@ -34,7 +34,7 @@ const Header: FC = () => {
   };
 
   return (
-    <header className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-6">
+    <header className="relative min-h-[100vh] md:min-h-screen flex items-center justify-center overflow-hidden py-20 px-6 md:py-20">
       {/* Optimized Floating Orbs Background using CSS Animations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
@@ -45,8 +45,9 @@ const Header: FC = () => {
           className="orb orb-secondary w-[250px] h-[250px] md:w-[400px] md:h-[400px] bottom-[-25px] md:bottom-[-50px] right-[-50px] md:right-[-100px] animate-float"
           style={{ animationDelay: "-2s", willChange: "transform" }}
         ></div>
+        {/* Hide accent orb on mobile to reduce GPU strain */}
         <div
-          className="orb orb-accent w-[200px] h-[200px] md:w-[300px] md:h-[300px] top-[40%] left-[60%] animate-float"
+          className="orb orb-accent w-[200px] h-[200px] md:w-[300px] md:h-[300px] top-[40%] left-[60%] animate-float hidden md:block"
           style={{ animationDelay: "-4s", willChange: "transform" }}
         ></div>
       </div>
@@ -62,7 +63,7 @@ const Header: FC = () => {
           <div className="flex-1 text-center lg:text-left">
             <motion.h1
               variants={itemVariants}
-              className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
+              className="text-3xl md:text-4xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6"
             >
               <span className="block text-white mb-2">Hello, I'm</span>
               <span className="liquid-text">Javier Vallejo</span>
@@ -70,7 +71,7 @@ const Header: FC = () => {
 
             <motion.h2
               variants={itemVariants}
-              className="text-2xl md:text-3xl font-light text-gray-300 mb-8"
+              className="text-xl md:text-2xl lg:text-3xl font-light text-gray-300 mb-8"
             >
               Full Stack Developer
             </motion.h2>
@@ -94,15 +95,21 @@ const Header: FC = () => {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
             >
-              <a href="#projects" className="btn-liquid group">
+              <a
+                href="#projects"
+                className="btn-liquid group min-h-[44px] flex items-center justify-center"
+              >
                 View Work
                 <span className="inline-block ml-2 transition-transform group-hover:translate-x-1">
                   →
                 </span>
               </a>
-              <a href="#contact" className="btn-liquid-secondary">
+              <a
+                href="#contact"
+                className="btn-liquid-secondary min-h-[44px] flex items-center justify-center"
+              >
                 Contact Me
               </a>
             </motion.div>
@@ -110,7 +117,7 @@ const Header: FC = () => {
             {/* Stats / Highlight Line */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col gap-4 justify-center lg:justify-start mb-8"
+              className="flex flex-col gap-4 justify-center lg:justify-start mb-8 text-center lg:text-left"
             >
               <div className="text-sm text-gray-400 uppercase tracking-wider mb-2">
                 2+ Years in Production
@@ -118,7 +125,7 @@ const Header: FC = () => {
               <div className="text-lg font-semibold text-white mb-2">
                 Modern Front-End & Full-Stack Developer
               </div>
-              <div className="flex flex-wrap gap-2 text-sm text-gray-500">
+              <div className="flex flex-wrap gap-2 text-sm text-gray-500 justify-center lg:justify-start">
                 <span>Svelte</span>
                 <span>•</span>
                 <span>TypeScript</span>
@@ -132,7 +139,7 @@ const Header: FC = () => {
             {/* Socials */}
             <motion.div
               variants={itemVariants}
-              className="flex gap-6 justify-center lg:justify-start mt-12"
+              className="flex gap-4 sm:gap-6 justify-center lg:justify-start mt-12"
             >
               {[
                 {
@@ -156,7 +163,7 @@ const Header: FC = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors transform hover:scale-110"
+                  className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
                   aria-label={social.label}
                 >
                   <social.icon size={24} />
@@ -168,11 +175,11 @@ const Header: FC = () => {
           {/* Right Content - Profile Image */}
           <motion.div
             variants={itemVariants}
-            className="relative flex-shrink-0 mt-8 lg:mt-0"
+            className="relative flex-shrink-0 mt-8 lg:mt-0 w-full flex justify-center lg:justify-end"
           >
-            <div className="relative w-64 h-64 md:w-96 md:h-96 group">
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 group">
               {/* Animated Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-purple-600 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-700 animate-pulse-glow"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-purple-600 rounded-full blur-2xl md:blur-3xl opacity-30 md:opacity-40 group-hover:opacity-60 transition-opacity duration-700 animate-pulse-glow"></div>
 
               {/* Double Glass Container */}
               <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-b from-white/20 to-transparent">
