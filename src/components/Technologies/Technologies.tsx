@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { motion } from "framer-motion";
 import {
   SiHtml5,
@@ -152,4 +152,4 @@ const Technologies: FC = () => {
   );
 };
 
-export default Technologies;
+export default memo(Technologies);

@@ -1,15 +1,22 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
-import Projects from './components/Projects/Projects';
-import Experience from './components/Experience/Experience';
-import Technologies from './components/Technologies/Technologies';
-import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import ThemeProvider from './components/ThemeProvider/ThemeProvider';
 import LiquidCrystalBackground from './components/LiquidCrystalBackground/LiquidCrystalBackground';
+
+const Projects = lazy(() => import('./components/Projects/Projects'));
+const Experience = lazy(() => import('./components/Experience/Experience'));
+const Technologies = lazy(() => import('./components/Technologies/Technologies'));
+const Contact = lazy(() => import('./components/Contact/Contact'));
+const Footer = lazy(() => import('./components/Footer/Footer'));
+
+const LazyLoadFallback = () => (
+  <div className="w-full min-h-[200px] flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-primary-500/20 border-t-primary-500 rounded-full animate-spin" />
+  </div>
+);
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -62,13 +69,23 @@ function App() {
             
             <main className="relative z-10">
               <Header />
-              <Projects />
-              <Experience />
-              <Technologies />
-              <Contact />
+              <Suspense fallback={<LazyLoadFallback />}>
+                <Projects />
+              </Suspense>
+              <Suspense fallback={<LazyLoadFallback />}>
+                <Experience />
+              </Suspense>
+              <Suspense fallback={<LazyLoadFallback />}>
+                <Technologies />
+              </Suspense>
+              <Suspense fallback={<LazyLoadFallback />}>
+                <Contact />
+              </Suspense>
             </main>
             
-            <Footer />
+            <Suspense fallback={<LazyLoadFallback />}>
+              <Footer />
+            </Suspense>
           </motion.div>
         )}
       </AnimatePresence>
