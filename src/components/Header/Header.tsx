@@ -53,17 +53,17 @@ const Header: FC = () => {
       </div>
 
       <motion.div
-        className="max-w-7xl mx-auto w-full relative z-10"
+        className="max-w-6xl lg:max-w-7xl mx-auto w-full relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 xl:gap-20">
           {/* Left Content */}
-          <div className="flex-1 text-center lg:text-left">
+          <div className="w-full lg:w-1/2 xl:w-3/5 text-center lg:text-left lg:max-w-3xl">
             <motion.h1
               variants={itemVariants}
-              className="text-3xl md:text-4xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6"
+              className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-6 leading-tight"
             >
               <span className="block text-white mb-2">Hello, I'm</span>
               <span className="liquid-text">Javier Vallejo</span>
@@ -71,14 +71,14 @@ const Header: FC = () => {
 
             <motion.h2
               variants={itemVariants}
-              className="text-xl md:text-2xl lg:text-3xl font-light text-gray-300 mb-8"
+              className="text-xl md:text-2xl lg:text-2xl xl:text-3xl font-light text-gray-300 mb-8"
             >
               Full Stack Developer
             </motion.h2>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed"
+              className="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed"
             >
               I build high-performance digital products where clean engineering
               meets thoughtful design.
@@ -86,7 +86,7 @@ const Header: FC = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-base text-gray-500 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed"
+              className="text-base text-gray-500 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed"
             >
               My focus is modern front-end architectures, real-time features,
               and scalable full-stack solutions powered by Svelte, TypeScript,
@@ -175,9 +175,9 @@ const Header: FC = () => {
           {/* Right Content - Profile Image */}
           <motion.div
             variants={itemVariants}
-            className="relative flex-shrink-0 mt-8 lg:mt-0 w-full flex justify-center lg:justify-end"
+            className="relative flex-shrink-0 mt-8 lg:mt-0 w-full lg:w-1/2 xl:w-2/5 flex justify-center lg:justify-end"
           >
-            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 group">
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 group">
               {/* Animated Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-purple-600 rounded-full blur-2xl md:blur-3xl opacity-30 md:opacity-40 group-hover:opacity-60 transition-opacity duration-700 animate-pulse-glow"></div>
 
