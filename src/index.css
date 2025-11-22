@@ -138,6 +138,10 @@ body {
   animation: float-orb 12s ease-in-out infinite;
 }
 
+.animate-pulse-glow {
+  animation: pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 @keyframes float-orb {
   0%,
   100% {
@@ -151,7 +155,38 @@ body {
   }
 }
 
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
 /* Premium Liquid Buttons */
+.btn-ios {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn-ios:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 .btn-liquid {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
@@ -263,6 +298,23 @@ body {
 
 /* --- Mobile Optimizations --- */
 
+/* Safe Area Support for iOS Notch */
+.safe-area-inset-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-inset-left {
+  padding-left: env(safe-area-inset-left);
+}
+
+.safe-area-inset-right {
+  padding-right: env(safe-area-inset-right);
+}
+
 /* iOS Glass Mobile Overrides */
 @media (max-width: 768px) {
   html {
@@ -274,7 +326,7 @@ body {
     padding-bottom: 4rem;
   }
 
-  /* Reduce glass blur on mobile for better performance */
+  /* iOS Glass Mobile Overrides */
   .ios-glass {
     backdrop-filter: blur(12px) saturate(150%);
     -webkit-backdrop-filter: blur(12px) saturate(150%);
@@ -297,6 +349,13 @@ body {
       inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
   }
 
+  /* Reduce button blur on mobile */
+  .btn-ios,
+  .btn-liquid {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
   /* Reduce orb blur and size on mobile */
   .orb {
     filter: blur(60px);
@@ -306,6 +365,13 @@ body {
   /* Prevent horizontal scroll */
   .section {
     overflow-x: hidden;
+  }
+
+  /* Body scroll lock for mobile menu */
+  body.scroll-locked {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
   }
 }
 
@@ -342,11 +408,11 @@ body {
     animation: none;
   }
 
-  .animate-spin {
+  .animate-pulse-glow {
     animation: none;
   }
 
-  .animate-pulse-glow {
+  .animate-spin {
     animation: none;
   }
 }
