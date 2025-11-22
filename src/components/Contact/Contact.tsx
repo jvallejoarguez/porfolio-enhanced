@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, memo } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -292,4 +292,4 @@ const Contact: FC = () => {
   );
 };
 
-export default Contact;
+export default memo(Contact);

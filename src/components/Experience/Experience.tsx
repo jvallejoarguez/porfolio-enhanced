@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Building2 } from "lucide-react";
 
@@ -152,6 +152,8 @@ const Experience: FC = () => {
                               <img
                                 src={job.logo}
                                 alt={job.company}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-contain"
                               />
                             </div>
@@ -199,4 +201,4 @@ const Experience: FC = () => {
   );
 };
 
-export default Experience;
+export default memo(Experience);

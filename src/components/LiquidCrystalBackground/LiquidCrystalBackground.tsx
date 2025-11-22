@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 // Simplified CSS-only background component for performance
 const LiquidCrystalBackground: FC = () => {
@@ -29,4 +29,4 @@ const LiquidCrystalBackground: FC = () => {
   );
 };
 
-export default LiquidCrystalBackground;
+export default memo(LiquidCrystalBackground);

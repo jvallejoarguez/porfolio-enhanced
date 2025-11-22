@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion, useScroll, useSpring, useReducedMotion } from "framer-motion";
 
 const ScrollProgress = () => {
@@ -17,4 +18,4 @@ const ScrollProgress = () => {
   );
 };
 
-export default ScrollProgress;
+export default memo(ScrollProgress);

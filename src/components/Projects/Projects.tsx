@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, Star } from "lucide-react";
 
@@ -141,6 +141,8 @@ const Projects: FC = () => {
                     <img
                       src={project.imageUrl}
                       alt={project.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                     />
 
@@ -240,4 +242,4 @@ const Projects: FC = () => {
   );
 };
 
-export default Projects;
+export default memo(Projects);
