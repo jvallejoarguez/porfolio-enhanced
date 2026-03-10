@@ -1,6 +1,22 @@
 import { FC } from "react";
 import { motion, Variants, useReducedMotion } from "framer-motion";
-import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowRight, MapPin } from "lucide-react";
+
+const socials = [
+  { icon: Github, href: "https://github.com/jvallejoarguez", label: "GitHub" },
+  {
+    icon: Linkedin,
+    href: "https://linkedin.com/in/javier-vallejo-arguez",
+    label: "LinkedIn",
+  },
+  { icon: Mail, href: "mailto:jvallejoarguez@gmail.com", label: "Email" },
+];
+
+const navLinks = [
+  { name: "Projects", href: "#projects" },
+  { name: "Background", href: "#background" },
+  { name: "Contact", href: "#contact" },
+];
 
 const Header: FC = () => {
   const prefersReducedMotion = useReducedMotion();
@@ -10,8 +26,8 @@ const Header: FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.2,
-        delayChildren: prefersReducedMotion ? 0 : 0.3,
+        staggerChildren: prefersReducedMotion ? 0 : 0.12,
+        delayChildren: prefersReducedMotion ? 0 : 0.2,
       },
     },
   };
@@ -19,194 +35,159 @@ const Header: FC = () => {
   const itemVariants: Variants = {
     hidden: {
       opacity: 0,
-      y: prefersReducedMotion ? 0 : 30,
-      filter: prefersReducedMotion ? "blur(0px)" : "blur(10px)",
+      y: prefersReducedMotion ? 0 : 20,
+      filter: prefersReducedMotion ? "blur(0px)" : "blur(6px)",
     },
     visible: {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
       transition: {
-        duration: prefersReducedMotion ? 0.01 : 1,
+        duration: prefersReducedMotion ? 0.01 : 0.8,
         ease: [0.23, 1, 0.32, 1],
       },
     },
   };
 
   return (
-    <header className="relative min-h-[100vh] md:min-h-screen flex items-center justify-center overflow-hidden py-20 px-6 md:py-20">
-      {/* Optimized Floating Orbs Background using CSS Animations */}
+    <header className="relative min-h-[100dvh] min-h-screen flex flex-col overflow-hidden">
+      {/* Background Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="orb orb-primary w-[300px] h-[300px] md:w-[500px] md:h-[500px] top-[-50px] md:top-[-100px] left-[-50px] md:left-[-100px] animate-float"
-          style={{ animationDelay: "0s", willChange: "transform" }}
-        ></div>
+          className="orb orb-primary w-[280px] h-[280px] md:w-[500px] md:h-[500px] top-[-60px] md:top-[-100px] left-[-80px] md:left-[-100px] animate-float"
+          style={{ animationDelay: "0s" }}
+        />
         <div
-          className="orb orb-secondary w-[250px] h-[250px] md:w-[400px] md:h-[400px] bottom-[-25px] md:bottom-[-50px] right-[-50px] md:right-[-100px] animate-float"
-          style={{ animationDelay: "-2s", willChange: "transform" }}
-        ></div>
-        {/* Hide accent orb on mobile to reduce GPU strain */}
+          className="orb orb-secondary w-[220px] h-[220px] md:w-[400px] md:h-[400px] bottom-[-40px] md:bottom-[-50px] right-[-60px] md:right-[-100px] animate-float"
+          style={{ animationDelay: "-2s" }}
+        />
         <div
-          className="orb orb-accent w-[200px] h-[200px] md:w-[300px] md:h-[300px] top-[40%] left-[60%] animate-float hidden md:block"
-          style={{ animationDelay: "-4s", willChange: "transform" }}
-        ></div>
+          className="orb orb-accent w-[180px] h-[180px] md:w-[300px] md:h-[300px] top-[45%] left-[55%] animate-float hidden md:block"
+          style={{ animationDelay: "-4s" }}
+        />
       </div>
 
+      {/* Navigation — part of the page, scrolls away naturally */}
+      <motion.nav
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: prefersReducedMotion ? 0.01 : 0.6,
+          ease: [0.23, 1, 0.32, 1],
+        }}
+        className="relative z-20 flex-shrink-0"
+      >
+        <div className="max-w-6xl lg:max-w-7xl mx-auto w-full px-5 sm:px-6 pt-6 sm:pt-8 flex items-center justify-between">
+          <a href="#" className="flex items-center gap-2.5 group">
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-[10px] font-bold tracking-tight transition-transform group-hover:scale-105">
+              JV
+            </div>
+            <span className="text-sm font-semibold text-white/80 hidden sm:block">
+              JVallejo
+            </span>
+          </a>
+          <div className="flex items-center gap-0.5 sm:gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-sm text-gray-500 hover:text-white transition-colors rounded-lg hover:bg-white/5"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Hero Content */}
       <motion.div
-        className="max-w-6xl lg:max-w-7xl mx-auto w-full relative z-10"
+        className="flex-1 flex items-center relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 xl:gap-20">
-          {/* Left Content */}
-          <div className="w-full lg:w-1/2 xl:w-3/5 text-center lg:text-left lg:max-w-3xl">
-            <motion.h1
-              variants={itemVariants}
-              className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-6 leading-tight"
-            >
-              <span className="block text-white mb-2">Hello, I'm</span>
-              <span className="liquid-text">Javier Vallejo</span>
-            </motion.h1>
-
-            <motion.h2
-              variants={itemVariants}
-              className="text-xl md:text-2xl lg:text-2xl xl:text-3xl font-light text-gray-300 mb-8"
-            >
-              Full Stack Developer
-            </motion.h2>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed"
-            >
-              I build high-performance digital products where clean engineering
-              meets thoughtful design.
-            </motion.p>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-base text-gray-500 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed"
-            >
-              My focus is modern front-end architectures, real-time features,
-              and scalable full-stack solutions powered by Svelte, TypeScript,
-              and Node.js.
-            </motion.p>
-
+        <div className="max-w-6xl lg:max-w-7xl mx-auto w-full px-5 sm:px-6 py-6 sm:py-8">
+          {/* Two-card grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
+            {/* ── Identity Card ─────────────────────────── */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
+              className="bento-card p-6 sm:p-8 lg:p-10 col-span-full lg:col-span-7 flex flex-col justify-center order-2 lg:order-1"
             >
-              <a
-                href="#projects"
-                className="btn-liquid group min-h-[44px] flex items-center justify-center"
-              >
-                View Work
-                <span className="inline-block ml-2 transition-transform group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
-              <a
-                href="#contact"
-                className="btn-liquid-secondary min-h-[44px] flex items-center justify-center"
-              >
-                Contact Me
-              </a>
-            </motion.div>
+              <p className="text-[11px] sm:text-xs font-medium uppercase tracking-[0.25em] text-gray-500 mb-4 lg:mb-6">
+                Full Stack Developer
+              </p>
+              <h1 className="hero-name text-[2.8rem] sm:text-[4rem] lg:text-[5rem] xl:text-[5.5rem] mb-4 lg:mb-6">
+                <span className="liquid-text block">Javier</span>
+                <span className="liquid-text block">Vallejo</span>
+              </h1>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-sm leading-relaxed font-light mb-6 lg:mb-8">
+                I build high-performance digital products.
+              </p>
 
-            {/* Stats / Highlight Line */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col gap-4 justify-center lg:justify-start mb-8 text-center lg:text-left"
-            >
-              <div className="text-sm text-gray-400 uppercase tracking-wider mb-2">
-                2+ Years in Production
-              </div>
-              <div className="text-lg font-semibold text-white mb-2">
-                Modern Front-End & Full-Stack Developer
-              </div>
-              <div className="flex flex-wrap gap-2 text-sm text-gray-500 justify-center lg:justify-start">
-                <span>Svelte</span>
-                <span>•</span>
-                <span>TypeScript</span>
-                <span>•</span>
-                <span>JavaScript</span>
-                <span>•</span>
-                <span>Node.js</span>
+              {/* CTAs */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="#projects"
+                  className="btn-hero-primary group min-h-[44px] flex items-center justify-center gap-2 text-sm"
+                >
+                  View Work
+                  <ArrowRight
+                    size={15}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </a>
+                <a
+                  href="#contact"
+                  className="btn-liquid-secondary min-h-[44px] flex items-center justify-center text-sm"
+                >
+                  Get in Touch
+                </a>
               </div>
             </motion.div>
 
-            {/* Socials */}
+            {/* ── Photo Card ────────────────────────────── */}
             <motion.div
               variants={itemVariants}
-              className="flex gap-4 sm:gap-6 justify-center lg:justify-start mt-12"
+              className="bento-card p-0 col-span-full lg:col-span-5 aspect-[4/3] lg:aspect-auto overflow-hidden group order-1 lg:order-2"
             >
-              {[
-                {
-                  icon: Github,
-                  href: "https://github.com/jvallejoarguez",
-                  label: "GitHub",
-                },
-                {
-                  icon: Linkedin,
-                  href: "https://linkedin.com/in/javier-vallejo-arguez",
-                  label: "LinkedIn",
-                },
-                {
-                  icon: Mail,
-                  href: "mailto:jvallejoarguez@gmail.com",
-                  label: "Email",
-                },
-              ].map((social) => (
+              <div className="relative w-full h-full min-h-[220px] sm:min-h-[280px] lg:min-h-full">
+                <img
+                  src="/img/pfp.jpg"
+                  alt="Javier Vallejo"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Social + Location — below grid, no card needed */}
+          <motion.div
+            variants={itemVariants}
+            className="mt-4 sm:mt-5 flex items-center justify-between px-1"
+          >
+            <div className="flex items-center gap-0.5">
+              {socials.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                  className="text-gray-600 hover:text-white transition-colors p-2 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg hover:bg-white/5"
                   aria-label={social.label}
                 >
-                  <social.icon size={24} />
+                  <social.icon size={17} strokeWidth={1.5} />
                 </a>
               ))}
-            </motion.div>
-          </div>
-
-          {/* Right Content - Profile Image */}
-          <motion.div
-            variants={itemVariants}
-            className="relative flex-shrink-0 mt-8 lg:mt-0 w-full lg:w-1/2 xl:w-2/5 flex justify-center lg:justify-end"
-          >
-            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 group">
-              {/* Animated Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-purple-600 rounded-full blur-2xl md:blur-3xl opacity-30 md:opacity-40 group-hover:opacity-60 transition-opacity duration-700 animate-pulse-glow"></div>
-
-              {/* Double Glass Container */}
-              <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-b from-white/20 to-transparent">
-                <div className="w-full h-full rounded-full ios-glass-strong p-2 overflow-hidden ring-1 ring-white/10 backdrop-blur-xl">
-                  <img
-                    src="/img/pfp.jpg"
-                    alt="Javier Vallejo"
-                    className="w-full h-full object-cover rounded-full transform transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-              </div>
             </div>
+            <span className="text-[11px] sm:text-xs text-gray-600 flex items-center gap-1.5">
+              <MapPin size={12} />
+              Gibraltar · Remote
+            </span>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-500"
-          animate={
-            prefersReducedMotion
-              ? {}
-              : { y: [0, 10, 0], opacity: [0.5, 1, 0.5] }
-          }
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <ChevronDown size={32} />
-        </motion.div>
       </motion.div>
     </header>
   );

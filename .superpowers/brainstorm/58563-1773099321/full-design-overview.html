@@ -1,0 +1,190 @@
+<h2>Portfolio Redesign — Full Design Overview</h2>
+<p class="subtitle">4 sections, stripped of redundancy, honest content, professional presentation</p>
+
+<div class="section">
+  <h3>Page Flow</h3>
+  <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 20px;">
+    <div style="background: #6366f1; padding: 8px 16px; border-radius: 8px; color: white; font-size: 13px; font-weight: 600;">Hero</div>
+    <div style="color: #555;">→</div>
+    <div style="background: #6366f1; padding: 8px 16px; border-radius: 8px; color: white; font-size: 13px; font-weight: 600;">Projects</div>
+    <div style="color: #555;">→</div>
+    <div style="background: #6366f1; padding: 8px 16px; border-radius: 8px; color: white; font-size: 13px; font-weight: 600;">Background</div>
+    <div style="color: #555;">→</div>
+    <div style="background: #6366f1; padding: 8px 16px; border-radius: 8px; color: white; font-size: 13px; font-weight: 600;">Contact</div>
+    <div style="color: #555;">→</div>
+    <div style="background: #333; padding: 8px 16px; border-radius: 8px; color: #999; font-size: 13px;">Footer</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="mockup">
+  <div class="mockup-header">1. Hero — Clean Split</div>
+  <div class="mockup-body" style="background: #050505; padding: 40px;">
+    <div style="display: flex; gap: 40px; align-items: center; font-family: system-ui;">
+      <div style="flex: 1;">
+        <div style="color: #737373; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">Full Stack Developer</div>
+        <div style="color: #e5e5e5; font-size: 32px; font-weight: 700; line-height: 1.15; margin-bottom: 12px;">Javier<br>Vallejo</div>
+        <div style="color: #a3a3a3; font-size: 14px; line-height: 1.5; margin-bottom: 6px;">I build high-performance digital products.</div>
+        <div style="color: #555; font-size: 13px; margin-bottom: 20px;">Svelte · TypeScript · Node.js</div>
+        <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+          <div style="padding: 8px 20px; border-radius: 8px; background: #6366f1; color: white; font-size: 13px;">View Work</div>
+          <div style="padding: 8px 20px; border-radius: 8px; border: 1px solid #333; color: #a3a3a3; font-size: 13px;">Get in Touch</div>
+        </div>
+        <div style="display: flex; gap: 16px;">
+          <span style="color: #555; font-size: 12px;">GitHub</span>
+          <span style="color: #555; font-size: 12px;">LinkedIn</span>
+          <span style="color: #555; font-size: 12px;">Email</span>
+        </div>
+      </div>
+      <div style="flex: 0 0 160px;">
+        <div style="width: 160px; height: 200px; border-radius: 16px; background: linear-gradient(135deg, #111, #1a1a2e); border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center;">
+          <div style="color: #444; font-size: 11px;">pfp.jpg</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="mockup" style="margin-top: 16px;">
+  <div class="mockup-header">2. Projects — Visual Grid (no filters)</div>
+  <div class="mockup-body" style="background: #050505; padding: 40px;">
+    <div style="font-family: system-ui;">
+      <div style="color: #737373; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Selected Work</div>
+      <div style="color: #e5e5e5; font-size: 20px; font-weight: 600; margin-bottom: 20px;">Projects</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
+          <div style="height: 80px; background: linear-gradient(135deg, #111, #16213e); display: flex; align-items: center; justify-content: center;"><span style="color: #444; font-size: 10px;">Screenshot</span></div>
+          <div style="padding: 12px;">
+            <div style="color: #e5e5e5; font-size: 13px; font-weight: 600;">DB Games Grid 2.0</div>
+            <div style="color: #555; font-size: 11px; margin-top: 3px;">Svelte 5 · TypeScript · Node.js</div>
+          </div>
+        </div>
+        <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
+          <div style="height: 80px; background: linear-gradient(135deg, #111, #16213e); display: flex; align-items: center; justify-content: center;"><span style="color: #444; font-size: 10px;">Screenshot</span></div>
+          <div style="padding: 12px;">
+            <div style="color: #e5e5e5; font-size: 13px; font-weight: 600;">Nosotros</div>
+            <div style="color: #555; font-size: 11px; margin-top: 3px;">Next.js 15 · Hono · PostgreSQL</div>
+          </div>
+        </div>
+        <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
+          <div style="height: 80px; background: linear-gradient(135deg, #111, #16213e); display: flex; align-items: center; justify-content: center;"><span style="color: #444; font-size: 10px;">Screenshot</span></div>
+          <div style="padding: 12px;">
+            <div style="color: #e5e5e5; font-size: 13px; font-weight: 600;">Warera Automator</div>
+            <div style="color: #555; font-size: 11px; margin-top: 3px;">Next.js · FastAPI · PostgreSQL</div>
+          </div>
+        </div>
+        <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
+          <div style="height: 80px; background: linear-gradient(135deg, #111, #16213e); display: flex; align-items: center; justify-content: center;"><span style="color: #444; font-size: 10px;">Screenshot</span></div>
+          <div style="padding: 12px;">
+            <div style="color: #e5e5e5; font-size: 13px; font-weight: 600;">LineUp</div>
+            <div style="color: #555; font-size: 11px; margin-top: 3px;">React · Supabase · Tailwind</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 16px;"><span style="color: #555; font-size: 12px;">More on GitHub →</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- BACKGROUND -->
+<div class="mockup" style="margin-top: 16px;">
+  <div class="mockup-header">3. Background — Narrative + Tech (Experience & Stack merged)</div>
+  <div class="mockup-body" style="background: #050505; padding: 40px;">
+    <div style="font-family: system-ui;">
+      <div style="color: #737373; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">About</div>
+      <div style="color: #e5e5e5; font-size: 20px; font-weight: 600; margin-bottom: 16px;">Background</div>
+      <div style="color: #a3a3a3; font-size: 13px; line-height: 1.7; margin-bottom: 24px; max-width: 520px;">
+        Full Stack Developer at <span style="color: #e5e5e5;">DigitalBeat</span>, where I grew from CMS Executive to leading front-end on their real-time sports data platform. Previously built web solutions at <span style="color: #d4d4d4;">The Rock Hotel Gibraltar</span> and <span style="color: #d4d4d4;">Informática CR</span>.
+      </div>
+      <div style="color: #737373; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Core Stack</div>
+      <div style="display: flex; gap: 10px; margin-bottom: 18px;">
+        <div style="background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); border-radius: 10px; padding: 12px 16px; text-align: center;">
+          <div style="color: #818cf8; font-size: 12px; font-weight: 600;">Svelte 5</div>
+        </div>
+        <div style="background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); border-radius: 10px; padding: 12px 16px; text-align: center;">
+          <div style="color: #818cf8; font-size: 12px; font-weight: 600;">TypeScript</div>
+        </div>
+        <div style="background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); border-radius: 10px; padding: 12px 16px; text-align: center;">
+          <div style="color: #818cf8; font-size: 12px; font-weight: 600;">Node.js</div>
+        </div>
+      </div>
+      <div style="color: #737373; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Also Work With</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+        <span style="padding: 4px 10px; border-radius: 5px; background: #111; color: #666; font-size: 11px;">React</span>
+        <span style="padding: 4px 10px; border-radius: 5px; background: #111; color: #666; font-size: 11px;">Next.js</span>
+        <span style="padding: 4px 10px; border-radius: 5px; background: #111; color: #666; font-size: 11px;">PostgreSQL</span>
+        <span style="padding: 4px 10px; border-radius: 5px; background: #111; color: #666; font-size: 11px;">FastAPI</span>
+        <span style="padding: 4px 10px; border-radius: 5px; background: #111; color: #666; font-size: 11px;">Docker</span>
+        <span style="padding: 4px 10px; border-radius: 5px; background: #111; color: #666; font-size: 11px;">AWS</span>
+        <span style="padding: 4px 10px; border-radius: 5px; background: #111; color: #666; font-size: 11px;">Supabase</span>
+        <span style="padding: 4px 10px; border-radius: 5px; background: #111; color: #666; font-size: 11px;">Tailwind</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="mockup" style="margin-top: 16px;">
+  <div class="mockup-header">4. Contact — Direct links, no fake form</div>
+  <div class="mockup-body" style="background: #050505; padding: 40px;">
+    <div style="font-family: system-ui; text-align: center;">
+      <div style="color: #737373; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Get in Touch</div>
+      <div style="color: #e5e5e5; font-size: 20px; font-weight: 600; margin-bottom: 8px;">Let's Work Together</div>
+      <div style="color: #737373; font-size: 13px; margin-bottom: 24px;">Available for freelance and full-time opportunities.</div>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; padding: 16px 24px; display: flex; align-items: center; gap: 10px;">
+          <span style="color: #6366f1; font-size: 16px;">✉</span>
+          <div style="text-align: left;">
+            <div style="color: #999; font-size: 10px;">Email</div>
+            <div style="color: #e5e5e5; font-size: 13px;">jvallejoarguez@gmail.com</div>
+          </div>
+        </div>
+        <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; padding: 16px 24px; display: flex; align-items: center; gap: 10px;">
+          <span style="color: #6366f1; font-size: 16px;">⬡</span>
+          <div style="text-align: left;">
+            <div style="color: #999; font-size: 10px;">GitHub</div>
+            <div style="color: #e5e5e5; font-size: 13px;">jvallejoarguez</div>
+          </div>
+        </div>
+        <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; padding: 16px 24px; display: flex; align-items: center; gap: 10px;">
+          <span style="color: #6366f1; font-size: 16px;">in</span>
+          <div style="text-align: left;">
+            <div style="color: #999; font-size: 10px;">LinkedIn</div>
+            <div style="color: #e5e5e5; font-size: 13px;">javier-vallejo-arguez</div>
+          </div>
+        </div>
+      </div>
+      <div style="color: #444; font-size: 12px; margin-top: 16px;">Gibraltar · Remote Worldwide</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="mockup" style="margin-top: 16px;">
+  <div class="mockup-header">5. Footer — Minimal</div>
+  <div class="mockup-body" style="background: #050505; padding: 20px 40px;">
+    <div style="font-family: system-ui; display: flex; justify-content: space-between; align-items: center;">
+      <div style="color: #444; font-size: 12px;">© 2025 Javier Vallejo</div>
+      <div style="display: flex; gap: 16px;">
+        <span style="color: #555; font-size: 12px;">GitHub</span>
+        <span style="color: #555; font-size: 12px;">LinkedIn</span>
+        <span style="color: #555; font-size: 12px;">Email</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <h3>What Gets Removed</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px;">
+    <div style="padding: 8px 12px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 6px; color: #ef4444;">✕ LiquidCrystalMouseTracker</div>
+    <div style="padding: 8px 12px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 6px; color: #ef4444;">✕ ThemeProvider (unused)</div>
+    <div style="padding: 8px 12px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 6px; color: #ef4444;">✕ Contact form</div>
+    <div style="padding: 8px 12px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 6px; color: #ef4444;">✕ Project filter tabs</div>
+    <div style="padding: 8px 12px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 6px; color: #ef4444;">✕ Hero stats block</div>
+    <div style="padding: 8px 12px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 6px; color: #ef4444;">✕ Hero tech icon row</div>
+    <div style="padding: 8px 12px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 6px; color: #ef4444;">✕ Dead Privacy/Terms links</div>
+    <div style="padding: 8px 12px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 6px; color: #ef4444;">✕ Technologies section (merged)</div>
+  </div>
+</div>

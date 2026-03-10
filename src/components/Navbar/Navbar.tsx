@@ -1,6 +1,6 @@
 import { FC, useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Menu, X, Briefcase, Code, Mail } from "lucide-react";
+import { Menu, X, Briefcase, User, Mail } from "lucide-react";
 
 const Navbar: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,8 +29,7 @@ const Navbar: FC = () => {
 
   const navLinks = [
     { name: "Projects", href: "#projects", icon: Briefcase },
-    { name: "Experience", href: "#experience", icon: Code },
-    { name: "Technologies", href: "#technologies", icon: Code },
+    { name: "Background", href: "#background", icon: User },
     { name: "Contact", href: "#contact", icon: Mail },
   ];
 
@@ -67,8 +66,10 @@ const Navbar: FC = () => {
               href="#"
               className="text-xl font-bold tracking-tight text-white flex items-center gap-2 mr-8 group"
             >
-              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-primary-500 to-purple-600 flex items-center justify-center text-xs group-hover:scale-110 transition-transform">
-                JV
+              <div className="relative w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-[10px] font-bold tracking-tight group-hover:scale-110 transition-transform shadow-lg shadow-purple-500/20">
+                <span className="relative z-10">JV</span>
+                <div className="absolute inset-[1px] rounded-[10px] bg-black/30 backdrop-blur-sm" />
+                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold tracking-tight z-20">JV</span>
               </div>
               <span className={`${isScrolled ? "hidden md:block" : "block"}`}>
                 JVallejo

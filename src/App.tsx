@@ -1,14 +1,11 @@
 import { motion } from 'framer-motion';
 import { lazy, Suspense } from 'react';
-import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
-import ThemeProvider from './components/ThemeProvider/ThemeProvider';
 import LiquidCrystalBackground from './components/LiquidCrystalBackground/LiquidCrystalBackground';
 
 const Projects = lazy(() => import('./components/Projects/Projects'));
-const Experience = lazy(() => import('./components/Experience/Experience'));
-const Technologies = lazy(() => import('./components/Technologies/Technologies'));
+const Background = lazy(() => import('./components/Background/Background'));
 const Contact = lazy(() => import('./components/Contact/Contact'));
 const Footer = lazy(() => import('./components/Footer/Footer'));
 
@@ -20,38 +17,32 @@ const LazyLoadFallback = () => (
 
 function App() {
   return (
-    <ThemeProvider>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="min-h-screen bg-[#050505] text-white selection:bg-indigo-500/30 selection:text-indigo-200"
-      >
-        <LiquidCrystalBackground />
-        <ScrollProgress />
-        <Navbar />
-        
-        <main className="relative z-10">
-          <Header />
-          <Suspense fallback={<LazyLoadFallback />}>
-            <Projects />
-          </Suspense>
-          <Suspense fallback={<LazyLoadFallback />}>
-            <Experience />
-          </Suspense>
-          <Suspense fallback={<LazyLoadFallback />}>
-            <Technologies />
-          </Suspense>
-          <Suspense fallback={<LazyLoadFallback />}>
-            <Contact />
-          </Suspense>
-        </main>
-        
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="min-h-screen bg-[#050505] text-white selection:bg-indigo-500/30 selection:text-indigo-200"
+    >
+      <LiquidCrystalBackground />
+      <ScrollProgress />
+
+      <main className="relative z-10">
+        <Header />
         <Suspense fallback={<LazyLoadFallback />}>
-          <Footer />
+          <Projects />
         </Suspense>
-      </motion.div>
-    </ThemeProvider>
+        <Suspense fallback={<LazyLoadFallback />}>
+          <Background />
+        </Suspense>
+        <Suspense fallback={<LazyLoadFallback />}>
+          <Contact />
+        </Suspense>
+      </main>
+
+      <Suspense fallback={<LazyLoadFallback />}>
+        <Footer />
+      </Suspense>
+    </motion.div>
   );
 }
 

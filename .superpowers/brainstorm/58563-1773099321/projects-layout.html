@@ -1,0 +1,158 @@
+<h2>Projects Section Redesign</h2>
+<p class="subtitle">Currently: 2-col grid with filter tabs, each card has image + description + tags + buttons. The filter (All/Full Stack/Frontend/Backend) with only 4 projects feels over-engineered. How should projects be presented?</p>
+
+<div class="cards">
+  <div class="card" data-choice="featured-stack" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background: #0a0a0a; padding: 30px; font-family: system-ui; min-height: 260px;">
+        <div style="color: #737373; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Selected Work</div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <!-- Project 1 - Featured -->
+          <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; padding: 20px; display: flex; gap: 20px; align-items: center;">
+            <div style="flex: 0 0 100px; height: 70px; border-radius: 8px; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+              <div style="color: #555; font-size: 10px;">Image</div>
+            </div>
+            <div style="flex: 1;">
+              <div style="color: #e5e5e5; font-size: 15px; font-weight: 600;">DB Games Grid 2.0</div>
+              <div style="color: #737373; font-size: 12px; margin-top: 4px;">Real-time sports data platform · Svelte 5, TypeScript, Node.js</div>
+            </div>
+            <div style="color: #6366f1; font-size: 12px;">→</div>
+          </div>
+
+          <!-- Project 2 -->
+          <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; padding: 20px; display: flex; gap: 20px; align-items: center;">
+            <div style="flex: 0 0 100px; height: 70px; border-radius: 8px; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+              <div style="color: #555; font-size: 10px;">Image</div>
+            </div>
+            <div style="flex: 1;">
+              <div style="color: #e5e5e5; font-size: 15px; font-weight: 600;">Nosotros</div>
+              <div style="color: #737373; font-size: 12px; margin-top: 4px;">Couples PWA · Next.js 15, Hono, PostgreSQL</div>
+            </div>
+            <div style="color: #6366f1; font-size: 12px;">→</div>
+          </div>
+
+          <!-- Project 3 -->
+          <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; padding: 20px; display: flex; gap: 20px; align-items: center;">
+            <div style="flex: 0 0 100px; height: 70px; border-radius: 8px; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+              <div style="color: #555; font-size: 10px;">Image</div>
+            </div>
+            <div style="flex: 1;">
+              <div style="color: #e5e5e5; font-size: 15px; font-weight: 600;">Warera Automator</div>
+              <div style="color: #737373; font-size: 12px; margin-top: 4px;">Enterprise automation · Next.js, Python, FastAPI</div>
+            </div>
+            <div style="color: #6366f1; font-size: 12px;">→</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 16px; text-align: center;">
+          <span style="color: #555; font-size: 12px;">View all on GitHub →</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A: Compact List</h3>
+      <p>No filters. Horizontal cards with thumbnail, title, one-line description, and tech. Clean, scannable, professional. Click to expand or navigate. Feels like a senior developer's curated list.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="showcase-grid" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background: #0a0a0a; padding: 30px; font-family: system-ui; min-height: 260px;">
+        <div style="color: #737373; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Selected Work</div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
+            <div style="height: 90px; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+              <div style="color: #555; font-size: 10px;">Screenshot</div>
+            </div>
+            <div style="padding: 12px;">
+              <div style="color: #e5e5e5; font-size: 13px; font-weight: 600;">DB Games Grid</div>
+              <div style="color: #737373; font-size: 11px; margin-top: 4px;">Svelte 5 · TypeScript</div>
+            </div>
+          </div>
+          <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
+            <div style="height: 90px; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+              <div style="color: #555; font-size: 10px;">Screenshot</div>
+            </div>
+            <div style="padding: 12px;">
+              <div style="color: #e5e5e5; font-size: 13px; font-weight: 600;">Nosotros</div>
+              <div style="color: #737373; font-size: 11px; margin-top: 4px;">Next.js · Hono</div>
+            </div>
+          </div>
+          <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
+            <div style="height: 90px; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+              <div style="color: #555; font-size: 10px;">Screenshot</div>
+            </div>
+            <div style="padding: 12px;">
+              <div style="color: #e5e5e5; font-size: 13px; font-weight: 600;">Warera Automator</div>
+              <div style="color: #737373; font-size: 11px; margin-top: 4px;">Next.js · FastAPI</div>
+            </div>
+          </div>
+          <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
+            <div style="height: 90px; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+              <div style="color: #555; font-size: 10px;">Screenshot</div>
+            </div>
+            <div style="padding: 12px;">
+              <div style="color: #e5e5e5; font-size: 13px; font-weight: 600;">LineUp</div>
+              <div style="color: #737373; font-size: 11px; margin-top: 4px;">React · Supabase</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B: Visual Grid (Current, refined)</h3>
+      <p>2x2 grid with prominent screenshots, minimal text below. No filter tabs. Cleaner version of current layout — let the visuals do the talking. Hover reveals details.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="case-study" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background: #0a0a0a; padding: 30px; font-family: system-ui; min-height: 260px;">
+        <div style="color: #737373; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Selected Work</div>
+
+        <!-- Featured project large -->
+        <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden; margin-bottom: 12px;">
+          <div style="height: 120px; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+            <div style="color: #555; font-size: 10px;">Full-width screenshot</div>
+          </div>
+          <div style="padding: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="color: #e5e5e5; font-size: 16px; font-weight: 600;">DB Games Grid 2.0</div>
+                <div style="color: #737373; font-size: 12px; margin-top: 4px;">Real-time sports data platform for DigitalBeat</div>
+              </div>
+              <div style="color: #6366f1; font-size: 12px; white-space: nowrap;">Read more →</div>
+            </div>
+            <div style="display: flex; gap: 6px; margin-top: 10px;">
+              <span style="padding: 2px 8px; border-radius: 4px; background: #1a1a2e; color: #818cf8; font-size: 10px;">Svelte 5</span>
+              <span style="padding: 2px 8px; border-radius: 4px; background: #1a1a2e; color: #818cf8; font-size: 10px;">TypeScript</span>
+              <span style="padding: 2px 8px; border-radius: 4px; background: #1a1a2e; color: #818cf8; font-size: 10px;">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smaller projects -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+          <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 8px; padding: 10px; text-align: center;">
+            <div style="color: #e5e5e5; font-size: 12px; font-weight: 500;">Nosotros</div>
+            <div style="color: #555; font-size: 10px;">PWA</div>
+          </div>
+          <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 8px; padding: 10px; text-align: center;">
+            <div style="color: #e5e5e5; font-size: 12px; font-weight: 500;">Warera</div>
+            <div style="color: #555; font-size: 10px;">Automation</div>
+          </div>
+          <div style="background: #111; border: 1px solid #1a1a1a; border-radius: 8px; padding: 10px; text-align: center;">
+            <div style="color: #e5e5e5; font-size: 12px; font-weight: 500;">LineUp</div>
+            <div style="color: #555; font-size: 10px;">Productivity</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C: Featured + Supporting</h3>
+      <p>One hero project gets a large card with full description. Other projects shown smaller below. Highlights your best work while still showing breadth. DB Games Grid or Nosotros as the star.</p>
+    </div>
+  </div>
+</div>

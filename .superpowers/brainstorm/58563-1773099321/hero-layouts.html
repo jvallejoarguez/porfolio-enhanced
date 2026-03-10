@@ -1,0 +1,75 @@
+<h2>Hero Section Redesign</h2>
+<p class="subtitle">Your current hero has: name, title, long description, secondary description, stats block, tech stack icons, CTA buttons, profile image, social links, and scroll indicator. That's a LOT. Which direction feels right?</p>
+
+<div class="cards">
+  <div class="card" data-choice="minimal" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background: #0a0a0a; padding: 40px 30px; font-family: system-ui; min-height: 280px; display: flex; flex-direction: column; justify-content: center;">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">JV</div>
+          <div>
+            <div style="color: #e5e5e5; font-size: 18px; font-weight: 600;">Javier Vallejo</div>
+            <div style="color: #737373; font-size: 13px;">Full Stack Developer · Gibraltar</div>
+          </div>
+        </div>
+        <div style="color: #d4d4d4; font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 16px;">I build high-performance<br>digital products.</div>
+        <div style="color: #737373; font-size: 14px; line-height: 1.6; margin-bottom: 24px;">Focused on Svelte, TypeScript, and Node.js.<br>Clean engineering meets thoughtful design.</div>
+        <div style="display: flex; gap: 12px;">
+          <div style="padding: 8px 20px; border-radius: 8px; background: #6366f1; color: white; font-size: 13px; font-weight: 500;">View Work</div>
+          <div style="padding: 8px 20px; border-radius: 8px; border: 1px solid #333; color: #a3a3a3; font-size: 13px; font-weight: 500;">Contact</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A: Minimal & Confident</h3>
+      <p>No profile photo, no stats block, no tech icons. Just your name, a sharp one-liner, your stack, and two CTAs. Lets the work speak. Very senior energy.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="split" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background: #0a0a0a; padding: 40px 30px; font-family: system-ui; min-height: 280px; display: flex; gap: 40px; align-items: center;">
+        <div style="flex: 1;">
+          <div style="color: #737373; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">Full Stack Developer</div>
+          <div style="color: #e5e5e5; font-size: 32px; font-weight: 700; line-height: 1.15; margin-bottom: 16px;">Javier<br>Vallejo</div>
+          <div style="color: #737373; font-size: 14px; line-height: 1.6; margin-bottom: 20px;">Building production apps with Svelte, TypeScript, and Node.js from Gibraltar.</div>
+          <div style="display: flex; gap: 12px;">
+            <div style="padding: 8px 20px; border-radius: 8px; background: #6366f1; color: white; font-size: 13px;">View Work</div>
+            <div style="padding: 8px 20px; border-radius: 8px; border: 1px solid #333; color: #a3a3a3; font-size: 13px;">GitHub</div>
+          </div>
+        </div>
+        <div style="flex: 0 0 140px;">
+          <div style="width: 140px; height: 180px; border-radius: 16px; background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #222; display: flex; align-items: center; justify-content: center;">
+            <div style="color: #555; font-size: 11px;">Photo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B: Clean Split (Current feel, refined)</h3>
+      <p>Text left, photo right — but stripped of all the extras. No stats, no floating orbs, no tech icon row. Tight copy. Photo earns its space.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="statement" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background: #0a0a0a; padding: 40px 30px; font-family: system-ui; min-height: 280px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <div style="color: #737373; font-size: 12px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;">Javier Vallejo · Full Stack Developer</div>
+        <div style="color: #e5e5e5; font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 12px; max-width: 500px;">Clean engineering<br>meets thoughtful<br>design.</div>
+        <div style="color: #737373; font-size: 14px; margin-bottom: 28px;">Svelte · TypeScript · Node.js</div>
+        <div style="display: flex; gap: 16px;">
+          <div style="padding: 10px 28px; border-radius: 8px; background: #6366f1; color: white; font-size: 14px;">Explore My Work</div>
+        </div>
+        <div style="margin-top: 40px; display: flex; gap: 20px;">
+          <div style="color: #555; font-size: 12px;">GitHub</div>
+          <div style="color: #555; font-size: 12px;">LinkedIn</div>
+          <div style="color: #555; font-size: 12px;">Email</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C: Statement Centered</h3>
+      <p>No photo, centered layout. Your tagline IS the hero. Name and title as a subtle header, single CTA, socials at bottom. Bold, typography-driven. Makes a statement.</p>
+    </div>
+  </div>
+</div>
