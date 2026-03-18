@@ -46,7 +46,7 @@ const projectData: Project[] = [
       "A modern productivity ecosystem combining task organization, focus sessions, and AI-powered assistance. Minimal UI, fast interactions, and a workflow built for deep work.",
     technologies: ["React", "TypeScript", "Supabase", "Tailwind CSS"],
     imageUrl: "/lineup.png",
-    liveUrl: "https://www.lineupai.app/",
+    liveUrl: "https://lineupai.vercel.app/",
     githubUrl: "https://github.com/jvallejoarguez/lineup-code",
   },
 ];
