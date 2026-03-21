@@ -6,7 +6,12 @@
       "Bash(npx eslint:*)",
       "Bash(npx tsc:*)",
       "Bash(npm run lint)",
-      "Bash(/Users/jvallejo/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.0/lib/brainstorm-server/start-server.sh:*)"
+      "Bash(/Users/jvallejo/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.0/lib/brainstorm-server/start-server.sh:*)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npx playwright:*)",
+      "Bash(npx puppeteer:*)",
+      "Read(//Applications/Google Chrome.app/**)"
     ],
     "deny": [],
     "ask": []

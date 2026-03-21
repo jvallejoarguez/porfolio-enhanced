@@ -10,6 +10,8 @@ interface Project {
   imageUrl: string;
   githubUrl?: string;
   liveUrl?: string;
+  liveUrls?: { label: string; url: string }[];
+  badge?: string;
 }
 
 const projectData: Project[] = [
@@ -25,16 +27,21 @@ const projectData: Project[] = [
   {
     id: 2,
     title: "DB Games Grid 2.0",
+    badge: "Internal",
     description:
       "A high-performance game grid system engineered for DigitalBeat, powering multiple gaming brands. Built with Svelte 5 and designed for fast rendering, smooth interactions, and integration with internal APIs.",
     technologies: ["Svelte 5", "TypeScript", "Node.js", "Custom APIs"],
     imageUrl: "/digibeat.jpg",
+    liveUrls: [
+      { label: "NorthStarBets", url: "https://www.northstarbets.ca" },
+      { label: "HardRockBet", url: "https://www.hardrockbet.mx" },
+    ],
   },
   {
     id: 3,
     title: "Warera Automator",
     description:
-      "Enterprise-grade business automation platform. Orchestrates 24/7 production cycles, worker management, and server-side operations.",
+      "Next.js landing page connected to a Python backend on Railway that automates a third-party game via APIs. Enter your username and it handles everything else.",
     technologies: ["Next.js", "Python", "FastAPI", "PostgreSQL"],
     imageUrl: "/img/warera_automator.png",
     liveUrl: "https://warera-automator.vercel.app/",
@@ -45,7 +52,7 @@ const projectData: Project[] = [
     description:
       "A modern productivity ecosystem combining task organization, focus sessions, and AI-powered assistance. Minimal UI, fast interactions, and a workflow built for deep work.",
     technologies: ["React", "TypeScript", "Supabase", "Tailwind CSS"],
-    imageUrl: "/lineup.png",
+    imageUrl: "/img/lineup.png",
     liveUrl: "https://lineupai.vercel.app/",
     githubUrl: "https://github.com/jvallejoarguez/lineup-code",
   },
@@ -143,13 +150,31 @@ const Projects: FC = () => {
                         <ExternalLink size={18} />
                       </a>
                     )}
+                    {project.liveUrls?.map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-primary-600/80 backdrop-blur-md rounded-full hover:bg-primary-500 transition-colors text-xs font-medium min-h-[44px]"
+                        aria-label={`Visit ${link.label}`}
+                      >
+                        <ExternalLink size={14} />
+                        {link.label}
+                      </a>
+                    ))}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="px-3 md:px-4 py-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors flex items-center gap-2">
                     {project.title}
+                    {project.badge && (
+                      <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-gray-400 border border-white/10">
+                        {project.badge}
+                      </span>
+                    )}
                   </h3>
                   <p className="text-sm text-gray-400 mb-4 leading-relaxed">
                     {project.description}
