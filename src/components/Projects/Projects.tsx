@@ -30,7 +30,7 @@ const projectData: Project[] = [
     description:
       "An online social deduction word game for 3-12 friends. Players create private rooms, share a code, take timed turns, vote, and try to uncover who does not know the secret word.",
     technologies: ["React", "Vite", "Cloudflare Workers", "Durable Objects"],
-    imageUrl: "/img/el-impostor.png",
+    imageUrl: "/img/el-impostor.svg",
     liveUrl: "https://juegoimpostor.app/",
     githubUrl: "https://github.com/jvallejoarguez/el_Impostor",
   },
