@@ -26,6 +26,16 @@ const projectData: Project[] = [
   },
   {
     id: 2,
+    title: "El Impostor",
+    description:
+      "An online social deduction word game for 3-12 friends. Players create private rooms, share a code, take timed turns, vote, and try to uncover who does not know the secret word.",
+    technologies: ["React", "Vite", "Cloudflare Workers", "Durable Objects"],
+    imageUrl: "/img/el-impostor.png",
+    liveUrl: "https://juegoimpostor.app/",
+    githubUrl: "https://github.com/jvallejoarguez/el_Impostor",
+  },
+  {
+    id: 3,
     title: "DB Games Grid 2.0",
     badge: "Internal",
     description:
@@ -38,7 +48,7 @@ const projectData: Project[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Warera Automator",
     description:
       "Next.js landing page connected to a Python backend on Railway that automates a third-party game via APIs. Enter your username and it handles everything else.",
@@ -47,7 +57,7 @@ const projectData: Project[] = [
     liveUrl: "https://warera-automator.vercel.app/",
   },
   {
-    id: 4,
+    id: 5,
     title: "LineUp",
     description:
       "A modern productivity ecosystem combining task organization, focus sessions, and AI-powered assistance. Minimal UI, fast interactions, and a workflow built for deep work.",
