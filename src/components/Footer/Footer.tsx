@@ -24,7 +24,7 @@ const Footer: FC = () => {
     <footer className="relative py-8 md:py-12 px-4 md:px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto border-t border-white/10 pt-6 md:pt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-gray-500">
         <div className="text-center md:text-left">
-          &copy; 2025 Javier Vallejo
+          &copy; {new Date().getFullYear()} Javier Vallejo
         </div>
         <div className="flex items-center justify-center md:justify-end gap-4">
           {socials.map((social) => (

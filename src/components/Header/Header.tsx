@@ -155,7 +155,10 @@ const Header: FC = () => {
               <div className="relative w-full h-full min-h-[220px] sm:min-h-[280px] lg:min-h-full">
                 <img
                   src="/img/pfp.jpg"
-                  alt="Javier Vallejo"
+                  alt="Javier Vallejo, Full Stack Developer"
+                  width={979}
+                  height={1200}
+                  fetchPriority="high"
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent" />

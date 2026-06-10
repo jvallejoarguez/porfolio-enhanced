@@ -53,7 +53,7 @@ const projectData: Project[] = [
     description:
       "Next.js landing page connected to a Python backend on Railway that automates a third-party game via APIs. Enter your username and it handles everything else.",
     technologies: ["Next.js", "Python", "FastAPI", "PostgreSQL"],
-    imageUrl: "/img/warera_automator.png",
+    imageUrl: "/img/warera-automator.jpg",
     liveUrl: "https://warera-automator.vercel.app/",
   },
   {
@@ -62,7 +62,7 @@ const projectData: Project[] = [
     description:
       "A modern productivity ecosystem combining task organization, focus sessions, and AI-powered assistance. Minimal UI, fast interactions, and a workflow built for deep work.",
     technologies: ["React", "TypeScript", "Supabase", "Tailwind CSS"],
-    imageUrl: "/img/lineup.png",
+    imageUrl: "/img/lineup.jpg",
     liveUrl: "https://lineupai.vercel.app/",
     githubUrl: "https://github.com/jvallejoarguez/lineup-code",
   },
@@ -130,7 +130,7 @@ const Projects: FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
                   <img
                     src={project.imageUrl}
-                    alt={project.title}
+                    alt={`Screenshot of ${project.title}`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
