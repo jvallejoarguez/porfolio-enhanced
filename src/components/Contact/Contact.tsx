@@ -1,115 +1,88 @@
-import { FC, memo } from "react";
-import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, MapPin } from "lucide-react";
+import { ArrowUpRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import { track } from '@vercel/analytics/react';
+import { site } from '../../content/site';
 
 const contactLinks = [
   {
+    label: 'Email',
+    value: site.email,
+    href: `mailto:${site.email}`,
     icon: Mail,
-    label: "Email",
-    value: "jvallejoarguez@gmail.com",
-    href: "mailto:jvallejoarguez@gmail.com",
-    color: "text-primary-400",
   },
   {
+    label: 'GitHub',
+    value: 'jvallejoarguez',
+    href: site.socialLinks[0].href,
     icon: Github,
-    label: "GitHub",
-    value: "jvallejoarguez",
-    href: "https://github.com/jvallejoarguez",
-    color: "text-gray-300",
-    external: true,
   },
   {
+    label: 'LinkedIn',
+    value: 'Javier Vallejo',
+    href: site.socialLinks[1].href,
     icon: Linkedin,
-    label: "LinkedIn",
-    value: "Javier Vallejo",
-    href: "https://linkedin.com/in/javier-vallejo-arguez",
-    color: "text-blue-400",
-    external: true,
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.23, 1, 0.32, 1] as const },
-  },
-};
-
-const Contact: FC = () => {
+export default function Contact() {
   return (
-    <section className="section relative py-16 md:py-32" id="contact">
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <p className="text-primary-400 font-semibold tracking-widest text-sm uppercase mb-2">
-            Get in Touch
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Let's Work <span className="liquid-text">Together</span>
+    <section
+      className="section contact-section"
+      id="contact"
+      aria-labelledby="contact-title"
+    >
+      <div className="site-container contact-panel">
+        <div className="contact-panel__copy">
+          <p className="eyebrow">Contact</p>
+          <h2 id="contact-title">
+            Let’s build something that earns its place.
           </h2>
-          <p className="text-gray-400 text-lg">
-            Available for freelance and full-time opportunities.
+          <p>
+            {site.availability} Tell me what you are building, what is getting
+            in the way, and where I can help.
           </p>
-        </motion.div>
+          <div className="contact-panel__actions">
+            <a
+              className="button button--light"
+              href={`mailto:${site.email}`}
+              onClick={() =>
+                track('Contact', { method: 'email', location: 'panel' })
+              }
+            >
+              Start a conversation
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </a>
+            <a
+              className="button button--ghost-light"
+              href="/javier-vallejo-cv.pdf"
+              download
+              onClick={() => track('Download CV', { location: 'contact' })}
+            >
+              <Download size={17} aria-hidden="true" />
+              Download CV
+            </a>
+          </div>
+        </div>
 
-        {/* Contact Cards */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <div className="contact-list">
           {contactLinks.map((link) => (
-            <motion.a
+            <a
               key={link.label}
               href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
-              variants={itemVariants}
-              className="ios-glass-strong p-6 md:p-8 flex flex-col items-center text-center gap-3 group hover:border-white/20 transition-all min-h-[44px]"
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={
+                link.href.startsWith('http') ? 'noopener noreferrer' : undefined
+              }
             >
-              <div className={`${link.color} transition-transform group-hover:scale-110`}>
-                <link.icon size={28} />
-              </div>
-              <span className="text-xs font-medium uppercase tracking-wider text-gray-500">
-                {link.label}
+              <link.icon size={20} aria-hidden="true" />
+              <span>
+                <small>{link.label}</small>
+                <strong>{link.value}</strong>
               </span>
-              <span className="text-sm text-gray-300 group-hover:text-white transition-colors">
-                {link.value}
-              </span>
-            </motion.a>
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </a>
           ))}
-        </motion.div>
-
-        {/* Location */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center text-sm text-gray-500 flex items-center justify-center gap-1.5"
-        >
-          <MapPin size={14} />
-          Gibraltar &middot; Remote Worldwide
-        </motion.p>
+        </div>
       </div>
     </section>
   );
-};
-
-export default memo(Contact);
+}

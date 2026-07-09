@@ -1,48 +1,42 @@
-import { motion } from 'framer-motion';
-import { lazy, Suspense } from 'react';
-import Header from './components/Header/Header';
-import ScrollProgress from './components/ScrollProgress/ScrollProgress';
-import LiquidCrystalBackground from './components/LiquidCrystalBackground/LiquidCrystalBackground';
+import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPage';
+import ProjectPage from './pages/ProjectPage';
+import Seo from './components/Seo/Seo';
 
-const Projects = lazy(() => import('./components/Projects/Projects'));
-const Background = lazy(() => import('./components/Background/Background'));
-const Contact = lazy(() => import('./components/Contact/Contact'));
-const Footer = lazy(() => import('./components/Footer/Footer'));
+function ScrollManager() {
+  const location = useLocation();
 
-const LazyLoadFallback = () => (
-  <div className="w-full min-h-[200px] flex items-center justify-center">
-    <div className="w-8 h-8 border-2 border-primary-500/20 border-t-primary-500 rounded-full animate-spin" />
-  </div>
-);
+  useEffect(() => {
+    if (location.hash) {
+      const target = document.getElementById(location.hash.slice(1));
+      target?.scrollIntoView();
+      return;
+    }
+
+    window.scrollTo({ top: 0 });
+  }, [location.pathname, location.hash]);
+
+  return null;
+}
 
 function App() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-screen bg-[#050505] text-white selection:bg-indigo-500/30 selection:text-indigo-200"
-    >
-      <LiquidCrystalBackground />
-      <ScrollProgress />
-
-      <main className="relative z-10">
-        <Header />
-        <Suspense fallback={<LazyLoadFallback />}>
-          <Projects />
-        </Suspense>
-        <Suspense fallback={<LazyLoadFallback />}>
-          <Background />
-        </Suspense>
-        <Suspense fallback={<LazyLoadFallback />}>
-          <Contact />
-        </Suspense>
-      </main>
-
-      <Suspense fallback={<LazyLoadFallback />}>
-        <Footer />
-      </Suspense>
-    </motion.div>
+    <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <Seo />
+      <ScrollManager />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/work/:slug" element={<ProjectPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <Analytics />
+    </>
   );
 }
 

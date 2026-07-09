@@ -1,48 +1,40 @@
-import { FC, memo } from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { site } from '../../content/site';
 
-const socials = [
-  {
-    icon: Github,
-    href: "https://github.com/jvallejoarguez",
-    label: "GitHub",
-  },
-  {
-    icon: Linkedin,
-    href: "https://linkedin.com/in/javier-vallejo-arguez",
-    label: "LinkedIn",
-  },
-  {
-    icon: Mail,
-    href: "mailto:jvallejoarguez@gmail.com",
-    label: "Email",
-  },
-];
-
-const Footer: FC = () => {
+export default function Footer() {
   return (
-    <footer className="relative py-8 md:py-12 px-4 md:px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto border-t border-white/10 pt-6 md:pt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-gray-500">
-        <div className="text-center md:text-left">
-          &copy; {new Date().getFullYear()} Javier Vallejo
+    <footer className="site-footer">
+      <div className="site-container site-footer__inner">
+        <div>
+          <Link
+            className="brand brand--footer"
+            to="/"
+            aria-label={`${site.name}, home`}
+          >
+            <span className="brand__mark" aria-hidden="true">
+              {site.shortName}
+            </span>
+            <span className="brand__name">{site.name}</span>
+          </Link>
+          <p>Full-stack product engineering from Gibraltar.</p>
         </div>
-        <div className="flex items-center justify-center md:justify-end gap-4">
-          {socials.map((social) => (
+        <div className="site-footer__links">
+          {site.socialLinks.map((link) => (
             <a
-              key={social.label}
-              href={social.href}
+              key={link.label}
+              href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-white transition-colors p-1.5 min-w-[44px] min-h-[44px] flex items-center justify-center"
-              aria-label={social.label}
             >
-              <social.icon size={18} />
+              {link.label}
             </a>
           ))}
+          <a href={`mailto:${site.email}`}>Email</a>
         </div>
+        <p className="site-footer__copyright">
+          © {new Date().getFullYear()} {site.name}
+        </p>
       </div>
     </footer>
   );
-};
-
-export default memo(Footer);
+}

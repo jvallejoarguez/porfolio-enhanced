@@ -1,0 +1,8 @@
+dist
+.ssr
+node_modules
+output
+package-lock.json
+.claude
+.superpowers
+tmp
