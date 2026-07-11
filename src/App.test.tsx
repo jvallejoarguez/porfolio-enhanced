@@ -24,7 +24,7 @@ describe('portfolio routes', () => {
     expect(
       screen.getAllByRole('link', { name: 'Read case study' }),
     ).toHaveLength(3);
-    expect(screen.getByText('DB Games Grid 2.0')).toBeInTheDocument();
+    expect(screen.getByText('DB Games Grid')).toBeInTheDocument();
   });
 
   it('renders a dedicated project case-study route', () => {

@@ -3,10 +3,10 @@ export const site = {
   shortName: 'JV',
   role: 'Full-stack developer',
   email: 'jvallejoarguez@gmail.com',
-  location: 'Gibraltar',
+  location: 'La Línea de la Concepción, Cádiz',
   url: 'https://www.jvallejo.dev',
   description:
-    'Full-stack developer in Gibraltar building fast, reliable web products with Svelte, TypeScript, React, and Node.js.',
+    'Performance-minded full-stack developer based in La Línea de la Concepción and working in Gibraltar, building fast, app-like products with Svelte, TypeScript, React, and Web Components.',
   availability:
     'Open to full-stack product roles and selected freelance collaborations.',
   socialLinks: [
@@ -21,19 +21,19 @@ export const site = {
   ],
   proof: [
     {
-      value: '~50%',
-      label: 'Performance improvement',
-      detail: 'Production games-grid rewrite versus the legacy implementation',
+      value: '1.4 → 2.7',
+      label: 'Platform ownership',
+      detail: 'Grew DB Games Grid from a component into a product foundation',
     },
     {
-      value: 'Multi-brand',
-      label: 'Production delivery',
-      detail: 'Product work shipped across regulated gaming brands',
+      value: 'Every KB',
+      label: 'Performance discipline',
+      detail: 'Engineered for smooth interaction on lower-end devices',
     },
     {
-      value: 'Full stack',
-      label: 'Product ownership',
-      detail: 'Interfaces, APIs, data models, deployment, and operations',
+      value: '4 surfaces',
+      label: 'Unified experience',
+      detail: 'Casino, live casino, sportsbook, and promotions',
     },
   ],
 } as const;

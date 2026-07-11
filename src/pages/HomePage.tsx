@@ -32,9 +32,10 @@ export default function HomePage() {
                 <span>production.</span>
               </h1>
               <p className="hero__lede">
-                I work across interface, architecture, APIs, and delivery—most
-                recently leading a multi-brand frontend rewrite that improved
-                performance by approximately 50% over its legacy implementation.
+                I turn constrained web platforms into fast, app-like products.
+                My flagship work combines DB Games Grid with the Hard Rock Bet
+                Mexico portal, where architecture, performance, and design
+                judgment meet.
               </p>
 
               <div className="hero__actions" aria-label="Portfolio actions">
@@ -115,8 +116,9 @@ export default function HomePage() {
           <div className="site-container location-strip__inner">
             <MapPin size={18} aria-hidden="true" />
             <p>
-              Based in Gibraltar, collaborating with product and engineering
-              teams across locations and time zones.
+              Based in La Línea de la Concepción, Cádiz, and working on-site in
+              Gibraltar with product and engineering teams across locations and
+              time zones.
             </p>
           </div>
         </section>

@@ -1,6 +1,6 @@
 # Javier Vallejo portfolio
 
-A content-first portfolio for Javier Vallejo, a full-stack developer based in Gibraltar. The site is built with React, TypeScript, Vite, and Tailwind CSS, with static pre-rendering for the homepage and every project case study.
+A content-first portfolio for Javier Vallejo, a full-stack developer based in La Línea de la Concepción and working in Gibraltar. The site is built with React, TypeScript, Vite, and Tailwind CSS, with static pre-rendering for the homepage and every project case study.
 
 ## What is included
 
@@ -65,13 +65,21 @@ This keeps the deployment fully static while giving recruiters and search engine
 
 ## CV
 
-The PDF is generated from known portfolio facts with the bundled ReportLab workflow:
+The website now uses a black-and-white, single-column Harvard-style technical CV. Generate its editable DOCX with:
+
+```bash
+python3 scripts/generate-harvard-cv.py
+```
+
+The source artifact is written to `output/docx/javier-vallejo-cv-harvard.docx`. Render that file to PDF, copy the result to `output/pdf/javier-vallejo-cv-harvard.pdf`, and publish the same PDF as both `public/javier-vallejo-cv-harvard.pdf` and `public/javier-vallejo-cv.pdf`.
+
+The previous designed CV remains available as `public/javier-vallejo-cv-colour.pdf`. Its ReportLab generator is kept separately:
 
 ```bash
 python3 scripts/generate-cv.py
 ```
 
-The canonical artifact is written to `output/pdf/javier-vallejo-cv.pdf` and copied to `public/javier-vallejo-cv.pdf` for the website download links.
+The website download links continue to use `public/javier-vallejo-cv.pdf`, which is now the Harvard-style version.
 
 ## Deployment
 
@@ -79,7 +87,7 @@ Vercel serves the `dist` directory produced by `npm run build`. Security and cac
 
 ## Maintenance checklist
 
-- Replace approximate performance claims when a more precise measurement definition is available.
+- Add controlled performance measurements when a comparable baseline and test definition are available.
 - Run `npm run check:links` before publishing content updates.
 - Keep project outcomes and current-role dates fresh.
 - Run `npm audit` and update dependencies deliberately; major framework migrations should remain separate from content changes.

@@ -59,7 +59,7 @@ export function getStructuredDataForPath(url: string) {
     address: {
       '@type': 'PostalAddress',
       addressLocality: site.location,
-      addressCountry: 'GI',
+      addressCountry: 'ES',
     },
     worksFor: {
       '@type': 'Organization',

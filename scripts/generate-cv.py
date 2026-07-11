@@ -8,8 +8,8 @@ from reportlab.pdfgen import canvas
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "output" / "pdf" / "javier-vallejo-cv.pdf"
-PUBLIC = ROOT / "public" / "javier-vallejo-cv.pdf"
+OUTPUT = ROOT / "output" / "pdf" / "javier-vallejo-cv-colour.pdf"
+PUBLIC = ROOT / "public" / "javier-vallejo-cv-colour.pdf"
 
 PAGE_W, PAGE_H = A4
 NAVY = HexColor("#071321")
@@ -127,7 +127,11 @@ def generate() -> None:
     pdf.drawString(40, PAGE_H - 77, "Full-stack developer")
     pdf.setFillColor(HexColor("#AFC2D8"))
     pdf.setFont("Helvetica", 8)
-    pdf.drawString(40, PAGE_H - 96, "Gibraltar  |  Product engineering  |  Web platforms  |  Available for remote collaboration")
+    pdf.drawString(
+        40,
+        PAGE_H - 96,
+        "La Línea de la Concepción, Cádiz  |  Working on-site in Gibraltar  |  Product engineering",
+    )
 
     # Sidebar
     sidebar_x = 40
@@ -144,13 +148,13 @@ def generate() -> None:
 
     y = section_label(pdf, "Core strengths", sidebar_x, y, LIGHT_BLUE)
     for skill in [
-        "Svelte 5 and TypeScript",
-        "React and Next.js",
-        "Node.js and typed APIs",
-        "PostgreSQL and data modelling",
+        "Svelte 5, TypeScript, Web Components",
+        "React, Next.js, Node.js, Hono",
+        "PostgreSQL and real-time systems",
+        "Lean bundles and render performance",
+        "Responsive, accessible interaction",
         "Cloudflare edge platforms",
-        "Performance and responsive UI",
-        "Cross-functional delivery",
+        "Product and design judgment",
     ]:
         pdf.setFillColor(HexColor("#D5E2EF"))
         pdf.setFont("Helvetica", 8)
@@ -160,8 +164,9 @@ def generate() -> None:
     y -= 12
     y = section_label(pdf, "Selected proof", sidebar_x, y, LIGHT_BLUE)
     proof = [
-        ("~50%", "performance improvement on a production grid rewrite"),
-        ("Multi-brand", "delivery across live gaming products"),
+        ("1.4 to 2.7", "component to product platform"),
+        ("Every KB", "performance budget for real devices"),
+        ("4 surfaces", "one coherent gaming experience"),
         ("3-12 players", "server-authoritative real-time game rooms"),
     ]
     for value, description in proof:
@@ -178,7 +183,7 @@ def generate() -> None:
     y = section_label(pdf, "Profile", main_x, y)
     y = draw_wrapped(
         pdf,
-        "Full-stack developer building web products, internal platforms, and interactive customer experiences. Strongest where product thinking and implementation meet: interface quality, maintainable architecture, performance, and dependable delivery.",
+        "Performance-minded full-stack engineer who turns complex platform constraints into fast, app-like products. I combine architecture, optimization, cross-device craft, and strong design judgment, with primary ownership of DB Games Grid and its flagship portal experience.",
         main_x,
         y,
         main_w,
@@ -193,9 +198,10 @@ def generate() -> None:
         "Full Stack Developer",
         "May 2025 - Present",
         [
-            "Led a Svelte and TypeScript games-grid rewrite delivering approximately 50% better performance than the legacy implementation.",
-            "Shipped improvements across brands including NorthStar Bets and Hard Rock Bet Mexico while balancing shared architecture with client requirements.",
-            "Built frontend features, internal API integrations, and optimization tooling across engineering, design, product, and delivery.",
+            "Took primary ownership of DB Games Grid around its 1.4-era codebase and led its 2.x evolution into a reusable Svelte 5 product platform.",
+            "Built the flagship Hard Rock Bet Mexico portal across casino, live casino, sportsbook, and promotions, including custom mobile navigation, staged bootstrapping, route orchestration, and authentication-aware UI.",
+            "Made performance a product constraint: kept shipped code lean, eliminated repeated work, shared timers and caches, and optimized rendering for lower-end devices.",
+            "Partnered across product, design, engineering, and delivery to refine modern responsive patterns and carry the shared foundation into additional brands.",
         ],
         main_x,
         y,
@@ -244,16 +250,28 @@ def generate() -> None:
         (
             "El Impostor",
             "Real-time social deduction game for 3-12 players using React, WebSockets, Cloudflare Workers, and Durable Objects.",
+            "https://juegoimpostor.app/",
         ),
         (
             "Nosotros",
             "Private iOS-first PWA spanning a Next.js frontend, Hono API, PostgreSQL, shared validation, and self-hosted data.",
+            "https://www.youtube.com/shorts/c__sfVVFmIA",
         ),
     ]
-    for title, description in projects:
+    for title, description, url in projects:
         pdf.setFillColor(TEXT)
         pdf.setFont("Helvetica-Bold", 8.6)
         pdf.drawString(main_x, y, title)
+        pdf.linkURL(
+            url,
+            (
+                main_x,
+                y - 2,
+                main_x + stringWidth(title, "Helvetica-Bold", 8.6),
+                y + 9,
+            ),
+            relative=0,
+        )
         y -= 11
         y = draw_wrapped(pdf, description, main_x, y, main_w, size=7.8, leading=10.2, color=MUTED) - 7
 

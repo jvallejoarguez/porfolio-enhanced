@@ -114,12 +114,12 @@ export default function ProjectPage() {
               <div className="case-story__intro">
                 <article>
                   <p className="eyebrow">The challenge</p>
-                  <h3>What needed to change</h3>
+                  <h3>{project.challengeTitle ?? 'What needed to change'}</h3>
                   <p>{project.problem}</p>
                 </article>
                 <article>
                   <p className="eyebrow">My role</p>
-                  <h3>What I owned</h3>
+                  <h3>{project.roleTitle ?? 'What I owned'}</h3>
                   <p>{project.role}</p>
                 </article>
               </div>
@@ -127,7 +127,10 @@ export default function ProjectPage() {
               <div className="case-solution">
                 <div className="case-solution__heading">
                   <p className="eyebrow">The approach</p>
-                  <h3>Decisions shaped by the constraint.</h3>
+                  <h3>
+                    {project.approachTitle ??
+                      'Decisions shaped by the constraint.'}
+                  </h3>
                 </div>
                 <ol>
                   {project.solution.map((item, index) => (

@@ -22,10 +22,11 @@ export const experiences: Experience[] = [
         title: 'Full Stack Developer',
         period: 'May 2025 - Present',
         points: [
-          'Led a Svelte and TypeScript games-grid rewrite that delivered approximately 50% better performance than the legacy implementation.',
-          'Shipped product improvements across brands including NorthStar Bets and Hard Rock Bet Mexico, balancing shared architecture with brand-specific requirements.',
-          'Built frontend features, internal API integrations, and optimization tooling while collaborating across engineering, design, product, and client-facing delivery.',
-          'Contributed to a Kotlin application and supported cross-team releases beyond the core web platform.',
+          'Took primary ownership of DB Games Grid around its 1.4-era codebase and led its 2.x evolution into a reusable Svelte 5 product platform.',
+          'Led the flagship Hard Rock Bet Mexico portal overhaul across casino, live casino, sportsbook, and promotions, including the app-like shell, custom mobile navigation, route orchestration, and authentication-aware content.',
+          'Made performance a product constraint: reduced duplicate work, introduced shared timers and caches, scheduled visual updates efficiently, kept the bundle lean, and optimized rendering for lower-end devices.',
+          'Expanded the product with real-time casino state, discovery and facets, favorites and recent games, personalization, jackpots, provider navigation, deep routes, analytics, and accessible interaction.',
+          'Worked across engineering, product, design, and delivery—refining modern responsive patterns and adapting the shared foundation for NorthStar, 888, RoyalsCasino, Galera.bet, and Brasilbet.',
         ],
       },
       {

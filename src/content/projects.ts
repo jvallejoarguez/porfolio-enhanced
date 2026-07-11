@@ -22,7 +22,10 @@ export interface Project {
   technologies: string[];
   metrics: ProjectMetric[];
   problem: string;
+  challengeTitle?: string;
   role: string;
+  roleTitle?: string;
+  approachTitle?: string;
   solution: string[];
   outcome: string;
   links: ProjectLink[];
@@ -33,45 +36,54 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'db-games-grid',
-    title: 'DB Games Grid 2.0',
-    category: 'Production platform',
-    year: '2025',
+    title: 'DB Games Grid',
+    category: 'Flagship product platform',
+    year: '2025 - Present',
     summary:
-      'A multi-brand games discovery platform rebuilt for faster rendering, smoother interaction, and maintainable client-specific delivery.',
+      'The product transformation I am most proud of: a performance-first games platform and portal overhaul that turned Hard Rock Bet Mexico into a fast, modern, app-like experience across casino, live casino, sportsbook, and promotions.',
     image: '/img/digibeat.avif',
     fallbackImage: '/digibeat.jpg',
     imageAlt: 'DigitalBeat company logo',
     accent: '#1686f7',
-    technologies: ['Svelte 5', 'TypeScript', 'Node.js', 'Internal APIs'],
+    technologies: [
+      'Svelte 5',
+      'TypeScript',
+      'Web Components',
+      'Playtech APIs',
+      'WebSockets',
+    ],
     metrics: [
-      { value: '~50%', label: 'Faster than the legacy implementation' },
-      { value: 'Multi-brand', label: 'Shared platform delivery' },
-      { value: 'Production', label: 'Used on live gaming surfaces' },
+      { value: '1.4 → 2.7', label: 'From component to product platform' },
+      { value: '4 surfaces', label: 'One coherent gaming experience' },
+      { value: 'Every KB', label: 'Performance budget for real devices' },
     ],
     problem:
-      'The existing grid needed a modern frontend foundation that could render faster, support smoother product interactions, and still accommodate the requirements of multiple brands.',
-    role: 'I led the frontend rewrite, translated product and brand requirements into reusable Svelte components, integrated internal APIs, and worked across design, product, and delivery teams.',
+      'The grid began as a functional catalogue component. The opportunity was to turn it into the product engine for a complete gaming experience: large catalogues, live state, discovery, personalization, casino and sportsbook navigation, promotions, and brand expression—all inside a constrained third-party runtime and across devices with very different capabilities.',
+    challengeTitle: 'From functional grid to product platform',
+    role: 'I inherited the grid around its 1.4-era codebase and made it my own, becoming its primary technical owner through the 2.x evolution. My work extended beyond implementation: I shaped architecture, challenged design decisions that did not translate well to responsive products, and turned product ambition into a coherent system that remained fast on real hardware.',
+    roleTitle: 'Engineering ownership with product judgment',
+    approachTitle: 'One product, engineered from engine to experience.',
     solution: [
-      'Structured the interface as reusable Svelte 5 and TypeScript components instead of client-specific page implementations.',
-      'Kept brand configuration and shared interaction behavior separate so improvements could roll out without erasing product differences.',
-      'Profiled the legacy experience and prioritized rendering and interaction work that could be measured against the previous implementation.',
+      'Rebuilt the grid into a typed Svelte 5 and Web Component platform with dynamic layouts, search and facets, favorites, recent and personalized categories, providers, jackpots, live-table state, deep routes, analytics, accessibility, and reusable brand configuration.',
+      'Created the app-like portal shell around it: pre-paint route and theme state, staged content bootstrapping, authentication-aware UI, custom header and mobile bottom navigation, casino and sportsbook coordination, and targeted promotional delivery.',
+      'Treated performance and design as one discipline. I removed repeated work, shared timers and caches, scheduled visual updates by frame, rendered only what users needed, kept the bundle lean, and worked with design to refine hierarchy, motion, touch behavior, and responsive patterns for lower-end devices.',
     ],
     outcome:
-      'The rewrite delivered approximately 50% better performance than the legacy grid and became a shared production foundation for multiple brand experiences.',
+      'DB Games Grid became a reusable product platform, and its flagship deployment became a cohesive, next-generation gaming experience where casino, live casino, sportsbook, and promotions feel like parts of the same product. This work defined the developer I am today: performance is a product feature, every shipped kilobyte matters, and exceptional frontend engineering requires both architectural discipline and design judgment.',
     links: [
-      {
-        label: 'NorthStar Bets',
-        href: 'https://www.northstarbets.ca',
-        type: 'reference',
-      },
       {
         label: 'Hard Rock Bet Mexico',
         href: 'https://www.hardrockbet.mx',
         type: 'reference',
       },
+      {
+        label: 'NorthStar Bets',
+        href: 'https://www.northstarbets.ca',
+        type: 'reference',
+      },
     ],
     featured: true,
-    note: 'The implementation is internal. Public production surfaces are linked where possible; proprietary architecture and client data are intentionally excluded.',
+    note: 'The same foundation also supported major NorthStar work and targeted adaptations for Arabic 888 Casino and Sports, RoyalsCasino, Galera.bet, and Brasilbet. Source, client data, and internal contracts remain proprietary.',
   },
   {
     slug: 'el-impostor',

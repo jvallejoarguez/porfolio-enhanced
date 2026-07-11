@@ -16,7 +16,7 @@ export default function Footer() {
             </span>
             <span className="brand__name">{site.name}</span>
           </Link>
-          <p>Full-stack product engineering from Gibraltar.</p>
+          <p>Full-stack product engineering from La Línea, Cádiz.</p>
         </div>
         <div className="site-footer__links">
           {site.socialLinks.map((link) => (
