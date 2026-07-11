@@ -12,7 +12,7 @@ function renderRoute(route: string) {
 }
 
 describe('portfolio routes', () => {
-  it('renders the proof-led homepage and persistent project actions', () => {
+  it('renders the homepage and persistent project actions without a global proof strip', () => {
     renderRoute('/');
 
     expect(
@@ -25,6 +25,17 @@ describe('portfolio routes', () => {
       screen.getAllByRole('link', { name: 'Read case study' }),
     ).toHaveLength(3);
     expect(screen.getByText('DB Games Grid')).toBeInTheDocument();
+    expect(
+      screen.queryByLabelText('Selected professional outcomes'),
+    ).not.toBeInTheDocument();
+  });
+
+  it('keeps flagship metrics inside the DB Games Grid case study', () => {
+    renderRoute('/work/db-games-grid/');
+
+    expect(screen.getByText('1.4 → 2.7')).toBeInTheDocument();
+    expect(screen.getByText('Every KB')).toBeInTheDocument();
+    expect(screen.getByText('4 surfaces')).toBeInTheDocument();
   });
 
   it('renders a dedicated project case-study route', () => {

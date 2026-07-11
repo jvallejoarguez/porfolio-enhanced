@@ -19,23 +19,6 @@ export const site = {
       href: 'https://linkedin.com/in/javier-vallejo-arguez',
     },
   ],
-  proof: [
-    {
-      value: '1.4 → 2.7',
-      label: 'Platform ownership',
-      detail: 'Grew DB Games Grid from a component into a product foundation',
-    },
-    {
-      value: 'Every KB',
-      label: 'Performance discipline',
-      detail: 'Engineered for smooth interaction on lower-end devices',
-    },
-    {
-      value: '4 surfaces',
-      label: 'Unified experience',
-      detail: 'Casino, live casino, sportsbook, and promotions',
-    },
-  ],
 } as const;
 
 export const capabilities = [

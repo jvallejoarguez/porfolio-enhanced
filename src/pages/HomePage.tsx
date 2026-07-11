@@ -91,20 +91,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="proof" aria-label="Selected professional outcomes">
-          <div className="site-container proof__grid">
-            {site.proof.map((item) => (
-              <article key={item.label} className="proof__item">
-                <strong>{item.value}</strong>
-                <div>
-                  <h2>{item.label}</h2>
-                  <p>{item.detail}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
         <Projects />
         <Background />
         <Contact />
