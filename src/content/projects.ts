@@ -158,7 +158,7 @@ export const projects: Project[] = [
     links: [
       {
         label: 'Watch private demo',
-        href: 'https://www.youtube.com/shorts/c__sfVVFmIA',
+        href: 'https://youtube.com/shorts/zm5x7qSL5IQ?feature=share',
         type: 'live',
       },
     ],
