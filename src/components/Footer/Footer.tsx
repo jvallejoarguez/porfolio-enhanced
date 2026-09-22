@@ -11,9 +11,13 @@ export default function Footer() {
             to="/"
             aria-label={`${site.name}, home`}
           >
-            <span className="brand__mark" aria-hidden="true">
-              {site.shortName}
-            </span>
+            <img
+              className="brand__mark"
+              src="/logo.svg"
+              width="34"
+              height="34"
+              alt=""
+            />
             <span className="brand__name">{site.name}</span>
           </Link>
         </div>

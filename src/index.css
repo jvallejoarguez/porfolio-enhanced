@@ -133,15 +133,9 @@ img {
 }
 
 .brand__mark {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  color: #ffffff;
-  background: var(--accent);
-  border-radius: 0.6rem;
-  font-size: 0.7rem;
-  font-weight: 750;
+  width: 2.125rem;
+  height: 2.125rem;
+  flex-shrink: 0;
 }
 
 .primary-nav {
