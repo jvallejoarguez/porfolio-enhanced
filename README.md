@@ -4,11 +4,11 @@ A content-first portfolio for Javier Vallejo, a full-stack developer based in La
 
 ## What is included
 
-- Proof-led homepage with three featured projects and a compact archive
+- Homepage with three featured projects, work history, and a compact archive
 - Dedicated, shareable case-study routes under `/work/:slug/`
 - Pre-rendered HTML, route-specific metadata, structured data, and sitemap entries
 - Accessible keyboard navigation, persistent project actions, reduced-motion support, and responsive layouts
-- Extracted project, experience, capability, and site content
+- Extracted project, experience, and site content
 - Optimized AVIF assets with browser fallbacks
 - Downloadable one-page CV
 - Vercel page analytics and privacy-safe interaction events for case-study, CV, and contact actions
@@ -47,7 +47,7 @@ npx playwright install chromium
 Content is deliberately separated from layout code:
 
 ```text
-src/content/site.ts        Identity, availability, capabilities, proof points
+src/content/site.ts        Identity, availability, and contact details
 src/content/projects.ts    Project cards and complete case-study narratives
 src/content/experience.ts  Roles, outcomes, dates, and references
 ```

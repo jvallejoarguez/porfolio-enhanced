@@ -16,8 +16,8 @@ describe('project content', () => {
     for (const project of projects) {
       expect(project.problem.length).toBeGreaterThan(60);
       expect(project.role.length).toBeGreaterThan(60);
-      expect(project.solution).toHaveLength(3);
-      expect(project.metrics).toHaveLength(3);
+      expect(project.solution.length).toBeGreaterThan(0);
+      expect(project.outcome.length).toBeGreaterThan(0);
     }
   });
 });

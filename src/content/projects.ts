@@ -1,8 +1,3 @@
-export interface ProjectMetric {
-  value: string;
-  label: string;
-}
-
 export interface ProjectLink {
   label: string;
   href: string;
@@ -18,14 +13,11 @@ export interface Project {
   image: string;
   fallbackImage: string;
   imageAlt: string;
+  imageCaption?: string;
   accent: string;
   technologies: string[];
-  metrics: ProjectMetric[];
   problem: string;
-  challengeTitle?: string;
   role: string;
-  roleTitle?: string;
-  approachTitle?: string;
   solution: string[];
   outcome: string;
   links: ProjectLink[];
@@ -37,13 +29,16 @@ export const projects: Project[] = [
   {
     slug: 'db-games-grid',
     title: 'DB Games Grid',
-    category: 'Flagship product platform',
+    category: 'DigitalBeat / Client work',
     year: '2025 - Present',
     summary:
-      'The product transformation I am most proud of: a performance-first games platform and portal overhaul that turned Hard Rock Bet Mexico into a fast, modern, app-like experience across casino, live casino, sportsbook, and promotions.',
-    image: '/img/digibeat.avif',
-    fallbackImage: '/digibeat.jpg',
-    imageAlt: 'DigitalBeat company logo',
+      'A reusable casino catalogue built with Svelte and Web Components. I own its development at DigitalBeat and built the navigation, account-aware content, and promotions around it for Hard Rock Bet Mexico.',
+    image: '/img/hardrockbet-casino.jpg',
+    fallbackImage: '/img/hardrockbet-casino.jpg',
+    imageAlt:
+      'Hard Rock Bet Mexico casino with portal navigation, category filters, and DB Games Grid game tiles',
+    imageCaption:
+      'Hard Rock Bet Mexico casino, public desktop view captured on 22 September 2026. My work covers the catalogue and portal integration; game artwork and promotional assets belong to their respective owners.',
     accent: '#1686f7',
     technologies: [
       'Svelte 5',
@@ -52,24 +47,16 @@ export const projects: Project[] = [
       'Playtech APIs',
       'WebSockets',
     ],
-    metrics: [
-      { value: '1.4 → 2.7', label: 'From component to product platform' },
-      { value: '4 surfaces', label: 'One coherent gaming experience' },
-      { value: 'Every KB', label: 'Performance budget for real devices' },
-    ],
     problem:
-      'The grid began as a functional catalogue component. The opportunity was to turn it into the product engine for a complete gaming experience: large catalogues, live state, discovery, personalization, casino and sportsbook navigation, promotions, and brand expression—all inside a constrained third-party runtime and across devices with very different capabilities.',
-    challengeTitle: 'From functional grid to product platform',
-    role: 'I inherited the grid around its 1.4-era codebase and made it my own, becoming its primary technical owner through the 2.x evolution. My work extended beyond implementation: I shaped architecture, challenged design decisions that did not translate well to responsive products, and turned product ambition into a coherent system that remained fast on real hardware.',
-    roleTitle: 'Engineering ownership with product judgment',
-    approachTitle: 'One product, engineered from engine to experience.',
+      'The catalogue had to support search, live table updates, personalized categories, and game launches inside Playtech’s existing runtime. The surrounding portal also needed to coordinate casino and sportsbook routes, authentication, and promotions across desktop and mobile.',
+    role: 'I took over the grid around version 1.4 and became its primary technical owner through the 2.x releases. I built the Hard Rock Bet Mexico portal shell, adapted designs for mobile, and worked with product and design on navigation and interaction.',
     solution: [
-      'Rebuilt the grid into a typed Svelte 5 and Web Component platform with dynamic layouts, search and facets, favorites, recent and personalized categories, providers, jackpots, live-table state, deep routes, analytics, accessibility, and reusable brand configuration.',
-      'Created the app-like portal shell around it: pre-paint route and theme state, staged content bootstrapping, authentication-aware UI, custom header and mobile bottom navigation, casino and sportsbook coordination, and targeted promotional delivery.',
-      'Treated performance and design as one discipline. I removed repeated work, shared timers and caches, scheduled visual updates by frame, rendered only what users needed, kept the bundle lean, and worked with design to refine hierarchy, motion, touch behavior, and responsive patterns for lower-end devices.',
+      'Used Svelte 5 and Web Components for a shared catalogue with search, favorites, recent games, provider filters, jackpots, and live-table state. Brand configuration lets the same component serve different portals.',
+      'Built route and theme initialization, authentication-aware content, a custom header and mobile navigation, and coordination between casino and sportsbook pages.',
+      'Shared timers and caches to avoid duplicate work, scheduled visual updates by frame, and limited rendering to visible content. Responsive layouts and touch interactions were adapted for lower-end devices.',
     ],
     outcome:
-      'DB Games Grid became a reusable product platform, and its flagship deployment became a cohesive, next-generation gaming experience where casino, live casino, sportsbook, and promotions feel like parts of the same product. This work defined the developer I am today: performance is a product feature, every shipped kilobyte matters, and exceptional frontend engineering requires both architectural discipline and design judgment.',
+      'The shared catalogue is used in the Hard Rock Bet Mexico portal alongside the casino, live casino, sportsbook, and promotions pages. Its configuration also supports other DigitalBeat brands without maintaining a separate grid for each one.',
     links: [
       {
         label: 'Hard Rock Bet Mexico',
@@ -91,10 +78,10 @@ export const projects: Project[] = [
     category: 'Real-time multiplayer game',
     year: '2025',
     summary:
-      'A Spanish-language social deduction game with private rooms, server-authoritative state, reconnectable sessions, timers, and voting.',
+      'A Spanish-language social deduction game for 3–12 players. Friends join a private room without accounts, receive secret roles, and vote to find the impostor.',
     image: '/img/el-impostor.svg',
     fallbackImage: '/img/el-impostor.svg',
-    imageAlt: 'El Impostor landing page and multiplayer lobby interface',
+    imageAlt: 'Illustrated El Impostor project cover',
     accent: '#efb84a',
     technologies: [
       'React',
@@ -102,11 +89,6 @@ export const projects: Project[] = [
       'Cloudflare Workers',
       'Durable Objects',
       'WebSockets',
-    ],
-    metrics: [
-      { value: '3-12', label: 'Players per private room' },
-      { value: 'Real time', label: 'WebSocket game state' },
-      { value: 'No accounts', label: 'Anonymous session flow' },
     ],
     problem:
       'A party game needs to feel immediate on unreliable personal devices while keeping secret roles private and ensuring that every player sees the same authoritative state.',
@@ -117,7 +99,7 @@ export const projects: Project[] = [
       'Added reconnectable player identities and server alarms so a dropped browser or inactive client does not stop the game.',
     ],
     outcome:
-      'The result is a live, account-free multiplayer experience that supports complete game sessions across phones and desktops with a small edge-native backend.',
+      'The game is available to play on phones and desktops. Players can rejoin after a connection drops, while the server keeps the round and voting state.',
     links: [
       {
         label: 'Play the game',
@@ -130,7 +112,7 @@ export const projects: Project[] = [
   {
     slug: 'nosotros',
     title: 'Nosotros',
-    category: 'Private iOS-first PWA',
+    category: 'Private app for two',
     year: '2025',
     summary:
       'A private shared space for two people, bringing calendars, photos, lists, mood tracking, memories, and games into one installable app.',
@@ -140,11 +122,6 @@ export const projects: Project[] = [
       'Illustrated identity for the private Nosotros couple application',
     accent: '#ff8fa3',
     technologies: ['Next.js 15', 'React 19', 'Hono', 'PostgreSQL', 'Drizzle'],
-    metrics: [
-      { value: 'iOS-first', label: 'Installable mobile experience' },
-      { value: '14', label: 'Connected data models' },
-      { value: 'Private', label: 'Self-hosted application data' },
-    ],
     problem:
       'Shared relationship tools are often scattered across calendars, photo libraries, notes, and generic productivity apps, with little control over how personal data is stored.',
     role: 'I designed the product and built the monorepo across the Next.js frontend, Hono API, PostgreSQL schema, shared validation, PWA behavior, and self-hosted operations.',
@@ -154,7 +131,7 @@ export const projects: Project[] = [
       'Connected a hosted frontend to a self-hosted API and PostgreSQL database through a secured Cloudflare tunnel.',
     ],
     outcome:
-      'Nosotros consolidates a broad set of personal workflows into a private product with one coherent interface and an architecture that can evolve feature by feature.',
+      'The app brings shared calendars, photos, and lists into one place, with personal data stored on a self-hosted backend. The linked demo shows the interface; the application itself is private.',
     links: [
       {
         label: 'Watch private demo',
@@ -177,11 +154,6 @@ export const projects: Project[] = [
     imageAlt: 'LineUp dark productivity dashboard',
     accent: '#8b7cf6',
     technologies: ['React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
-    metrics: [
-      { value: '3', label: 'Connected focus workflows' },
-      { value: 'Typed', label: 'React and TypeScript interface' },
-      { value: 'Hosted', label: 'Supabase-backed prototype' },
-    ],
     problem:
       'Task lists, focus timers, and planning advice often live in separate tools, creating friction before concentrated work begins.',
     role: 'I designed and built the product interface, application state, Supabase integration, and responsive workflow as a product exploration.',
@@ -191,7 +163,7 @@ export const projects: Project[] = [
       'Explored AI assistance as contextual support instead of a separate chat-first experience.',
     ],
     outcome:
-      'The prototype tested a cohesive deep-work workflow and informed later decisions about information density and AI-assisted product interactions.',
+      'The prototype combines a task list, focus timer, and planning assistance. Both the demo and source code are available.',
     links: [
       {
         label: 'Open prototype',
@@ -218,11 +190,6 @@ export const projects: Project[] = [
     imageAlt: 'Warera Automator dark landing page',
     accent: '#ef6464',
     technologies: ['Next.js', 'Python', 'FastAPI', 'PostgreSQL'],
-    metrics: [
-      { value: '2', label: 'Application runtimes' },
-      { value: 'API-first', label: 'Frontend and service boundary' },
-      { value: 'Archived', label: 'Technical exploration' },
-    ],
     problem:
       'The project explored how a small interface could trigger, observe, and persist a longer-running API automation workflow.',
     role: 'I built the Next.js frontend, Python service integration, data flow, and deployment as a personal engineering experiment.',

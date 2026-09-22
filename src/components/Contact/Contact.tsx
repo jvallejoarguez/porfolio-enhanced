@@ -1,4 +1,4 @@
-import { ArrowUpRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { track } from '@vercel/analytics/react';
 import { site } from '../../content/site';
 
@@ -32,35 +32,8 @@ export default function Contact() {
     >
       <div className="site-container contact-panel">
         <div className="contact-panel__copy">
-          <p className="eyebrow">Contact</p>
-          <h2 id="contact-title">
-            Let’s build something that earns its place.
-          </h2>
-          <p>
-            {site.availability} Tell me what you are building, what is getting
-            in the way, and where I can help.
-          </p>
-          <div className="contact-panel__actions">
-            <a
-              className="button button--light"
-              href={`mailto:${site.email}`}
-              onClick={() =>
-                track('Contact', { method: 'email', location: 'panel' })
-              }
-            >
-              Start a conversation
-              <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
-            <a
-              className="button button--ghost-light"
-              href="/javier-vallejo-cv.pdf"
-              download
-              onClick={() => track('Download CV', { location: 'contact' })}
-            >
-              <Download size={17} aria-hidden="true" />
-              Download CV
-            </a>
-          </div>
+          <h2 id="contact-title">Get in touch</h2>
+          <p>{site.availability}</p>
         </div>
 
         <div className="contact-list">
@@ -71,6 +44,12 @@ export default function Contact() {
               target={link.href.startsWith('http') ? '_blank' : undefined}
               rel={
                 link.href.startsWith('http') ? 'noopener noreferrer' : undefined
+              }
+              onClick={() =>
+                track('Contact', {
+                  method: link.label.toLowerCase(),
+                  location: 'panel',
+                })
               }
             >
               <link.icon size={20} aria-hidden="true" />

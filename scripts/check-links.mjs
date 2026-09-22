@@ -5,7 +5,7 @@ const links = [
   'https://www.northstarbets.ca',
   'https://www.hardrockbet.mx',
   'https://juegoimpostor.app/',
-  'https://www.youtube.com/shorts/c__sfVVFmIA',
+  'https://youtube.com/shorts/zm5x7qSL5IQ?feature=share',
   'https://lineupai.vercel.app/',
   'https://github.com/jvallejoarguez/lineup-code',
   'https://warera-automator.vercel.app/',

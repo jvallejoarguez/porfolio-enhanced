@@ -1,10 +1,4 @@
-import {
-  ArrowLeft,
-  ArrowRight,
-  Check,
-  ExternalLink,
-  Github,
-} from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, Github } from 'lucide-react';
 import { track } from '@vercel/analytics/react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import Contact from '../components/Contact/Contact';
@@ -75,32 +69,28 @@ export default function ProjectPage() {
                 ))}
               </div>
 
-              <div
-                className="case-hero__media"
-                style={
-                  { '--project-accent': project.accent } as React.CSSProperties
-                }
-              >
-                <ProjectPicture
-                  src={project.image}
-                  fallback={project.fallbackImage}
-                  alt={project.imageAlt}
-                  eager
-                />
-              </div>
+              <figure className="case-figure">
+                <div
+                  className="case-hero__media"
+                  style={
+                    {
+                      '--project-accent': project.accent,
+                    } as React.CSSProperties
+                  }
+                >
+                  <ProjectPicture
+                    src={project.image}
+                    fallback={project.fallbackImage}
+                    alt={project.imageAlt}
+                    eager
+                  />
+                </div>
+                {project.imageCaption && (
+                  <figcaption>{project.imageCaption}</figcaption>
+                )}
+              </figure>
             </div>
           </header>
-
-          <section className="case-metrics" aria-label="Project summary">
-            <div className="site-container case-metrics__grid">
-              {project.metrics.map((metric) => (
-                <div key={metric.label}>
-                  <strong>{metric.value}</strong>
-                  <span>{metric.label}</span>
-                </div>
-              ))}
-            </div>
-          </section>
 
           <section
             className="section case-story"
@@ -113,46 +103,34 @@ export default function ProjectPage() {
 
               <div className="case-story__intro">
                 <article>
-                  <p className="eyebrow">The challenge</p>
-                  <h3>{project.challengeTitle ?? 'What needed to change'}</h3>
+                  <h3>The challenge</h3>
                   <p>{project.problem}</p>
                 </article>
                 <article>
-                  <p className="eyebrow">My role</p>
-                  <h3>{project.roleTitle ?? 'What I owned'}</h3>
+                  <h3>My contribution</h3>
                   <p>{project.role}</p>
                 </article>
               </div>
 
               <div className="case-solution">
                 <div className="case-solution__heading">
-                  <p className="eyebrow">The approach</p>
-                  <h3>
-                    {project.approachTitle ??
-                      'Decisions shaped by the constraint.'}
-                  </h3>
+                  <h3>Implementation</h3>
                 </div>
-                <ol>
-                  {project.solution.map((item, index) => (
-                    <li key={item}>
-                      <span>0{index + 1}</span>
-                      <p>{item}</p>
-                    </li>
+                <ul>
+                  {project.solution.map((item) => (
+                    <li key={item}>{item}</li>
                   ))}
-                </ol>
+                </ul>
               </div>
 
               <div className="case-outcome">
-                <Check size={22} aria-hidden="true" />
-                <div>
-                  <p className="eyebrow">Outcome</p>
-                  <blockquote>{project.outcome}</blockquote>
-                </div>
+                <h3>Result</h3>
+                <p>{project.outcome}</p>
               </div>
 
               <div className="case-footer-grid">
                 <div>
-                  <p className="eyebrow">Technology</p>
+                  <h3>Built with</h3>
                   <ul className="technology-list">
                     {project.technologies.map((technology) => (
                       <li key={technology}>{technology}</li>
@@ -161,7 +139,7 @@ export default function ProjectPage() {
                 </div>
                 {project.note && (
                   <aside>
-                    <p className="eyebrow">Context</p>
+                    <h3>Project context</h3>
                     <p>{project.note}</p>
                   </aside>
                 )}

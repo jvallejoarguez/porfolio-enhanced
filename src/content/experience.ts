@@ -22,11 +22,10 @@ export const experiences: Experience[] = [
         title: 'Full Stack Developer',
         period: 'May 2025 - Present',
         points: [
-          'Took primary ownership of DB Games Grid around its 1.4-era codebase and led its 2.x evolution into a reusable Svelte 5 product platform.',
-          'Led the flagship Hard Rock Bet Mexico portal overhaul across casino, live casino, sportsbook, and promotions, including the app-like shell, custom mobile navigation, route orchestration, and authentication-aware content.',
-          'Made performance a product constraint: reduced duplicate work, introduced shared timers and caches, scheduled visual updates efficiently, kept the bundle lean, and optimized rendering for lower-end devices.',
-          'Expanded the product with real-time casino state, discovery and facets, favorites and recent games, personalization, jackpots, provider navigation, deep routes, analytics, and accessible interaction.',
-          'Worked across engineering, product, design, and delivery—refining modern responsive patterns and adapting the shared foundation for NorthStar, 888, RoyalsCasino, Galera.bet, and Brasilbet.',
+          'Own DB Games Grid, a Svelte 5 catalogue with live table updates, search, favorites, and personalized categories.',
+          'Built the Hard Rock Bet Mexico portal shell, mobile navigation, route handling, and authentication-aware content across casino, sportsbook, and promotions.',
+          'Reduced duplicate work with shared timers and caches, frame-scheduled updates, and rendering changes for lower-end devices.',
+          'Adapted the shared component for NorthStar, 888, RoyalsCasino, Galera.bet, and Brasilbet, working with product and design on each brand’s requirements.',
         ],
       },
       {
@@ -51,7 +50,7 @@ export const experiences: Experience[] = [
         points: [
           'Turned the hotel’s physical Wall of Fame into an interactive web experience using HTML, CSS, JavaScript, and AroSuite.',
           'Built a touchscreen-compatible local experience and adapted it for multiple display sizes and visitor contexts.',
-          'Prototyped voice interaction and facial-recognition concepts for a more immersive visitor journey.',
+          'Prototyped voice interaction and facial-recognition concepts for the visitor experience.',
         ],
       },
     ],

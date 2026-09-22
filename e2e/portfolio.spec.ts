@@ -9,7 +9,7 @@ test('homepage exposes its work and passes an accessibility scan', async ({
   await expect(
     page.getByRole('heading', {
       level: 1,
-      name: /product experiences that hold up in production/i,
+      name: 'Javier Vallejo',
     }),
   ).toBeVisible();
 

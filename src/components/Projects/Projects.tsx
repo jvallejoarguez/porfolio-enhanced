@@ -74,9 +74,6 @@ function FeaturedProject({
           fallback={project.fallbackImage}
           alt={project.imageAlt}
         />
-        <span className="project-card__number" aria-hidden="true">
-          0{index + 1}
-        </span>
       </Link>
 
       <div className="project-card__content">
@@ -88,17 +85,6 @@ function FeaturedProject({
           <Link to={`/work/${project.slug}/`}>{project.title}</Link>
         </h3>
         <p>{project.summary}</p>
-
-        {primary && (
-          <dl className="project-card__metrics">
-            {project.metrics.map((metric) => (
-              <div key={metric.label}>
-                <dt>{metric.label}</dt>
-                <dd>{metric.value}</dd>
-              </div>
-            ))}
-          </dl>
-        )}
 
         <ProjectActions project={project} />
       </div>
@@ -114,15 +100,8 @@ export default function Projects() {
       aria-labelledby="work-title"
     >
       <div className="site-container">
-        <div className="section-heading section-heading--split">
-          <div>
-            <p className="eyebrow">Selected work</p>
-            <h2 id="work-title">Proof, not just pixels.</h2>
-          </div>
-          <p>
-            A closer look at the product decisions, engineering constraints, and
-            outcomes behind the interfaces.
-          </p>
+        <div className="section-heading">
+          <h2 id="work-title">Selected work</h2>
         </div>
 
         <div className="featured-projects">
@@ -137,7 +116,6 @@ export default function Projects() {
 
         <div className="archive" aria-labelledby="archive-title">
           <div className="archive__heading">
-            <p className="eyebrow">Archive</p>
             <h3 id="archive-title">Earlier experiments</h3>
           </div>
           <div className="archive__list">

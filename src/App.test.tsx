@@ -18,7 +18,7 @@ describe('portfolio routes', () => {
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: /product experiences that hold up in production/i,
+        name: 'Javier Vallejo',
       }),
     ).toBeInTheDocument();
     expect(
@@ -30,12 +30,15 @@ describe('portfolio routes', () => {
     ).not.toBeInTheDocument();
   });
 
-  it('keeps flagship metrics inside the DB Games Grid case study', () => {
+  it('renders the flagship contribution and client reference', () => {
     renderRoute('/work/db-games-grid/');
 
-    expect(screen.getByText('1.4 → 2.7')).toBeInTheDocument();
-    expect(screen.getByText('Every KB')).toBeInTheDocument();
-    expect(screen.getByText('4 surfaces')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'My contribution' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Hard Rock Bet Mexico' }),
+    ).toHaveAttribute('href', 'https://www.hardrockbet.mx');
   });
 
   it('renders a dedicated project case-study route', () => {
@@ -44,7 +47,7 @@ describe('portfolio routes', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: 'El Impostor' }),
     ).toBeInTheDocument();
-    expect(screen.getByText('What needed to change')).toBeInTheDocument();
+    expect(screen.getByText('The challenge')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Play the game' })).toBeVisible();
   });
 
