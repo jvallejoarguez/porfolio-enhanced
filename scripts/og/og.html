@@ -4,136 +4,68 @@
     <meta charset="UTF-8" />
     <title>OG image</title>
     <style>
-      @font-face {
-        font-family: 'Geist';
-        src: url('../../node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2')
-          format('woff2');
-        font-weight: 100 900;
-      }
-      @font-face {
-        font-family: 'Geist Mono';
-        src: url('../../node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2')
-          format('woff2');
-        font-weight: 100 900;
-      }
       * {
         box-sizing: border-box;
         margin: 0;
       }
       body {
-        position: relative;
+        display: flex;
         width: 1200px;
         height: 630px;
-        overflow: hidden;
-        color: #ededed;
-        background: #0a0a0a;
-        font-family: 'Geist', sans-serif;
+        align-items: center;
+        gap: 72px;
+        padding: 80px;
+        color: #e8e8e8;
+        background: #111111;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         -webkit-font-smoothing: antialiased;
       }
-      .grid {
-        position: absolute;
-        inset: 0 64px;
-        border-inline: 1px solid rgba(255, 255, 255, 0.05);
-        background: repeating-linear-gradient(
-          to right,
-          transparent 0 calc(25% - 1px),
-          rgba(255, 255, 255, 0.05) calc(25% - 1px) 25%
-        );
+      main {
+        flex: 1;
       }
-      .content {
-        position: absolute;
-        top: 64px;
-        bottom: 64px;
-        left: 64px;
-        display: flex;
-        width: 680px;
-        flex-direction: column;
-      }
-      .label,
-      .footer {
-        font-family: 'Geist Mono', monospace;
-        font-size: 20px;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #a3a3a3;
-      }
-      .label span {
-        color: #4d9fff;
+      .mark {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 48px;
       }
       h1 {
-        margin-top: 36px;
-        font-size: 132px;
-        font-weight: 700;
-        letter-spacing: -0.055em;
-        line-height: 0.86;
-        text-transform: uppercase;
+        font-size: 44px;
+        font-weight: 600;
       }
-      p {
-        margin-top: 36px;
-        max-width: 640px;
-        color: #a3a3a3;
-        font-size: 28px;
-        line-height: 1.35;
+      .role {
+        margin-top: 6px;
+        color: #9b9b9b;
+        font-size: 30px;
       }
-      .footer {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-top: auto;
-        color: #ededed;
+      p.line {
+        margin-top: 40px;
+        font-size: 34px;
+        line-height: 1.4;
       }
-      .footer img {
-        width: 40px;
-        height: 40px;
+      .url {
+        margin-top: 48px;
+        color: #9b9b9b;
+        font-size: 26px;
       }
-      .portrait {
-        position: absolute;
-        top: 72px;
-        right: 72px;
-        width: 330px;
-        height: 412px;
-      }
-      .portrait::before {
-        position: absolute;
-        inset: -12px;
-        content: '';
-        background:
-          linear-gradient(#4d9fff 0 0) top left / 22px 2px,
-          linear-gradient(#4d9fff 0 0) top left / 2px 22px,
-          linear-gradient(#4d9fff 0 0) top right / 22px 2px,
-          linear-gradient(#4d9fff 0 0) top right / 2px 22px,
-          linear-gradient(#4d9fff 0 0) bottom left / 22px 2px,
-          linear-gradient(#4d9fff 0 0) bottom left / 2px 22px,
-          linear-gradient(#4d9fff 0 0) bottom right / 22px 2px,
-          linear-gradient(#4d9fff 0 0) bottom right / 2px 22px;
-        background-repeat: no-repeat;
-      }
-      .portrait img {
-        width: 100%;
-        height: 100%;
+      .photo {
+        width: 300px;
+        height: 375px;
         object-fit: cover;
         object-position: center top;
-        border-radius: 3px;
-        filter: grayscale(1) contrast(1.05);
+        border-radius: 10px;
       }
     </style>
   </head>
   <body>
-    <div class="grid"></div>
-    <div class="content">
-      <div class="label">Full-stack developer <span>/</span> Gibraltar</div>
-      <h1>Javier<br />Vallejo</h1>
-      <p>
-        Casino catalogue and portal for Hard Rock Bet Mexico. Real-time and
-        self-hosted web apps.
+    <main>
+      <img class="mark" src="../../public/logo.svg" alt="" />
+      <h1>Javier Vallejo</h1>
+      <p class="role">Full-stack developer, Gibraltar</p>
+      <p class="line">
+        I work on the game catalogue behind the Hard Rock Bet Mexico casino.
       </p>
-      <div class="footer">
-        <img src="../../public/logo.svg" alt="" />
-        jvallejo.dev
-      </div>
-    </div>
-    <div class="portrait">
-      <img src="../../public/img/pfp.jpg" alt="" />
-    </div>
+      <p class="url">jvallejo.dev</p>
+    </main>
+    <img class="photo" src="../../public/img/pfp.jpg" alt="" />
   </body>
 </html>

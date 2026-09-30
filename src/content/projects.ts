@@ -1,193 +1,156 @@
 export interface ProjectLink {
   label: string;
   href: string;
-  type: 'live' | 'code' | 'reference';
 }
 
 export interface Project {
   slug: string;
   title: string;
-  category: string;
   year: string;
-  summary: string;
+  line: string;
+  intro: string;
   image: string;
   fallbackImage: string;
   imageAlt: string;
   imageCaption?: string;
-  accent: string;
-  technologies: string[];
-  problem: string;
-  role: string;
-  solution: string[];
-  outcome: string;
+  stack: string[];
   links: ProjectLink[];
-  featured: boolean;
-  note?: string;
-  specs?: { label: string; value: string }[];
+  sections: { heading: string; text: string }[];
 }
 
 export const projects: Project[] = [
   {
     slug: 'db-games-grid',
     title: 'DB Games Grid',
-    category: 'DigitalBeat / Client work',
-    year: '2025 - Present',
-    summary:
-      'A Svelte 5 web component that runs game search, favorites, and live tables for several casino brands, including Hard Rock Bet Mexico.',
+    year: '2025 – now',
+    line: 'The game catalogue on the Hard Rock Bet Mexico casino.',
+    intro:
+      'DB Games Grid is the part of an online casino where you search, filter and open games. It’s a Svelte 5 web component that DigitalBeat adds to portals running on Playtech, with a configuration per brand. I took it over around version 1.4 and have been its main developer since. It’s on 2.7.1 now.',
     image: '/img/hardrockbet-casino.jpg',
     fallbackImage: '/img/hardrockbet-casino.jpg',
     imageAlt:
-      'Hard Rock Bet Mexico casino with portal navigation, category filters, and DB Games Grid game tiles',
+      'Hard Rock Bet Mexico casino page with the portal header, category filters and a grid of game tiles',
     imageCaption:
-      'Hard Rock Bet Mexico casino, public desktop view captured on 22 September 2026. My work covers the catalogue and portal integration; game artwork and promotional assets belong to their respective owners.',
-    accent: '#1686f7',
-    technologies: [
+      'The Hard Rock Bet Mexico casino, 22 September 2026. The grid and the portal around it are my work; the game art belongs to the studios.',
+    stack: [
       'Svelte 5',
       'TypeScript',
       'Web Components',
       'Playtech APIs',
       'WebSockets',
     ],
-    problem:
-      'The catalogue had to support search, live table updates, personalized categories, and game launches inside Playtech’s existing runtime. The surrounding portal also needed to coordinate casino and sportsbook routes, authentication, and promotions across desktop and mobile.',
-    role: 'I took over the grid around version 1.4 and became its primary technical owner through the 2.x releases. I built the Hard Rock Bet Mexico portal shell, adapted designs for mobile, and worked with product and design on navigation and interaction.',
-    solution: [
-      'Used Svelte 5 and Web Components for a shared catalogue with search, favorites, recent games, provider filters, jackpots, and live-table state. Brand configuration lets the same component serve different portals.',
-      'Built route and theme initialization, authentication-aware content, a custom header and mobile navigation, and coordination between casino and sportsbook pages.',
-      'Shared timers and caches to avoid duplicate work, scheduled visual updates by frame, and limited rendering to visible content. Responsive layouts and touch interactions were adapted for lower-end devices.',
-    ],
-    outcome:
-      'The grid runs in the Hard Rock Bet Mexico casino and live casino, and brand configuration lets other DigitalBeat portals use it without a separate fork. The whole component, including the Svelte runtime and its styles, ships as one 46 KB gzipped script in release 2.7.1.',
     links: [
+      { label: 'Hard Rock Bet Mexico', href: 'https://www.hardrockbet.mx' },
+      { label: 'NorthStar Bets', href: 'https://www.northstarbets.ca' },
+    ],
+    sections: [
       {
-        label: 'Hard Rock Bet Mexico',
-        href: 'https://www.hardrockbet.mx',
-        type: 'reference',
+        heading: 'What it does',
+        text: 'Search, favourites, recently played, provider filters, jackpots, and live tables that update over WebSockets. The categories change depending on who is logged in. The same build runs on Hard Rock Bet Mexico and, with a different configuration, on NorthStar Bets, 888 (Arabic), RoyalsCasino, Galera.bet and Brasilbet.',
       },
       {
-        label: 'NorthStar Bets',
-        href: 'https://www.northstarbets.ca',
-        type: 'reference',
+        heading: 'The portal around it',
+        text: 'For Hard Rock Bet Mexico I also built the portal shell: route and theme set-up before the first paint, the header and mobile navigation, content that changes when you log in, and the hand-off between the casino and sportsbook pages.',
+      },
+      {
+        heading: 'Keeping it light',
+        text: 'The grid has to stay smooth on low-end phones. The tiles share one set of timers and caches, visual updates wait for the next animation frame, and only what’s on screen gets rendered. The whole component, Svelte runtime and styles included, is one 141 KB script: 46 KB gzipped.',
+      },
+      {
+        heading: 'What I can’t show',
+        text: 'The code, client data and contracts are private, so this page only uses the public site.',
       },
     ],
-    featured: true,
-    specs: [
-      { label: 'Release', value: '2.7.1' },
-      { label: 'Minified', value: '141 KB' },
-      { label: 'Gzipped', value: '46 KB' },
-    ],
-    note: 'The same foundation also supported major NorthStar work and targeted adaptations for Arabic 888 Casino and Sports, RoyalsCasino, Galera.bet, and Brasilbet. Source, client data, and internal contracts remain proprietary.',
   },
   {
     slug: 'el-impostor',
     title: 'El Impostor',
-    category: 'Real-time multiplayer game',
     year: '2025',
-    summary:
-      'A Spanish-language social deduction game for 3–12 players. Friends join a private room without accounts, receive secret roles, and vote to find the impostor.',
+    line: 'A party game for 3 to 12 friends, played on their phones.',
+    intro:
+      'El Impostor is a social deduction game in Spanish. Everyone gets the same secret word except one player, the impostor, who has to bluff their way through. Someone creates a room, friends join with the code, and nobody needs an account.',
     image: '/img/el-impostor.svg',
     fallbackImage: '/img/el-impostor.svg',
-    imageAlt: 'Illustrated El Impostor project cover',
-    accent: '#efb84a',
-    technologies: [
+    imageAlt:
+      'El Impostor cover: “Todos reciben una palabra secreta. Uno no la tiene.” with buttons to create or join a room',
+    stack: [
       'React',
       'Vite',
       'Cloudflare Workers',
       'Durable Objects',
       'WebSockets',
     ],
-    problem:
-      'A party game needs to feel immediate on unreliable personal devices while keeping secret roles private and ensuring that every player sees the same authoritative state.',
-    role: 'I designed and built the product end to end: interface, room lifecycle, WebSocket protocol, server-authoritative game logic, reconnection behavior, timers, and deployment.',
-    solution: [
-      'Used one Durable Object per room to own game state, WebSocket sessions, and timed transitions.',
-      'Separated public state broadcasts from private role messages so secret words and impostor identity never leak to other clients.',
-      'Added reconnectable player identities and server alarms so a dropped browser or inactive client does not stop the game.',
-    ],
-    outcome:
-      'The game is available to play on phones and desktops. Players can rejoin after a connection drops, while the server keeps the round and voting state.',
-    links: [
+    links: [{ label: 'Play it', href: 'https://juegoimpostor.app/' }],
+    sections: [
       {
-        label: 'Play the game',
-        href: 'https://juegoimpostor.app/',
-        type: 'live',
+        heading: 'One room, one object',
+        text: 'Each room is a Cloudflare Durable Object. It holds the game state, the WebSocket connections and the round timers, so every player sees the same game and the server decides what happens next.',
+      },
+      {
+        heading: 'Keeping the secret',
+        text: 'The server sends the public state to everyone and the secret word only to the players who should have it. Opening the browser’s dev tools won’t tell you who the impostor is.',
+      },
+      {
+        heading: 'Phones drop out',
+        text: 'Phones lock and change networks mid-round. Each player keeps an identity they can reconnect with, and server alarms move the round on if someone goes quiet, so one bad connection doesn’t stop the game.',
       },
     ],
-    featured: true,
   },
   {
     slug: 'nosotros',
     title: 'Nosotros',
-    category: 'Private app for two',
     year: '2025',
-    summary:
-      'A private shared space for two people, bringing calendars, photos, lists, mood tracking, memories, and games into one installable app.',
+    line: 'A private app for two: shared calendar, photos and lists.',
+    intro:
+      'Nosotros (“us” in Spanish) is an app for two people to share a calendar, photos, lists, moods, memories and a few games. It installs like a phone app and isn’t public, so there’s a short demo video instead.',
     image: '/img/nosotros.avif',
     fallbackImage: '/img/nosotros.png',
     imageAlt:
-      'Illustrated identity for the private Nosotros couple application',
-    accent: '#ff8fa3',
-    technologies: ['Next.js 15', 'React 19', 'Hono', 'PostgreSQL', 'Drizzle'],
-    problem:
-      'Shared relationship tools are often scattered across calendars, photo libraries, notes, and generic productivity apps, with little control over how personal data is stored.',
-    role: 'I designed the product and built the monorepo across the Next.js frontend, Hono API, PostgreSQL schema, shared validation, PWA behavior, and self-hosted operations.',
-    solution: [
-      'Created a mobile-first application shell designed for installation and everyday use on iOS.',
-      'Shared Zod schemas and TypeScript types between the web and API packages to keep data contracts aligned.',
-      'Connected a hosted frontend to a self-hosted API and PostgreSQL database through a secured Cloudflare tunnel.',
-    ],
-    outcome:
-      'The app brings shared calendars, photos, and lists into one place, with personal data stored on a self-hosted backend. The linked demo shows the interface; the application itself is private.',
+      'Nosotros illustration: two chinchillas, one with a flower and one with a bow tie',
+    stack: ['Next.js', 'React', 'Hono', 'PostgreSQL', 'Drizzle', 'Zod'],
     links: [
       {
-        label: 'Watch private demo',
+        label: 'Watch the demo',
         href: 'https://youtube.com/shorts/zm5x7qSL5IQ?feature=share',
-        type: 'live',
       },
     ],
-    featured: true,
-    note: 'The live application and source remain private because they contain personal data. A short product demo is available instead.',
+    sections: [
+      {
+        heading: 'How it’s built',
+        text: 'A Next.js frontend and a Hono API in one repository. They share Zod schemas and TypeScript types, so both sides agree on what the data looks like. The frontend is hosted; the API and PostgreSQL run on a server I look after, reached through a Cloudflare tunnel.',
+      },
+      {
+        heading: 'Why self-hosted',
+        text: 'It holds personal photos and memories, and I wanted that data on a machine I control.',
+      },
+    ],
   },
   {
     slug: 'lineup',
     title: 'LineUp',
-    category: 'Productivity experiment',
     year: '2024',
-    summary:
-      'A prototype that puts a task list, a focus timer, and AI planning suggestions in one app.',
+    line: 'A task list and a focus timer on one screen. Prototype.',
+    intro:
+      'LineUp was an experiment: put the task list and the focus timer on the same screen, and show AI planning suggestions next to the tasks they’re about.',
     image: '/img/lineup.avif',
     fallbackImage: '/img/lineup.jpg',
-    imageAlt: 'LineUp dark productivity dashboard',
-    accent: '#8b7cf6',
-    technologies: ['React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
-    problem:
-      'Task lists, focus timers, and planning advice often live in separate tools, creating friction before concentrated work begins.',
-    role: 'I designed and built the product interface, application state, Supabase integration, and responsive workflow as a product exploration.',
-    solution: [
-      'Put the task list and the focus timer on the same screen.',
-      'Used typed frontend models and Supabase for persisted user data.',
-      'Explored AI assistance as contextual support instead of a separate chat-first experience.',
-    ],
-    outcome:
-      'The prototype combines a task list, focus timer, and planning assistance. Both the demo and source code are available.',
+    imageAlt: 'LineUp dashboard with a task list and a focus timer',
+    stack: ['React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
     links: [
+      { label: 'Open the prototype', href: 'https://lineupai.vercel.app/' },
       {
-        label: 'Open prototype',
-        href: 'https://lineupai.vercel.app/',
-        type: 'live',
-      },
-      {
-        label: 'View source',
+        label: 'Source',
         href: 'https://github.com/jvallejoarguez/lineup-code',
-        type: 'code',
       },
     ],
-    featured: false,
+    sections: [
+      {
+        heading: 'Status',
+        text: 'It stayed a prototype. Tasks are saved in Supabase, and both the demo and the source are public.',
+      },
+    ],
   },
 ];
-
-export const featuredProjects = projects.filter((project) => project.featured);
-export const archivedProjects = projects.filter((project) => !project.featured);
 
 export function getProject(slug: string | undefined) {
   return projects.find((project) => project.slug === slug);

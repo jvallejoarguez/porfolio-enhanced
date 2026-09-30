@@ -24,7 +24,7 @@ export function getSeoForPath(url: string): SeoData {
     const socialImage = '/img/og-card.jpg';
     return {
       title: `${project.title} case study | ${site.name}`,
-      description: project.summary,
+      description: project.line,
       canonical: `${site.url}/work/${project.slug}/`,
       image: socialImage.startsWith('http')
         ? socialImage
@@ -91,12 +91,12 @@ export function getStructuredDataForPath(url: string) {
             '@type': 'CreativeWork',
             '@id': seo.canonical,
             name: project.title,
-            description: project.summary,
+            description: project.line,
             url: seo.canonical,
             image: seo.image,
-            dateCreated: project.year,
+            dateCreated: project.year.slice(0, 4),
             author: { '@id': `${site.url}/#person` },
-            keywords: project.technologies.join(', '),
+            keywords: project.stack.join(', '),
           }
         : {
             '@type': 'WebSite',

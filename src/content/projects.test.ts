@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { archivedProjects, featuredProjects, projects } from './projects';
+import { projects } from './projects';
 
 describe('project content', () => {
   it('uses unique route slugs', () => {
@@ -7,17 +7,11 @@ describe('project content', () => {
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 
-  it('keeps the homepage focused on three featured case studies', () => {
-    expect(featuredProjects).toHaveLength(3);
-    expect(archivedProjects.length).toBeGreaterThan(0);
-  });
-
-  it('provides complete case-study content for every project', () => {
+  it('gives every case study an intro, a link and at least one section', () => {
     for (const project of projects) {
-      expect(project.problem.length).toBeGreaterThan(60);
-      expect(project.role.length).toBeGreaterThan(60);
-      expect(project.solution.length).toBeGreaterThan(0);
-      expect(project.outcome.length).toBeGreaterThan(0);
+      expect(project.intro.length).toBeGreaterThan(60);
+      expect(project.links.length).toBeGreaterThan(0);
+      expect(project.sections.length).toBeGreaterThan(0);
     }
   });
 });

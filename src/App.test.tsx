@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 import App from './App';
+import { projects } from './content/projects';
 
 function renderRoute(route: string) {
   return render(
@@ -12,29 +13,21 @@ function renderRoute(route: string) {
 }
 
 describe('portfolio routes', () => {
-  it('renders the homepage and persistent project actions without a global proof strip', () => {
+  it('renders the homepage with every project in the work list', () => {
     renderRoute('/');
 
     expect(
-      screen.getByRole('heading', {
-        level: 1,
-        name: 'Javier Vallejo',
-      }),
+      screen.getByRole('heading', { level: 1, name: 'Javier Vallejo' }),
     ).toBeInTheDocument();
-    expect(
-      screen.getAllByRole('link', { name: 'Read case study' }),
-    ).toHaveLength(3);
-    expect(screen.getByText('DB Games Grid')).toBeInTheDocument();
-    expect(
-      screen.queryByLabelText('Selected professional outcomes'),
-    ).not.toBeInTheDocument();
+    const work = screen.getByRole('region', { name: 'Work' });
+    expect(within(work).getAllByRole('link')).toHaveLength(projects.length);
   });
 
-  it('renders the flagship contribution and client reference', () => {
+  it('renders the flagship case study and client reference', () => {
     renderRoute('/work/db-games-grid/');
 
     expect(
-      screen.getByRole('heading', { name: 'My contribution' }),
+      screen.getByRole('heading', { name: 'What it does' }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('link', { name: 'Hard Rock Bet Mexico' }),
@@ -47,17 +40,13 @@ describe('portfolio routes', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: 'El Impostor' }),
     ).toBeInTheDocument();
-    expect(screen.getByText('The challenge')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Play the game' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Play it' })).toBeVisible();
   });
 
   it('renders a useful not-found page', () => {
     renderRoute('/missing-page');
     expect(
-      screen.getByRole('heading', {
-        level: 1,
-        name: 'Page not found',
-      }),
+      screen.getByRole('heading', { level: 1, name: 'Page not found' }),
     ).toBeInTheDocument();
   });
 });

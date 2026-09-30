@@ -1,87 +1,36 @@
-export interface Role {
-  title: string;
+export interface Job {
   period: string;
-  points: string[];
-}
-
-export interface Experience {
+  title: string;
   company: string;
-  location: string;
-  tenure: string;
-  roles: Role[];
-  links?: { label: string; href: string }[];
+  href?: string;
+  note: string;
 }
 
-export const experiences: Experience[] = [
+export const jobs: Job[] = [
   {
-    company: 'DigitalBeat LTD',
-    location: 'Gibraltar · On-site',
-    tenure: 'Apr 2024 - Present',
-    roles: [
-      {
-        title: 'Full Stack Developer',
-        period: 'May 2025 - Present',
-        points: [
-          'Own DB Games Grid, the Svelte 5 casino catalogue, from version 1.4 through the 2.x releases.',
-          'Built the Hard Rock Bet Mexico portal shell: routing, mobile navigation, and account-aware content across casino, sportsbook, and promotions.',
-          'Adapted the component for NorthStar, 888, RoyalsCasino, Galera.bet, and Brasilbet with each brand’s product and design teams.',
-        ],
-      },
-      {
-        title: 'Web Operations Executive',
-        period: 'Apr 2024 - May 2025',
-        points: [
-          'Built responsive HTML, CSS, and JavaScript campaign pages and brand content in Playtech CMS.',
-          'Handled cross-browser QA, production troubleshooting, content versioning, and releases.',
-        ],
-      },
-    ],
+    period: '2025 – now',
+    title: 'Full-stack developer',
+    company: 'DigitalBeat',
+    note: 'DB Games Grid and the Hard Rock Bet Mexico portal.',
   },
   {
-    company: 'The Rock Hotel Gibraltar',
-    location: 'Gibraltar · On-site',
-    tenure: 'Feb 2024 - Apr 2024',
-    roles: [
-      {
-        title: 'Web Developer Intern',
-        period: '3 months',
-        points: [
-          'Turned the hotel’s physical Wall of Fame into an interactive web experience using HTML, CSS, JavaScript, and AroSuite.',
-          'Built a touchscreen-compatible local experience and adapted it for multiple display sizes and visitor contexts.',
-          'Prototyped voice interaction and facial-recognition concepts for the visitor experience.',
-        ],
-      },
-    ],
-    links: [
-      {
-        label: 'The Rock Hotel',
-        href: 'https://www.rockhotelgibraltar.com/',
-      },
-      {
-        label: 'Wall of Fame',
-        href: 'https://www.rockhotelgibraltar.com/about-us/wof',
-      },
-    ],
+    period: '2024 – 2025',
+    title: 'Web operations',
+    company: 'DigitalBeat',
+    note: 'Campaign pages, QA and releases in Playtech CMS.',
   },
   {
+    period: '2024',
+    title: 'Web developer intern',
+    company: 'The Rock Hotel',
+    href: 'https://www.rockhotelgibraltar.com/about-us/wof',
+    note: 'Turned the hotel’s Wall of Fame into a touchscreen web app.',
+  },
+  {
+    period: '2023',
+    title: 'Web developer intern',
     company: 'Informática CR',
-    location: 'Spain · Remote',
-    tenure: 'Sep 2023 - Dec 2023',
-    roles: [
-      {
-        title: 'Web Developer Intern',
-        period: '4 months',
-        points: [
-          'Built a WordPress-based ticket and receipt management workflow for a digital printing business.',
-          'Implemented customer accounts, print-request submission, receipt history, PDF generation, and document retrieval.',
-        ],
-      },
-    ],
-    links: [
-      {
-        label: 'Informática CR',
-        href: 'https://informaticacr.es/',
-      },
-    ],
+    href: 'https://informaticacr.es/',
+    note: 'A WordPress print-request and receipt system.',
   },
 ];

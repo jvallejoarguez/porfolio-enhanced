@@ -13,9 +13,11 @@ test('homepage exposes its work and passes an accessibility scan', async ({
     }),
   ).toBeVisible();
 
-  const caseStudyLinks = page.getByRole('link', { name: 'Read case study' });
-  await expect(caseStudyLinks).toHaveCount(3);
-  for (const link of await caseStudyLinks.all()) {
+  const workLinks = page
+    .getByRole('region', { name: 'Work' })
+    .getByRole('link');
+  await expect(workLinks).toHaveCount(4);
+  for (const link of await workLinks.all()) {
     await expect(link).toBeVisible();
   }
 
@@ -30,7 +32,7 @@ test('project routes are pre-rendered and navigable', async ({ page }) => {
   await expect(
     page.getByRole('heading', { level: 1, name: 'El Impostor' }),
   ).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Play the game' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Play it' })).toBeVisible();
 });
 
 test('mobile layout does not overflow horizontally', async ({
