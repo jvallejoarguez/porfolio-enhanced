@@ -1,7 +1,11 @@
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { prerenderRoutes, render } from '../.ssr/entry-server.js';
+import {
+  notFoundRoute,
+  prerenderRoutes,
+  render,
+} from '../.ssr/entry-server.js';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const dist = join(root, 'dist');
@@ -60,10 +64,16 @@ function applySeo(html, seo) {
     .replace(
       /<meta name="twitter:image" content=".*?"\s*\/>/s,
       `<meta name="twitter:image" content="${escapeAttribute(seo.image)}" />`,
+    )
+    .replace(
+      /<meta name="robots" content=".*?"\s*\/>/s,
+      seo.noindex
+        ? '<meta name="robots" content="noindex" />'
+        : '<meta name="robots" content="index, follow, max-image-preview:large" />',
     );
 }
 
-for (const route of prerenderRoutes) {
+for (const route of [...prerenderRoutes, notFoundRoute]) {
   const result = render(route);
   const structuredData = JSON.stringify(result.structuredData).replaceAll(
     '<',
@@ -78,7 +88,9 @@ for (const route of prerenderRoutes) {
   const output =
     route === '/'
       ? join(dist, 'index.html')
-      : join(dist, route.replace(/^\//, ''), 'index.html');
+      : route === notFoundRoute
+        ? join(dist, '404.html')
+        : join(dist, route.replace(/^\//, ''), 'index.html');
 
   await mkdir(dirname(output), { recursive: true });
   await writeFile(output, page);

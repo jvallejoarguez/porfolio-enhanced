@@ -17,12 +17,14 @@ export default function HomePage() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="site-container hero__grid">
             <div className="hero__content">
-              <p className="hero__role">{site.role}</p>
+              <p className="hero__role">
+                {site.role} <span aria-hidden="true">/</span> Gibraltar
+              </p>
               <h1 id="hero-title">{site.name}</h1>
               <p className="hero__lede">
-                I work at DigitalBeat in Gibraltar, building the Hard Rock Bet
-                Mexico portal and DB Games Grid, a Svelte component for finding
-                and launching casino games.
+                At DigitalBeat I own the casino catalogue and portal behind Hard
+                Rock Bet Mexico. On my own time I build multiplayer games and
+                self-hosted apps.
               </p>
 
               <div className="hero__actions" aria-label="Portfolio actions">

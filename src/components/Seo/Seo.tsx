@@ -24,6 +24,11 @@ export default function Seo() {
     setMeta('meta[name="twitter:title"]', 'content', seo.title);
     setMeta('meta[name="twitter:description"]', 'content', seo.description);
     setMeta('meta[name="twitter:image"]', 'content', seo.image);
+    setMeta(
+      'meta[name="robots"]',
+      'content',
+      seo.noindex ? 'noindex' : 'index, follow, max-image-preview:large',
+    );
 
     document
       .querySelector<HTMLLinkElement>('link[rel="canonical"]')

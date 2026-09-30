@@ -23,6 +23,7 @@ export interface Project {
   links: ProjectLink[];
   featured: boolean;
   note?: string;
+  specs?: { label: string; value: string }[];
 }
 
 export const projects: Project[] = [
@@ -32,7 +33,7 @@ export const projects: Project[] = [
     category: 'DigitalBeat / Client work',
     year: '2025 - Present',
     summary:
-      'A reusable casino catalogue built with Svelte and Web Components. I own its development at DigitalBeat and built the navigation, account-aware content, and promotions around it for Hard Rock Bet Mexico.',
+      'A Svelte 5 web component that runs game search, favorites, and live tables for several casino brands, including Hard Rock Bet Mexico.',
     image: '/img/hardrockbet-casino.jpg',
     fallbackImage: '/img/hardrockbet-casino.jpg',
     imageAlt:
@@ -56,7 +57,7 @@ export const projects: Project[] = [
       'Shared timers and caches to avoid duplicate work, scheduled visual updates by frame, and limited rendering to visible content. Responsive layouts and touch interactions were adapted for lower-end devices.',
     ],
     outcome:
-      'The shared catalogue is used in the Hard Rock Bet Mexico portal alongside the casino, live casino, sportsbook, and promotions pages. Its configuration also supports other DigitalBeat brands without maintaining a separate grid for each one.',
+      'The grid runs in the Hard Rock Bet Mexico casino and live casino, and brand configuration lets other DigitalBeat portals use it without a separate fork. The whole component, including the Svelte runtime and its styles, ships as one 46 KB gzipped script in release 2.7.1.',
     links: [
       {
         label: 'Hard Rock Bet Mexico',
@@ -70,6 +71,11 @@ export const projects: Project[] = [
       },
     ],
     featured: true,
+    specs: [
+      { label: 'Release', value: '2.7.1' },
+      { label: 'Minified', value: '141 KB' },
+      { label: 'Gzipped', value: '46 KB' },
+    ],
     note: 'The same foundation also supported major NorthStar work and targeted adaptations for Arabic 888 Casino and Sports, RoyalsCasino, Galera.bet, and Brasilbet. Source, client data, and internal contracts remain proprietary.',
   },
   {
@@ -148,7 +154,7 @@ export const projects: Project[] = [
     category: 'Productivity experiment',
     year: '2024',
     summary:
-      'A focused productivity product combining task planning, timed work sessions, and AI-assisted guidance.',
+      'A prototype that puts a task list, a focus timer, and AI planning suggestions in one app.',
     image: '/img/lineup.avif',
     fallbackImage: '/img/lineup.jpg',
     imageAlt: 'LineUp dark productivity dashboard',
@@ -158,7 +164,7 @@ export const projects: Project[] = [
       'Task lists, focus timers, and planning advice often live in separate tools, creating friction before concentrated work begins.',
     role: 'I designed and built the product interface, application state, Supabase integration, and responsive workflow as a product exploration.',
     solution: [
-      'Combined planning and focus modes in a single restrained interface.',
+      'Put the task list and the focus timer on the same screen.',
       'Used typed frontend models and Supabase for persisted user data.',
       'Explored AI assistance as contextual support instead of a separate chat-first experience.',
     ],
@@ -177,38 +183,6 @@ export const projects: Project[] = [
       },
     ],
     featured: false,
-  },
-  {
-    slug: 'warera-automator',
-    title: 'Warera Automator',
-    category: 'API orchestration experiment',
-    year: '2024',
-    summary:
-      'A personal technical experiment connecting a Next.js interface to a Python automation service and relational data store.',
-    image: '/img/warera-automator.avif',
-    fallbackImage: '/img/warera-automator.jpg',
-    imageAlt: 'Warera Automator dark landing page',
-    accent: '#ef6464',
-    technologies: ['Next.js', 'Python', 'FastAPI', 'PostgreSQL'],
-    problem:
-      'The project explored how a small interface could trigger, observe, and persist a longer-running API automation workflow.',
-    role: 'I built the Next.js frontend, Python service integration, data flow, and deployment as a personal engineering experiment.',
-    solution: [
-      'Separated the user-facing application from the Python automation service.',
-      'Used FastAPI endpoints and PostgreSQL persistence to track work across requests.',
-      'Deployed the services independently so the interface and processing layer could evolve separately.',
-    ],
-    outcome:
-      'The archived experiment provided practical experience with cross-runtime deployment and API orchestration. It is presented as a technical prototype rather than a commercial product.',
-    links: [
-      {
-        label: 'Open archive',
-        href: 'https://warera-automator.vercel.app/',
-        type: 'live',
-      },
-    ],
-    featured: false,
-    note: 'This is an archived personal experiment. Users are responsible for following the terms of any third-party service they interact with.',
   },
 ];
 

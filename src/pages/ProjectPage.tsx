@@ -5,6 +5,7 @@ import Contact from '../components/Contact/Contact';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import ProjectPicture from '../components/ProjectPicture/ProjectPicture';
+import ProjectSpecs from '../components/ProjectSpecs/ProjectSpecs';
 import { getProject, projects } from '../content/projects';
 
 export default function ProjectPage() {
@@ -126,6 +127,7 @@ export default function ProjectPage() {
               <div className="case-outcome">
                 <h3>Result</h3>
                 <p>{project.outcome}</p>
+                <ProjectSpecs specs={project.specs} />
               </div>
 
               <div className="case-footer-grid">

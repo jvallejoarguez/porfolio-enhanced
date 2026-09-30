@@ -7,6 +7,7 @@ import {
   type Project,
 } from '../../content/projects';
 import ProjectPicture from '../ProjectPicture/ProjectPicture';
+import ProjectSpecs from '../ProjectSpecs/ProjectSpecs';
 
 function LinkIcon({ type }: { type: Project['links'][number]['type'] }) {
   return type === 'code' ? (
@@ -85,6 +86,7 @@ function FeaturedProject({
           <Link to={`/work/${project.slug}/`}>{project.title}</Link>
         </h3>
         <p>{project.summary}</p>
+        <ProjectSpecs specs={project.specs} />
 
         <ProjectActions project={project} />
       </div>

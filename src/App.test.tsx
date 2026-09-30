@@ -56,7 +56,7 @@ describe('portfolio routes', () => {
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: /route does not lead to a project/i,
+        name: 'Page not found',
       }),
     ).toBeInTheDocument();
   });

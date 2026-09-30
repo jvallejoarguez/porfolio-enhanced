@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Javier Vallejo - Full-stack developer CV</title>
+    <meta name="author" content="Javier Vallejo" />
+    <style>
+      @page {
+        size: Letter;
+        margin: 0.5in 0.65in;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        color: #000;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 9.5pt;
+        line-height: 1.18;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      header {
+        text-align: center;
+      }
+      h1 {
+        font-size: 21pt;
+        letter-spacing: 0.01em;
+      }
+      .title {
+        font-size: 10pt;
+        font-weight: bold;
+      }
+      .contact {
+        margin-top: 2pt;
+        font-size: 8.3pt;
+      }
+      h2 {
+        margin: 7pt 0 3pt;
+        border-bottom: 0.75pt solid #000;
+        font-size: 11pt;
+        text-transform: uppercase;
+        break-after: avoid;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12pt;
+        break-after: avoid;
+      }
+      .company {
+        margin-top: 3pt;
+        font-size: 10.25pt;
+        font-weight: bold;
+      }
+      .company span:last-child {
+        font-size: 9.15pt;
+        font-weight: normal;
+      }
+      .role {
+        margin-top: 1pt;
+        font-size: 9.6pt;
+      }
+      .role span:first-child {
+        font-style: italic;
+      }
+      ul {
+        margin: 1pt 0 0 13pt;
+      }
+      li {
+        margin-bottom: 1pt;
+        padding-left: 2pt;
+        break-inside: avoid;
+      }
+      .project {
+        margin-top: 2pt;
+      }
+      .project b {
+        font-size: 9.7pt;
+      }
+      .project i {
+        font-size: 9.4pt;
+      }
+      .skills p {
+        margin-bottom: 1pt;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>JAVIER VALLEJO</h1>
+      <p class="title">FULL-STACK DEVELOPER</p>
+      <p class="contact">
+        La Línea de la Concepción, Cádiz, Spain |
+        <a href="mailto:jvallejoarguez@gmail.com">jvallejoarguez@gmail.com</a> |
+        <a href="https://www.jvallejo.dev/">jvallejo.dev</a> |
+        <a href="https://github.com/jvallejoarguez">GitHub</a> |
+        <a href="https://linkedin.com/in/javier-vallejo-arguez">LinkedIn</a>
+      </p>
+    </header>
+
+    <h2>Profile</h2>
+    <p>
+      Full-stack developer at DigitalBeat in Gibraltar. I own DB Games Grid, the
+      Svelte 5 casino catalogue used across several brands, and built the Hard
+      Rock Bet Mexico portal around it. Outside work I build real-time and
+      self-hosted web apps.
+    </p>
+
+    <h2>Experience</h2>
+    <div class="row company">
+      <span>DigitalBeat LTD, Gibraltar</span><span>Apr 2024 - Present</span>
+    </div>
+    <div class="row role">
+      <span>Full Stack Developer</span><span>May 2025 - Present</span>
+    </div>
+    <ul>
+      <li>
+        Own DB Games Grid, a Svelte 5 web component for game search, favorites,
+        jackpots, and live tables. Took it over at version 1.4 and have led it
+        through the 2.x releases (currently 2.7.1).
+      </li>
+      <li>
+        Built the Hard Rock Bet Mexico portal shell across casino, live casino,
+        sportsbook, and promotions: route handling, custom mobile navigation,
+        and authentication-aware content.
+      </li>
+      <li>
+        Kept the whole component, including the Svelte runtime and styles, to
+        one 46 KB gzipped script; shared timers and caches, scheduled visual
+        updates by frame, and limited rendering to visible content for lower-end
+        phones.
+      </li>
+      <li>
+        Adapted the component for NorthStar, 888, RoyalsCasino, Galera.bet, and
+        Brasilbet with each brand's product and design teams.
+      </li>
+    </ul>
+    <div class="row role">
+      <span>Web Operations Executive</span><span>Apr 2024 - May 2025</span>
+    </div>
+    <ul>
+      <li>
+        Built responsive HTML, CSS, and JavaScript campaign pages and brand
+        content in Playtech CMS.
+      </li>
+      <li>
+        Handled cross-browser QA, production troubleshooting, content
+        versioning, and releases.
+      </li>
+    </ul>
+
+    <div class="row company">
+      <span>The Rock Hotel Gibraltar, Gibraltar</span
+      ><span>Feb 2024 - Apr 2024</span>
+    </div>
+    <div class="row role"><span>Web Developer Intern</span></div>
+    <ul>
+      <li>
+        Turned the hotel's physical Wall of Fame into a touchscreen web
+        experience with HTML, CSS, JavaScript, and AroSuite, adapted to several
+        display sizes.
+      </li>
+    </ul>
+
+    <div class="row company">
+      <span>Informática CR, Spain (Remote)</span
+      ><span>Sep 2023 - Dec 2023</span>
+    </div>
+    <div class="row role"><span>Web Developer Intern</span></div>
+    <ul>
+      <li>
+        Built a WordPress ticket and receipt system for a printing business,
+        with customer accounts, print requests, PDF generation, and document
+        history.
+      </li>
+    </ul>
+
+    <h2>Education</h2>
+    <div class="row company">
+      <span>Cesur, Spain</span><span>2022 - 2024</span>
+    </div>
+    <p class="role">
+      <i
+        >Higher Technical Diploma in Web Application Development (DAW) | Grade:
+        9.8/10</i
+      >
+    </p>
+
+    <h2>Selected Projects</h2>
+    <p class="project">
+      <b>El Impostor</b> |
+      <a href="https://juegoimpostor.app/">Live product</a> |
+      <i>React, TypeScript, Cloudflare Workers, Durable Objects, WebSockets</i>
+    </p>
+    <ul>
+      <li>
+        Social deduction game for 3-12 players. One Durable Object per room owns
+        the game state, secret roles go only to the right player, and players
+        can rejoin after a dropped connection.
+      </li>
+    </ul>
+    <p class="project">
+      <b>Nosotros</b> |
+      <a href="https://youtube.com/shorts/zm5x7qSL5IQ">Private demo</a> |
+      <i>Next.js, Hono, PostgreSQL, Drizzle, Cloudflare</i>
+    </p>
+    <ul>
+      <li>
+        Installable app for two people with shared calendars, photos, and lists.
+        Next.js frontend and Hono API, with PostgreSQL on a self-hosted server
+        behind a Cloudflare tunnel.
+      </li>
+    </ul>
+
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <p>
+        <b>Languages and frameworks:</b> TypeScript, JavaScript, Svelte 5,
+        React, Next.js, Web Components, HTML, CSS, Python
+      </p>
+      <p>
+        <b>Backend and data:</b> Node.js, Hono, FastAPI, PostgreSQL, Drizzle,
+        Supabase
+      </p>
+      <p>
+        <b>Infrastructure and tooling:</b> Cloudflare Workers, Durable Objects,
+        Vercel, Docker, AWS, Git, Vite, Playwright, Vitest
+      </p>
+      <p>
+        <b>Certifications:</b> JavaScript Algorithms and Data Structures
+        (freeCodeCamp, 2025); Responsive Web Design (freeCodeCamp, 2024)
+      </p>
+      <p>
+        <b>Languages spoken:</b> Spanish (native or bilingual); English (full
+        professional proficiency)
+      </p>
+    </div>
+  </body>
+</html>

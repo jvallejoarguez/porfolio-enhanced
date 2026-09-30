@@ -9,9 +9,9 @@ export default function NotFoundPage() {
       <Header />
       <main id="main-content" className="not-found">
         <div className="site-container">
-          <p className="eyebrow">404 · Not found</p>
-          <h1>This route does not lead to a project.</h1>
-          <p>The work is still here. The URL just took a wrong turn.</p>
+          <p className="eyebrow">404</p>
+          <h1>Page not found</h1>
+          <p>There is nothing at this address.</p>
           <Link className="button button--primary" to="/">
             <ArrowLeft size={17} aria-hidden="true" />
             Return home

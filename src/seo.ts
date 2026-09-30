@@ -7,6 +7,7 @@ export interface SeoData {
   canonical: string;
   image: string;
   type: 'website' | 'article';
+  noindex?: boolean;
 }
 
 function pathnameFromUrl(url: string) {
@@ -20,7 +21,7 @@ export function getSeoForPath(url: string): SeoData {
     : undefined;
 
   if (project) {
-    const socialImage = '/img/og.jpg';
+    const socialImage = '/img/og-card.jpg';
     return {
       title: `${project.title} case study | ${site.name}`,
       description: project.summary,
@@ -33,11 +34,15 @@ export function getSeoForPath(url: string): SeoData {
   }
 
   return {
-    title: `${site.name} | Full-stack developer`,
+    title:
+      pathname === '/'
+        ? `${site.name} | Full-stack developer`
+        : `Page not found | ${site.name}`,
     description: site.description,
     canonical: `${site.url}/`,
-    image: `${site.url}/img/og.jpg`,
+    image: `${site.url}/img/og-card.jpg`,
     type: 'website',
+    noindex: pathname !== '/',
   };
 }
 

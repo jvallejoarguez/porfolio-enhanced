@@ -6,8 +6,7 @@ export const site = {
   url: 'https://www.jvallejo.dev',
   description:
     'Javier Vallejo, full-stack developer at DigitalBeat in Gibraltar. Work on the Hard Rock Bet Mexico portal, DB Games Grid, and personal web applications.',
-  availability:
-    'Open to full-stack product roles and selected freelance collaborations.',
+  availability: 'Open to full-stack roles and freelance projects.',
   socialLinks: [
     {
       label: 'GitHub',

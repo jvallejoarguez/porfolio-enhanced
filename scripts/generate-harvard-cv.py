@@ -246,7 +246,7 @@ def generate() -> None:
 
     properties = document.core_properties
     properties.title = "Javier Vallejo - Full Stack Developer CV"
-    properties.subject = "Harvard-style computer science CV"
+    properties.subject = "CV"
     properties.author = "Javier Vallejo"
     properties.keywords = "Full Stack Developer, Svelte, TypeScript, React, Web Platforms"
 
@@ -273,7 +273,7 @@ def generate() -> None:
     title = document.add_paragraph()
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
     set_paragraph_spacing(title, after=1)
-    set_run_font(title.add_run("FULL-STACK SOFTWARE ENGINEER"), 10, bold=True)
+    set_run_font(title.add_run("FULL-STACK DEVELOPER"), 10, bold=True)
 
     contact = document.add_paragraph()
     contact.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -304,7 +304,7 @@ def generate() -> None:
     set_paragraph_spacing(profile, after=0.5, line=1.03)
     set_run_font(
         profile.add_run(
-            "Performance-minded full-stack engineer who turns complex platform constraints into fast, app-like products. I combine architecture, optimization, cross-device craft, and strong design judgment, with primary ownership of DB Games Grid and its flagship portal experience."
+            "Full-stack developer at DigitalBeat in Gibraltar. I own DB Games Grid, the Svelte 5 casino catalogue used across several brands, and built the Hard Rock Bet Mexico portal around it. Outside work I build real-time and self-hosted web apps."
         ),
         9.5,
     )
@@ -313,18 +313,17 @@ def generate() -> None:
     add_company(document, "DigitalBeat LTD", "Gibraltar", "Apr 2024 - Present")
     add_role(document, "Full Stack Developer", "May 2025 - Present")
     for point in [
-        "Took primary ownership of DB Games Grid around its 1.4-era codebase and led its 2.x evolution into a reusable Svelte 5 platform for game discovery and live casino experiences.",
-        "Built the flagship Hard Rock Bet Mexico portal across casino, live casino, sportsbook, and promotions, including custom mobile navigation, pre-paint state, staged content bootstrapping, route orchestration, and authentication-aware UI.",
-        "Made performance a product constraint: kept shipped code lean, eliminated repeated work, shared timers and caches, scheduled visual updates efficiently, and optimized rendering for lower-end devices.",
-        "Expanded the platform with live data, search and facets, personalization, jackpots, provider navigation, deep routes, analytics, and accessible interaction.",
-        "Partnered across product, design, engineering, and delivery to refine modern responsive patterns and carry the shared foundation into additional brands.",
+        "Own DB Games Grid, a Svelte 5 web component for game search, favorites, jackpots, and live tables. Took it over at version 1.4 and have led it through the 2.x releases (currently 2.7.1).",
+        "Built the Hard Rock Bet Mexico portal shell across casino, live casino, sportsbook, and promotions: route handling, custom mobile navigation, and authentication-aware content.",
+        "Kept the whole component, including the Svelte runtime and styles, to one 46 KB gzipped script; shared timers and caches, scheduled visual updates by frame, and limited rendering to visible content for lower-end phones.",
+        "Adapted the component for NorthStar, 888, RoyalsCasino, Galera.bet, and Brasilbet with each brand's product and design teams.",
     ]:
         add_bullet(document, bullet_num_id, point)
 
     add_role(document, "Web Operations Executive", "Apr 2024 - May 2025")
     for point in [
-        "Developed responsive HTML, CSS, and JavaScript campaigns and brand experiences within Playtech CMS.",
-        "Improved production reliability through troubleshooting, performance checks, cross-browser QA, content versioning, and release coordination.",
+        "Built responsive HTML, CSS, and JavaScript campaign pages and brand content in Playtech CMS.",
+        "Handled cross-browser QA, production troubleshooting, content versioning, and releases.",
     ]:
         add_bullet(document, bullet_num_id, point)
 
@@ -333,15 +332,15 @@ def generate() -> None:
     add_bullet(
         document,
         bullet_num_id,
-        "Turned the hotel's physical Wall of Fame into an interactive, touchscreen-compatible web experience and adapted it across visitor displays.",
+        "Turned the hotel's physical Wall of Fame into a touchscreen web experience with HTML, CSS, JavaScript, and AroSuite, adapted to several display sizes.",
     )
 
-    add_company(document, "Informatica CR", "Spain (Remote)", "Sep 2023 - Dec 2023")
+    add_company(document, "Informática CR", "Spain (Remote)", "Sep 2023 - Dec 2023")
     add_role(document, "Web Developer Intern", "")
     add_bullet(
         document,
         bullet_num_id,
-        "Built a WordPress ticket and receipt workflow with customer accounts, print requests, PDF generation, history, and document retrieval.",
+        "Built a WordPress ticket and receipt system for a printing business, with customer accounts, print requests, PDF generation, and document history.",
     )
 
     add_section_heading(document, "Education")
@@ -364,43 +363,33 @@ def generate() -> None:
         "Live product",
         "https://juegoimpostor.app/",
         "React, TypeScript, Cloudflare Workers, Durable Objects, WebSockets",
-        "Built a server-authoritative social deduction game for 3-12 players with private rooms, role-safe messaging, reconnectable sessions, timers, and voting.",
+        "Social deduction game for 3-12 players. One Durable Object per room owns the game state, secret roles go only to the right player, and players can rejoin after a dropped connection.",
     )
     add_project(
         document,
         bullet_num_id,
         "Nosotros",
         "Private demo",
-        "https://www.youtube.com/shorts/c__sfVVFmIA",
+        "https://youtube.com/shorts/zm5x7qSL5IQ",
         "Next.js, Hono, PostgreSQL, Drizzle, Cloudflare",
-        "Built a private iOS-first PWA with shared calendars, photos, lists, mood tracking, memories, games, and a self-hosted data layer.",
+        "Installable app for two people with shared calendars, photos, and lists. Next.js frontend and Hono API, with PostgreSQL on a self-hosted server behind a Cloudflare tunnel.",
     )
 
     add_section_heading(document, "Technical Skills")
     add_label_line(
         document,
-        "Frontend platform",
-        "TypeScript, JavaScript, Svelte 5, React, Next.js, Web Components, HTML, CSS",
-    )
-    add_label_line(
-        document,
-        "Performance engineering",
-        "bundle and render optimization, lazy and conditional rendering, caching and indexing, frame-scheduled updates, low-end-device optimization",
-    )
-    add_label_line(
-        document,
-        "Product systems",
-        "WebSockets, search and facets, personalization, routing, authentication-aware UI, analytics, accessibility",
+        "Languages and frameworks",
+        "TypeScript, JavaScript, Svelte 5, React, Next.js, Web Components, HTML, CSS, Python",
     )
     add_label_line(
         document,
         "Backend and data",
-        "Node.js, Hono, FastAPI, Python, SQL, PostgreSQL, Supabase",
+        "Node.js, Hono, FastAPI, PostgreSQL, Drizzle, Supabase",
     )
     add_label_line(
         document,
-        "Delivery and quality",
-        "Cloudflare Workers, Durable Objects, AWS, Docker, Vercel, Git, Vite, Playwright, Vitest",
+        "Infrastructure and tooling",
+        "Cloudflare Workers, Durable Objects, Vercel, Docker, AWS, Git, Vite, Playwright, Vitest",
     )
     add_label_line(
         document,

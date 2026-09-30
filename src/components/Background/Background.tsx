@@ -13,16 +13,11 @@ export default function Background() {
         <div className="site-container experience-layout">
           <div className="section-heading experience-intro">
             <h2 id="experience-title">Experience</h2>
-            <p>
-              I joined DigitalBeat in web operations in 2024 and moved into
-              full-stack development in 2025.
-            </p>
           </div>
 
           <div className="timeline">
             {experiences.map((experience) => (
               <article className="timeline-item" key={experience.company}>
-                <div className="timeline-item__marker" aria-hidden="true" />
                 <div className="timeline-item__company">
                   <h3>{experience.company}</h3>
                   <p>{experience.location}</p>
@@ -75,17 +70,17 @@ export default function Background() {
           </div>
           <div className="about-copy">
             <p>
-              I live in La Línea de la Concepción, Cádiz, and work on-site in
-              Gibraltar. Before DigitalBeat, I built a touchscreen Wall of Fame
-              for The Rock Hotel and a print-request system for a local
-              business.
+              I live in La Línea de la Concepción and cross the border to
+              Gibraltar for work. I studied Web Application Development (DAW) at
+              Cesur, finished in 2024 with a 9.8/10, and joined DigitalBeat the
+              same year.
             </p>
             <p>
-              Outside work, I built{' '}
-              <Link to="/work/el-impostor/">El Impostor</Link>, a game to play
-              with friends, and <Link to="/work/nosotros/">Nosotros</Link>, a
-              private app for sharing everyday plans. Those projects gave me
-              room to work on multiplayer state, backend APIs, and self-hosting.
+              Most of my recent work is about keeping interfaces fast on low-end
+              phones and correct over unreliable connections: the casino grid at
+              work, and <Link to="/work/el-impostor/">El Impostor</Link> and{' '}
+              <Link to="/work/nosotros/">Nosotros</Link> outside it. I work in
+              Spanish and English.
             </p>
           </div>
         </div>

@@ -20,3 +20,5 @@ export const prerenderRoutes = [
   '/',
   ...projects.map((project) => `/work/${project.slug}/`),
 ];
+
+export const notFoundRoute = '/404';
