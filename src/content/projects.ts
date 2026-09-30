@@ -13,8 +13,8 @@ export interface Project {
   fallbackImage: string;
   imageAlt: string;
   imageCaption?: string;
-  /** Fills the frame around images that don't match the gallery ratio. */
-  imageBackground?: string;
+  /** Background behind the screenshot in the gallery and case study. */
+  color: string;
   /** How the project appears in the homepage gallery; omitted means a text row. */
   layout?: 'wide' | 'half';
   stack: string[];
@@ -36,6 +36,7 @@ export const projects: Project[] = [
       'Hard Rock Bet Mexico casino page with the portal header, category filters and a grid of game tiles',
     imageCaption:
       'The Hard Rock Bet Mexico casino, 22 September 2026. The grid and the portal around it are my work; the game art belongs to the studios.',
+    color: 'var(--blue)',
     layout: 'wide',
     stack: [
       'Svelte 5',
@@ -78,7 +79,7 @@ export const projects: Project[] = [
     fallbackImage: '/img/el-impostor.svg',
     imageAlt:
       'El Impostor cover: “Todos reciben una palabra secreta. Uno no la tiene.” with buttons to create or join a room',
-    imageBackground: '#f5ebd6',
+    color: 'var(--mustard)',
     layout: 'half',
     stack: [
       'React',
@@ -114,7 +115,7 @@ export const projects: Project[] = [
     fallbackImage: '/img/nosotros.png',
     imageAlt:
       'Nosotros illustration: two chinchillas, one with a flower and one with a bow tie',
-    imageBackground: '#000000',
+    color: 'var(--pink)',
     layout: 'half',
     stack: ['Next.js', 'React', 'Hono', 'PostgreSQL', 'Drizzle', 'Zod'],
     links: [
@@ -144,6 +145,7 @@ export const projects: Project[] = [
     image: '/img/lineup.avif',
     fallbackImage: '/img/lineup.jpg',
     imageAlt: 'LineUp dashboard with a task list and a focus timer',
+    color: 'var(--violet)',
     stack: ['React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
     links: [
       { label: 'Open the prototype', href: 'https://lineupai.vercel.app/' },

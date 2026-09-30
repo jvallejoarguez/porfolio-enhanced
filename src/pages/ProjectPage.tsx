@@ -1,5 +1,5 @@
 import { track } from '@vercel/analytics/react';
-import { Fragment } from 'react';
+import { Fragment, type CSSProperties } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import Page from '../components/Page/Page';
 import ProjectPicture from '../components/ProjectPicture/ProjectPicture';
@@ -18,9 +18,9 @@ export default function ProjectPage() {
 
   return (
     <Page>
-      <article>
-        <header className="intro">
-          <h1>{project.title}</h1>
+      <article className="case">
+        <header className="case__head">
+          <h1 className="display">{project.title}</h1>
           <p className="muted">
             {project.year} · {project.stack.join(', ')}
           </p>
@@ -48,19 +48,24 @@ export default function ProjectPage() {
         </div>
 
         <figure className="figure">
-          <ProjectPicture
-            src={project.image}
-            fallback={project.fallbackImage}
-            alt={project.imageAlt}
-            eager
-          />
+          <div
+            className="mat mat--figure"
+            style={{ '--mat': project.color } as CSSProperties}
+          >
+            <ProjectPicture
+              src={project.image}
+              fallback={project.fallbackImage}
+              alt={project.imageAlt}
+              eager
+            />
+          </div>
           {project.imageCaption && (
             <figcaption className="muted">{project.imageCaption}</figcaption>
           )}
         </figure>
 
         {project.sections.map((section) => (
-          <section key={section.heading}>
+          <section className="case__section" key={section.heading}>
             <h2>{section.heading}</h2>
             <p>{section.text}</p>
           </section>

@@ -50,3 +50,7 @@ From [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Si
 - A short "what I'd change" paragraph per project, in Javier's own words.
 - A real phone recording of El Impostor mid-round to replace the illustrated cover.
 - A /now page, if it will be kept up to date.
+
+## Current direction (30 Sep 2026)
+
+Picked after comparing references: Maggie Appleton's confident serif headline, Rauno Freiberg's single bold graphic, Josh Comeau's colour and warmth. Warm dark background, Fraunces (SOFT axis) for display type, system sans for body, palette taken from the El Impostor artwork. The one graphic idea is a small games grid with an impostor tile, which only makes sense for this person.

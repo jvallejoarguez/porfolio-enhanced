@@ -17,7 +17,7 @@ describe('portfolio routes', () => {
     renderRoute('/');
 
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Javier Vallejo' }),
+      screen.getByRole('heading', { level: 1, name: /^Javier Vallejo builds/ }),
     ).toBeInTheDocument();
     const work = screen.getByRole('region', { name: 'Work' });
     expect(within(work).getAllByRole('link')).toHaveLength(projects.length);
