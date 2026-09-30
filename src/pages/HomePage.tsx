@@ -1,6 +1,7 @@
 import { track } from '@vercel/analytics/react';
 import { Link } from 'react-router-dom';
 import Page from '../components/Page/Page';
+import ProjectPicture from '../components/ProjectPicture/ProjectPicture';
 import { jobs } from '../content/experience';
 import { projects } from '../content/projects';
 import { site } from '../content/site';
@@ -8,9 +9,18 @@ import { site } from '../content/site';
 export default function HomePage() {
   return (
     <Page>
-      <header className="intro">
-        <h1>{site.name}</h1>
-        <p className="muted">Full-stack developer, Gibraltar</p>
+      <header className="intro intro--home">
+        <img
+          className="intro__photo"
+          src="/img/pfp-192.jpg"
+          width="72"
+          height="72"
+          alt=""
+        />
+        <div>
+          <h1>{site.name}</h1>
+          <p className="muted">Full-stack developer, Gibraltar</p>
+        </div>
       </header>
 
       <div className="prose">
@@ -31,13 +41,30 @@ export default function HomePage() {
 
       <section aria-labelledby="work-title">
         <h2 id="work-title">Work</h2>
-        <ul className="list">
+        <ul className="gallery">
           {projects.map((project) => (
-            <li key={project.slug}>
-              <Link className="row" to={`/work/${project.slug}/`}>
-                <span className="row__title">{project.title}</span>
-                <span className="row__meta">{project.year}</span>
-                <span className="row__note">{project.line}</span>
+            <li
+              key={project.slug}
+              className={`entry entry--${project.layout ?? 'row'}`}
+            >
+              <Link className="entry__link" to={`/work/${project.slug}/`}>
+                {project.layout && (
+                  <span
+                    className="entry__image"
+                    style={{ background: project.imageBackground }}
+                  >
+                    <ProjectPicture
+                      src={project.image}
+                      fallback={project.fallbackImage}
+                      alt=""
+                    />
+                  </span>
+                )}
+                <span className="row">
+                  <span className="row__title">{project.title}</span>
+                  <span className="row__meta">{project.year}</span>
+                  <span className="row__note">{project.line}</span>
+                </span>
               </Link>
             </li>
           ))}

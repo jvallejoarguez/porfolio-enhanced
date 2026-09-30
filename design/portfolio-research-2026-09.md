@@ -32,6 +32,8 @@ Sampled from [HN "most beautiful personal blog UI" (2026)](https://news.ycombina
 - One personal detail (where you live, a drawing, "updated" date)
 - Real artifacts on project pages: screenshots, video, a live link ([Simon Willison](https://simonwillison.net/2022/Nov/6/what-to-blog-about/))
 
+Caveat: the text-only versions of these sites work because their owners are already known. Without that, the work has to be visible on the homepage, so this site keeps the plain writing but shows real screenshots in the Work list.
+
 ## Writing rules
 
 From [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), the [GOV.UK style guide](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/style-guides/a-to-z-style-guide/) and [Paul Graham, Write Simply](https://paulgraham.com/simply.html):
