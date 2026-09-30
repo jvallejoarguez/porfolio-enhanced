@@ -199,108 +199,84 @@ section {
   font-size: 1.1rem;
 }
 
-/* The games grid with an impostor in it */
-.tiles {
-  --tile: 4.6rem;
-  display: grid;
-  grid-template-columns: repeat(3, var(--tile));
-  gap: 0.7rem;
-  margin-right: 1rem;
-  transform: rotate(-6deg);
-}
-
-.tile {
-  display: grid;
-  width: var(--tile);
-  height: var(--tile);
-  place-items: center;
-  color: var(--background);
-  border-radius: 24%;
-  font-family: var(--serif);
-  font-size: calc(var(--tile) * 0.42);
-  font-weight: 650;
-  line-height: 1;
-  font-variation-settings: 'SOFT' 100;
-  transition: transform 300ms var(--spring);
-}
-
-.tile:hover {
-  transform: translateY(-5px) rotate(6deg);
-}
-
-.tile--blue {
-  background: var(--blue);
-}
-
-.tile--mustard {
-  background: var(--mustard);
-}
-
-.tile--teal {
-  background: var(--teal);
-}
-
-.tile--pink {
-  background: var(--pink);
-}
-
-.tile--violet {
-  background: var(--violet);
-}
-
-.tile--cream {
-  background: var(--text);
-}
-
-.tile--outline {
-  color: var(--text);
-  border: 2px solid rgba(243, 234, 216, 0.3);
-}
-
-.tile--impostor {
-  background: var(--coral);
-}
-
-.eyes {
-  display: flex;
-  gap: 0.3rem;
-}
-
-.eye {
+/* Full-stack diagram: one isometric slab per layer */
+.stack {
+  --u: 0.068rem;
+  --step: calc(var(--u) * 68);
   position: relative;
-  width: calc(var(--tile) * 0.24);
-  height: calc(var(--tile) * 0.24);
-  background: #fff;
-  border-radius: 50%;
-  animation: blink 6s infinite;
+  width: calc(var(--u) * 200 + 15rem);
+  height: calc(var(--step) * 3 + var(--u) * 114);
+  margin-right: 1rem;
 }
 
-.eye::after {
+.stack__layer {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 45%;
-  height: 45%;
+  z-index: calc(10 - var(--i));
+  top: calc(var(--step) * var(--i));
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.stack svg {
+  width: calc(var(--u) * 200);
+  height: calc(var(--u) * 114);
+  flex-shrink: 0;
+  overflow: visible;
+  transition: transform 350ms var(--spring);
+}
+
+.stack__layer:hover svg {
+  transform: translateY(-0.45rem);
+}
+
+.stack__shade {
+  fill: #000;
+  opacity: 0.2;
+}
+
+.stack__shade--deep {
+  opacity: 0.38;
+}
+
+.stack__marks {
+  fill: rgba(23, 19, 15, 0.26);
+}
+
+.stack__stroke {
+  fill: none;
+  stroke: rgba(23, 19, 15, 0.34);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.stack__label {
+  position: relative;
+  margin: calc(var(--u) * 50 - 0.8rem) 0 0 1.25rem;
+  line-height: 1.3;
+}
+
+.stack__label::before {
+  position: absolute;
+  top: 0.8rem;
+  left: -1.1rem;
+  width: 0.8rem;
   content: '';
-  background: var(--background);
-  border-radius: 50%;
-  transform: translate(-5%, -50%);
-  transition: transform 250ms ease;
+  border-top: 1px solid var(--line);
 }
 
-.tiles:hover .eye::after {
-  transform: translate(-95%, -50%);
+.stack__label strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-variation-settings: 'SOFT' 100;
 }
 
-@keyframes blink {
-  0%,
-  96%,
-  100% {
-    transform: scaleY(1);
-  }
-  98% {
-    transform: scaleY(0.1);
-  }
+.stack__label span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
 /* Work */
@@ -456,6 +432,7 @@ section {
 
 .display--small {
   max-width: 24ch;
+  overflow-wrap: anywhere;
   font-size: clamp(1.75rem, 4vw, 2.75rem);
 }
 
@@ -529,15 +506,22 @@ section {
   border-top: 1px solid var(--line);
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 60rem) {
   .hero {
     grid-template-columns: 1fr;
   }
+}
 
-  .tiles {
-    --tile: 3.3rem;
-    gap: 0.5rem;
-    margin-left: 0.5rem;
+@media (max-width: 48rem) {
+  .stack {
+    --u: 0.0375rem;
+    --step: 3.6rem;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .stack__label span {
+    font-size: 0.8rem;
   }
 
   .gallery {

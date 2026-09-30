@@ -5,14 +5,30 @@
     <title>OG image</title>
     <style>
       @font-face {
-        font-family: 'Fraunces';
+        font-family: 'Fraunces Variable';
         src: url('../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-soft-normal.woff2')
           format('woff2');
         font-weight: 100 900;
       }
+      :root {
+        --text: #f3ead8;
+        --muted: #b5a893;
+        --line: rgba(243, 234, 216, 0.14);
+        --blue: #6aa9ff;
+        --mustard: #f2b84b;
+        --teal: #4cc2b0;
+        --violet: #a597ff;
+        --serif: 'Fraunces Variable', Georgia, serif;
+        --spring: ease;
+        font-size: 17px;
+      }
       * {
         box-sizing: border-box;
         margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
       }
       body {
         display: flex;
@@ -20,16 +36,16 @@
         height: 630px;
         align-items: center;
         justify-content: space-between;
-        padding: 0 90px;
-        color: #f3ead8;
+        padding: 0 80px;
+        color: var(--text);
         background: #17130f;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         -webkit-font-smoothing: antialiased;
       }
       h1 {
-        max-width: 640px;
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: 58px;
+        max-width: 520px;
+        font-family: var(--serif);
+        font-size: 60px;
         font-weight: 360;
         line-height: 1.08;
         letter-spacing: -0.02em;
@@ -40,71 +56,240 @@
       }
       p {
         margin-top: 28px;
-        color: #b5a893;
-        font-size: 26px;
+        color: var(--muted);
+        font-size: 24px;
       }
-      .tiles {
-        display: grid;
-        grid-template-columns: repeat(3, 96px);
-        gap: 14px;
-        transform: rotate(-6deg);
+      /* Full-stack diagram: one isometric slab per layer */
+      .stack {
+        --u: 0.068rem;
+        --step: calc(var(--u) * 68);
+        position: relative;
+        width: calc(var(--u) * 200 + 15rem);
+        height: calc(var(--step) * 3 + var(--u) * 114);
+        margin-right: 1rem;
       }
-      .tile {
-        display: grid;
-        width: 96px;
-        height: 96px;
-        place-items: center;
-        color: #17130f;
-        border-radius: 24%;
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: 40px;
-        font-weight: 650;
+
+      .stack__layer {
+        position: absolute;
+        z-index: calc(10 - var(--i));
+        top: calc(var(--step) * var(--i));
+        left: 0;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .stack svg {
+        width: calc(var(--u) * 200);
+        height: calc(var(--u) * 114);
+        flex-shrink: 0;
+        overflow: visible;
+        transition: transform 350ms var(--spring);
+      }
+
+      .stack__layer:hover svg {
+        transform: translateY(-0.45rem);
+      }
+
+      .stack__shade {
+        fill: #000;
+        opacity: 0.2;
+      }
+
+      .stack__shade--deep {
+        opacity: 0.38;
+      }
+
+      .stack__marks {
+        fill: rgba(23, 19, 15, 0.26);
+      }
+
+      .stack__stroke {
+        fill: none;
+        stroke: rgba(23, 19, 15, 0.34);
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+
+      .stack__label {
+        position: relative;
+        margin: calc(var(--u) * 50 - 0.8rem) 0 0 1.25rem;
+        line-height: 1.3;
+      }
+
+      .stack__label::before {
+        position: absolute;
+        top: 0.8rem;
+        left: -1.1rem;
+        width: 0.8rem;
+        content: '';
+        border-top: 1px solid var(--line);
+      }
+
+      .stack__label strong {
+        display: block;
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        font-weight: 600;
         font-variation-settings: 'SOFT' 100;
       }
-      .eyes {
-        display: flex;
-        gap: 6px;
-      }
-      .eye {
-        position: relative;
-        width: 23px;
-        height: 23px;
-        background: #fff;
-        border-radius: 50%;
-      }
-      .eye::after {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 45%;
-        height: 45%;
-        content: '';
-        background: #17130f;
-        border-radius: 50%;
-        transform: translate(-5%, -50%);
+
+      .stack__label span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.85rem;
       }
     </style>
   </head>
   <body>
     <main>
       <h1>
-        <strong>Javier Vallejo</strong> builds the casino game catalogue for
-        Hard Rock Bet Mexico.
+        <strong>Javier Vallejo</strong> builds web apps that feel fast on any
+        device.
       </h1>
-      <p>Full-stack developer, Gibraltar · jvallejo.dev</p>
+      <p>Full-stack developer · jvallejo.dev</p>
     </main>
-    <div class="tiles">
-      <span class="tile" style="background: #6aa9ff">7</span>
-      <span class="tile" style="color: #f3ead8; border: 3px solid rgba(243, 234, 216, 0.3)">♠</span>
-      <span class="tile" style="background: #f2b84b">A</span>
-      <span class="tile" style="background: #4cc2b0">♥</span>
-      <span class="tile" style="background: #ff7a5c"
-        ><span class="eyes"><span class="eye"></span><span class="eye"></span></span
-      ></span>
-      <span class="tile" style="background: #ff9eb1">★</span>
-      <span class="tile" style="color: #f3ead8; border: 3px solid rgba(243, 234, 216, 0.3)">K</span>
-      <span class="tile" style="background: #a597ff">♦</span>
-      <span class="tile" style="background: #f3ead8">3</span>
-    </div>
+    <ul
+      class="stack"
+      aria-label="What I work with, from the interface to the data"
+    >
+      <li class="stack__layer" style="--i: 0; color: var(--blue)">
+        <svg viewBox="0 0 200 114" aria-hidden="true">
+          <polygon
+            points="0,50 100,100 100,114 0,64"
+            fill="currentColor"
+          ></polygon>
+          <polygon
+            points="0,50 100,100 100,114 0,64"
+            class="stack__shade"
+          ></polygon>
+          <polygon
+            points="100,100 200,50 200,64 100,114"
+            fill="currentColor"
+          ></polygon>
+          <polygon
+            points="100,100 200,50 200,64 100,114"
+            class="stack__shade stack__shade--deep"
+          ></polygon>
+          <polygon
+            points="100,0 200,50 100,100 0,50"
+            fill="currentColor"
+          ></polygon>
+          <g class="stack__marks">
+            <polygon
+              points="100,14.000000000000002 172,50 160,56 88,20"
+            ></polygon>
+            <polygon points="78,25 110,41 60,66 28,50"></polygon>
+            <polygon points="118,45 150,61 128,72 96,56"></polygon>
+            <polygon points="88,60 120,76 100,86 68,70"></polygon>
+          </g></svg
+        ><span class="stack__label"
+          ><strong>Interface</strong
+          ><span>Svelte, React, TypeScript</span></span
+        >
+      </li>
+      <li class="stack__layer" style="--i: 1; color: var(--mustard)">
+        <svg viewBox="0 0 200 114" aria-hidden="true">
+          <polygon
+            points="0,50 100,100 100,114 0,64"
+            fill="currentColor"
+          ></polygon>
+          <polygon
+            points="0,50 100,100 100,114 0,64"
+            class="stack__shade"
+          ></polygon>
+          <polygon
+            points="100,100 200,50 200,64 100,114"
+            fill="currentColor"
+          ></polygon>
+          <polygon
+            points="100,100 200,50 200,64 100,114"
+            class="stack__shade stack__shade--deep"
+          ></polygon>
+          <polygon
+            points="100,0 200,50 100,100 0,50"
+            fill="currentColor"
+          ></polygon>
+          <g class="stack__marks">
+            <polygon points="96,18 164,52 154,57 86,23"></polygon>
+            <polygon
+              points="71,30.5 123,56.5 113,61.5 60.99999999999999,35.5"
+            ></polygon>
+            <polygon points="46,43 106,73 96,78 36,48"></polygon>
+          </g></svg
+        ><span class="stack__label"
+          ><strong>API</strong><span>Node, Hono, Cloudflare Workers</span></span
+        >
+      </li>
+      <li class="stack__layer" style="--i: 2; color: var(--teal)">
+        <svg viewBox="0 0 200 114" aria-hidden="true">
+          <polygon
+            points="0,50 100,100 100,114 0,64"
+            fill="currentColor"
+          ></polygon>
+          <polygon
+            points="0,50 100,100 100,114 0,64"
+            class="stack__shade"
+          ></polygon>
+          <polygon
+            points="100,100 200,50 200,64 100,114"
+            fill="currentColor"
+          ></polygon>
+          <polygon
+            points="100,100 200,50 200,64 100,114"
+            class="stack__shade stack__shade--deep"
+          ></polygon>
+          <polygon
+            points="100,0 200,50 100,100 0,50"
+            fill="currentColor"
+          ></polygon>
+          <g class="stack__marks">
+            <path
+              class="stack__stroke"
+              d="M100,25 L98,51 M145,52.5 L98,51 M52,52 L98,51 M100,74 L98,51"
+            ></path>
+            <ellipse cx="100" cy="25" rx="8" ry="4"></ellipse>
+            <ellipse cx="145" cy="52.5" rx="8" ry="4"></ellipse>
+            <ellipse cx="98" cy="51" rx="8" ry="4"></ellipse>
+            <ellipse cx="52" cy="52" rx="8" ry="4"></ellipse>
+            <ellipse cx="100" cy="74" rx="8" ry="4"></ellipse>
+          </g></svg
+        ><span class="stack__label"
+          ><strong>Real time</strong
+          ><span>WebSockets, Durable Objects</span></span
+        >
+      </li>
+      <li class="stack__layer" style="--i: 3; color: var(--violet)">
+        <svg viewBox="0 0 200 114" aria-hidden="true">
+          <polygon
+            points="0,50 100,100 100,114 0,64"
+            fill="currentColor"
+          ></polygon>
+          <polygon
+            points="0,50 100,100 100,114 0,64"
+            class="stack__shade"
+          ></polygon>
+          <polygon
+            points="100,100 200,50 200,64 100,114"
+            fill="currentColor"
+          ></polygon>
+          <polygon
+            points="100,100 200,50 200,64 100,114"
+            class="stack__shade stack__shade--deep"
+          ></polygon>
+          <polygon
+            points="100,0 200,50 100,100 0,50"
+            fill="currentColor"
+          ></polygon>
+          <g class="stack__marks">
+            <path
+              class="stack__stroke"
+              d="M100,15 L170,50 M77,26.5 L147,61.5 M53,38.5 L123,73.5 M30,50 L100,85 M100,15 L30,50 M135,32.5 L65,67.5 M170,50 L100,85"
+            ></path>
+          </g></svg
+        ><span class="stack__label"
+          ><strong>Data</strong><span>PostgreSQL, Drizzle, Supabase</span></span
+        >
+      </li>
+    </ul>
   </body>
 </html>

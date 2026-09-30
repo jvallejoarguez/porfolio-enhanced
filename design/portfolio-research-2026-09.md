@@ -53,4 +53,6 @@ From [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Si
 
 ## Current direction (30 Sep 2026)
 
-Picked after comparing references: Maggie Appleton's confident serif headline, Rauno Freiberg's single bold graphic, Josh Comeau's colour and warmth. Warm dark background, Fraunces (SOFT axis) for display type, system sans for body, palette taken from the El Impostor artwork. The one graphic idea is a small games grid with an impostor tile, which only makes sense for this person.
+Headline: "Javier Vallejo builds web apps that feel fast on any device."
+
+Picked after comparing references: Maggie Appleton's confident serif headline, Rauno Freiberg's single bold graphic, Josh Comeau's colour and warmth. Warm dark background, Fraunces (SOFT axis) for display type, system sans for body, palette taken from the El Impostor artwork. The one graphic is an isometric diagram of the layers Javier works in (interface, API, real time, data) with the tools he uses in each. An earlier games grid with an impostor tile read as casino, so it was dropped.

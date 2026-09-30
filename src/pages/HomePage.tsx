@@ -1,9 +1,9 @@
 import { track } from '@vercel/analytics/react';
 import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
-import GameTiles from '../components/GameTiles/GameTiles';
 import Page from '../components/Page/Page';
 import ProjectPicture from '../components/ProjectPicture/ProjectPicture';
+import StackDiagram from '../components/StackDiagram/StackDiagram';
 import { jobs } from '../content/experience';
 import { projects } from '../content/projects';
 import { site } from '../content/site';
@@ -14,14 +14,14 @@ export default function HomePage() {
       <header className="hero">
         <div>
           <h1 className="display">
-            <strong>{site.name}</strong> builds the casino game catalogue for
-            Hard Rock Bet Mexico, and a party game to play with friends.
+            <strong>{site.name}</strong> builds web apps that feel fast on any
+            device.
           </h1>
           <p className="hero__sub">
             Full-stack developer at DigitalBeat, Gibraltar
           </p>
         </div>
-        <GameTiles />
+        <StackDiagram />
       </header>
 
       <section id="work" aria-labelledby="work-title">
