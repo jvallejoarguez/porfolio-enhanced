@@ -75,10 +75,10 @@ export const projects: Project[] = [
     line: 'A party game for 3 to 12 friends, played on their phones.',
     intro:
       'El Impostor is a social deduction game in Spanish. Everyone gets the same secret word except one player, the impostor, who has to bluff their way through. Someone creates a room, friends join with the code, and nobody needs an account.',
-    image: '/img/el-impostor.svg',
-    fallbackImage: '/img/el-impostor.svg',
+    image: '/img/el-impostor.avif',
+    fallbackImage: '/img/el-impostor.jpg',
     imageAlt:
-      'El Impostor cover: “Todos reciben una palabra secreta. Uno no la tiene.” with buttons to create or join a room',
+      'El Impostor home screen: a chunky white logo on a violet background, “Todos reciben la misma palabra menos el impostor”, and buttons to create a room or join with a code',
     color: 'var(--mustard)',
     layout: 'half',
     stack: [
