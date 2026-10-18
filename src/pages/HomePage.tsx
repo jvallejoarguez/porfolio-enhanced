@@ -17,8 +17,15 @@ export default function HomePage() {
             <strong>{site.name}</strong> takes products from idea to production.
           </h1>
           <p className="hero__sub">
-            Full‑stack developer at DigitalBeat, Gibraltar. Web, native iOS,
-            real-time systems and games.
+            Full‑stack developer at{' '}
+            <a
+              href="https://digibeat.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              DigitalBeat
+            </a>
+            , Gibraltar. Web, native iOS, real-time systems and games.
           </p>
           <p className="hero__cta">
             <a href="#contact">Open to full-stack roles · Get in touch</a>
