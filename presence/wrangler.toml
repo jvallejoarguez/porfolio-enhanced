@@ -1,0 +1,16 @@
+name = "jvallejo-presence"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+# Origins allowed to open a socket. Local dev plus the live site.
+[vars]
+ALLOWED_ORIGINS = "http://localhost:5180,http://localhost:5173,https://www.jvallejo.dev,https://jvallejo.dev"
+
+[[durable_objects.bindings]]
+name = "PRESENCE"
+class_name = "Presence"
+
+# Free-plan Durable Objects must use SQLite-backed storage.
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Presence"]

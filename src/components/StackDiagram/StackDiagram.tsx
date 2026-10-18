@@ -1,36 +1,36 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
-type Marks = 'ui' | 'routes' | 'network' | 'table';
+type Marks = 'ui' | 'routes' | 'network' | 'brands';
 
 const layers: {
   name: string;
-  tools: string;
+  line: string;
   color: string;
   marks: Marks;
 }[] = [
   {
-    name: 'Interface',
-    tools: 'Svelte, React, TypeScript',
+    name: 'Interfaces',
+    line: 'Web, native iOS, touchscreen kiosks',
     color: 'var(--blue)',
     marks: 'ui',
   },
   {
-    name: 'API',
-    tools: 'Node, Hono, Cloudflare Workers',
+    name: 'Backend',
+    line: 'Node and Python APIs, on servers or at the edge',
     color: 'var(--mustard)',
     marks: 'routes',
   },
   {
     name: 'Real time',
-    tools: 'WebSockets, Durable Objects',
+    line: 'Live casino tables, multiplayer, offline sync',
     color: 'var(--teal)',
     marks: 'network',
   },
   {
-    name: 'Data',
-    tools: 'PostgreSQL, Drizzle, Supabase',
+    name: 'Production',
+    line: 'Six casino brands from one build, SEO, CI',
     color: 'var(--violet)',
-    marks: 'table',
+    marks: 'brands',
   },
 ];
 
@@ -92,29 +92,29 @@ function marks(kind: Marks) {
         </>
       );
     }
-    case 'table':
+    case 'brands':
+      // Six tiles: one build, six casino brands. Kept to the front half of
+      // the face, which the slab above does not cover.
       return (
-        <path
-          className="stack__stroke"
-          d={[
-            line(0.15, 0.15, 0.85, 0.15),
-            line(0.15, 0.38, 0.85, 0.38),
-            line(0.15, 0.62, 0.85, 0.62),
-            line(0.15, 0.85, 0.85, 0.85),
-            line(0.15, 0.15, 0.15, 0.85),
-            line(0.5, 0.15, 0.5, 0.85),
-            line(0.85, 0.15, 0.85, 0.85),
-          ].join(' ')}
-        />
+        <>
+          {[0.42, 0.58, 0.74].flatMap((x) =>
+            [0.56, 0.74].map((y) => (
+              <polygon
+                key={`${x}-${y}`}
+                points={face(x, y, x + 0.12, y + 0.12)}
+              />
+            )),
+          )}
+        </>
       );
   }
 }
 
-export default function StackDiagram() {
+export default function StackDiagram({ live }: { live?: ReactNode }) {
   return (
     <ul
       className="stack"
-      aria-label="What I work with, from the interface to the data"
+      aria-label="What I build, from the interface to production"
     >
       {layers.map((layer, index) => (
         <li
@@ -141,7 +141,8 @@ export default function StackDiagram() {
           </svg>
           <span className="stack__label">
             <strong>{layer.name}</strong>
-            <span>{layer.tools}</span>
+            <span>{layer.line}</span>
+            {layer.marks === 'network' && live}
           </span>
         </li>
       ))}

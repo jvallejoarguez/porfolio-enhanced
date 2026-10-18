@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import Page from '../components/Page/Page';
 import ProjectPicture from '../components/ProjectPicture/ProjectPicture';
-import StackDiagram from '../components/StackDiagram/StackDiagram';
+import LiveStack from '../components/Presence/LiveStack';
 import { jobs } from '../content/experience';
 import { projects } from '../content/projects';
 import { site } from '../content/site';
@@ -14,14 +14,17 @@ export default function HomePage() {
       <header className="hero">
         <div>
           <h1 className="display">
-            <strong>{site.name}</strong> builds web apps that feel fast on any
-            device.
+            <strong>{site.name}</strong> takes products from idea to production.
           </h1>
           <p className="hero__sub">
-            Full-stack developer at DigitalBeat, Gibraltar
+            Full‑stack developer at DigitalBeat, Gibraltar. Web, native iOS,
+            real-time systems and games.
+          </p>
+          <p className="hero__cta">
+            <a href="#contact">Open to full-stack roles · Get in touch</a>
           </p>
         </div>
-        <StackDiagram />
+        <LiveStack />
       </header>
 
       <section id="work" aria-labelledby="work-title">
@@ -109,7 +112,7 @@ export default function HomePage() {
         </ul>
       </section>
 
-      <section className="contact" aria-labelledby="contact-title">
+      <section id="contact" className="contact" aria-labelledby="contact-title">
         <h2 className="sr-only" id="contact-title">
           Contact
         </h2>
