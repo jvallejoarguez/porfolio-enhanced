@@ -209,8 +209,7 @@ def add_project(
     document: Document,
     num_id: int,
     name: str,
-    link_label: str,
-    link_url: str,
+    links: list[tuple[str, str]],
     stack: str,
     text: str,
 ):
@@ -218,8 +217,9 @@ def add_project(
     set_paragraph_spacing(paragraph, before=1.5, after=0)
     paragraph.paragraph_format.keep_with_next = True
     set_run_font(paragraph.add_run(name), 9.7, bold=True)
-    set_run_font(paragraph.add_run(" | "), 9.4)
-    add_hyperlink(paragraph, link_label, link_url, size=9.4)
+    for link_label, link_url in links:
+        set_run_font(paragraph.add_run(" | "), 9.4)
+        add_hyperlink(paragraph, link_label, link_url, size=9.4)
     set_run_font(paragraph.add_run(f" | {stack}"), 9.4, italic=True)
     add_bullet(document, num_id, text)
 
@@ -360,17 +360,18 @@ def generate() -> None:
         document,
         bullet_num_id,
         "El Impostor",
-        "Live product",
-        "https://juegoimpostor.app/",
+        [
+            ("Live product", "https://juegoimpostor.app/"),
+            ("Source code", "https://github.com/jvallejoarguez/el_Impostor"),
+        ],
         "React, TypeScript, Cloudflare Workers, Durable Objects, WebSockets",
-        "Social deduction game for 3-12 players. One Durable Object per room owns the game state, secret roles go only to the right player, and players can rejoin after a dropped connection.",
+        "Social deduction game for 3-16 players. One Durable Object per room owns the game state, secret roles go only to the right player, and players can rejoin after a dropped connection.",
     )
     add_project(
         document,
         bullet_num_id,
         "Nosotros",
-        "Private demo",
-        "https://youtube.com/shorts/zm5x7qSL5IQ",
+        [("Private demo", "https://youtube.com/shorts/zm5x7qSL5IQ")],
         "Next.js, Hono, PostgreSQL, Drizzle, Cloudflare",
         "Installable app for two people with shared calendars, photos, and lists. Next.js frontend and Hono API, with PostgreSQL on a self-hosted server behind a Cloudflare tunnel.",
     )
