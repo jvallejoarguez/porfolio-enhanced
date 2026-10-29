@@ -5,6 +5,7 @@ const links = [
   'https://www.northstarbets.ca',
   'https://www.hardrockbet.mx',
   'https://juegoimpostor.app/',
+  'https://github.com/jvallejoarguez/el_Impostor',
   'https://youtube.com/shorts/zm5x7qSL5IQ?feature=share',
   'https://lineupai.vercel.app/',
   'https://github.com/jvallejoarguez/lineup-code',

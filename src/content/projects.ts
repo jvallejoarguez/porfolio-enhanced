@@ -72,7 +72,7 @@ export const projects: Project[] = [
     slug: 'el-impostor',
     title: 'El Impostor',
     year: '2025',
-    line: 'A party game for 3 to 12 friends, played on their phones.',
+    line: 'A party game for 3 to 16 friends, played on their phones.',
     intro:
       'El Impostor is a social deduction game in Spanish. Everyone gets the same secret word except one player, the impostor, who has to bluff their way through. Someone creates a room, friends join with the code, and nobody needs an account.',
     image: '/img/el-impostor.avif',
@@ -88,7 +88,13 @@ export const projects: Project[] = [
       'Durable Objects',
       'WebSockets',
     ],
-    links: [{ label: 'Play it', href: 'https://juegoimpostor.app/' }],
+    links: [
+      { label: 'Play it', href: 'https://juegoimpostor.app/' },
+      {
+        label: 'Source',
+        href: 'https://github.com/jvallejoarguez/el_Impostor',
+      },
+    ],
     sections: [
       {
         heading: 'One room, one object',
