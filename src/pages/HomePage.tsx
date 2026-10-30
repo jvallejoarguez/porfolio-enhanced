@@ -66,6 +66,16 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
+        <p className="gallery__more">
+          <a
+            href={site.socialLinks[0].href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track('Open GitHub', { location: 'work' })}
+          >
+            Smaller tools and experiments are on GitHub →
+          </a>
+        </p>
       </section>
 
       <section id="about" className="about" aria-labelledby="about-title">

@@ -20,7 +20,10 @@ describe('portfolio routes', () => {
       screen.getByRole('heading', { level: 1, name: /^Javier Vallejo takes/ }),
     ).toBeInTheDocument();
     const work = screen.getByRole('region', { name: 'Work' });
-    expect(within(work).getAllByRole('link')).toHaveLength(projects.length);
+    expect(within(work).getAllByRole('listitem')).toHaveLength(projects.length);
+    expect(
+      within(work).getByRole('link', { name: /on GitHub/ }),
+    ).toHaveAttribute('href', 'https://github.com/jvallejoarguez');
   });
 
   it('renders the flagship case study and client reference', () => {

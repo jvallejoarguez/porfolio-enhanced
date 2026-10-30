@@ -17,6 +17,8 @@ export interface Project {
   color: string;
   /** How the project appears in the homepage gallery; omitted means a text row. */
   layout?: 'wide' | 'half';
+  /** Show the screenshot at its own size instead of stretching it to fit. */
+  compact?: boolean;
   stack: string[];
   links: ProjectLink[];
   sections: { heading: string; text: string }[];
@@ -164,6 +166,42 @@ export const projects: Project[] = [
       {
         heading: 'Status',
         text: 'It stayed a prototype. Tasks are saved in Supabase, and both the demo and the source are public.',
+      },
+    ],
+  },
+  {
+    slug: 'icloud-passwords-plus',
+    title: 'iCloud Passwords+',
+    year: '2026',
+    line: 'A patch that fixes Apple’s password extension for Brave and Chrome.',
+    intro:
+      'iCloud Passwords+ is a patch for Apple’s iCloud Passwords extension on Brave and other Chromium browsers. It gives the extension a popup that looks like the rest of macOS, suggests strong passwords without opening the Passwords app, and fixes a set of bugs. It doesn’t contain Apple’s code: a build script downloads the official extension and applies the changes.',
+    image: '/img/icloud-passwords-plus.png',
+    fallbackImage: '/img/icloud-passwords-plus.png',
+    imageAlt:
+      'iCloud Passwords+ popup in light mode: a blurred strong password with a Copy button, three saved accounts and a “Use Strong Password” link',
+    imageCaption: 'The popup in light mode. The accounts are examples.',
+    color: 'var(--teal)',
+    compact: true,
+    stack: ['JavaScript', 'Chrome extensions', 'Native messaging', 'Node.js'],
+    links: [
+      {
+        label: 'Source',
+        href: 'https://github.com/jvallejoarguez/icloud-passwords-plus',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Patching code I don’t own',
+        text: 'The build downloads the extension from the Chrome Web Store, formats Apple’s minified code with a pinned Prettier version so the patch has readable context, and applies it. It keeps Apple’s extension ID, so the macOS password helper accepts it like the store version. If Apple changes the code enough that the patch no longer applies, the build stops and leaves the installed copy alone.',
+      },
+      {
+        heading: 'Strong passwords',
+        text: 'On sign-up and change-password forms it offers a strong password in Safari’s format, generated locally with crypto.getRandomValues. If the site’s password rules or maxlength don’t allow that format, it generates one that fits. Apple’s own fill and save flow stores it in iCloud Keychain, and it’s only offered once the extension is paired, so it never creates a password that can’t be saved.',
+      },
+      {
+        heading: 'Bugs fixed',
+        text: 'The popup re-rendered whenever it got focus back, wiping a half-typed code, and every iframe on the page raced to draw into it. The in-page list ran a busy loop while open, broke on usernames with & or #, and threw on any password field with a passwordrules attribute, because Apple’s build calls a function it never ships.',
       },
     ],
   },

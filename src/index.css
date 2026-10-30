@@ -399,6 +399,12 @@ section {
   margin-top: 1.1rem;
 }
 
+.gallery__more {
+  margin-top: 2.5rem;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+}
+
 .entry--row .entry__text {
   margin-top: 0;
   padding-top: 1.5rem;
@@ -527,6 +533,11 @@ section {
 
 .mat--figure {
   padding: clamp(1rem, 6vw, 4.5rem);
+}
+
+.mat--compact img {
+  width: auto;
+  margin-inline: auto;
 }
 
 .figure figcaption {

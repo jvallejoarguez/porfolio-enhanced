@@ -49,7 +49,7 @@ export default function ProjectPage() {
 
         <figure className="figure">
           <div
-            className="mat mat--figure"
+            className={`mat mat--figure${project.compact ? ' mat--compact' : ''}`}
             style={{ '--mat': project.color } as CSSProperties}
           >
             <ProjectPicture
