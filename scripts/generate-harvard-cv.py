@@ -281,8 +281,8 @@ def generate() -> None:
     set_run_font(contact.add_run("La Línea de la Concepción, Cádiz, Spain | "), 8.3)
     add_hyperlink(
         contact,
-        "jvallejoarguez@gmail.com",
-        "mailto:jvallejoarguez@gmail.com",
+        "mail@jvallejo.dev",
+        "mailto:mail@jvallejo.dev",
         size=8.3,
     )
     set_run_font(contact.add_run(" | "), 8.3)

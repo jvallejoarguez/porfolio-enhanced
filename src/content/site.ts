@@ -1,7 +1,7 @@
 export const site = {
   name: 'Javier Vallejo',
   role: 'Full-stack developer',
-  email: 'jvallejoarguez@gmail.com',
+  email: 'mail@jvallejo.dev',
   location: 'La Línea de la Concepción, Cádiz',
   url: 'https://www.jvallejo.dev',
   description:
